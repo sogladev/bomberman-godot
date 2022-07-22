@@ -8,6 +8,7 @@ extents = Vector2( 35, 35 )
 [node name="StaticBody2D" type="StaticBody2D"]
 position = Vector2( 96, 32 )
 scale = Vector2( 0.5, 0.5 )
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -49,7 +49,7 @@ public class Player : KinematicBody2D
         _movement.x = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
         _movement.y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
         _direction = _movement.Normalized();
-        MoveAndCollide(_direction * moveSpeed * delta);
+        var possibleCollision = MoveAndCollide(_direction * moveSpeed * delta);
 
         // Update animation tree based on direction
         string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";
@@ -58,10 +58,21 @@ public class Player : KinematicBody2D
             _animTree.Set("parameters/Idle/blend_position", _direction);
             _animTree.Set("parameters/Walk/blend_position", _direction);
         }
+
+        if (possibleCollision != null){
+            KinematicCollision2D collision = (KinematicCollision2D)possibleCollision;
+            Node collider = (Node)collision.Collider;
+            GD.Print("Collides with: ", collider.Name);
+            if (collider.Name.StartsWith("Flame")){
+            }
+            else if (collider.Name.StartsWith("Prize")){
+            }
+            else if (collider.Name.StartsWith("Powerup_speed")){
+            }
+            else if (collider.Name.StartsWith("Powerup_bomb")){
+            }
+            else if (collider.Name.StartsWith("Powerup_flame")){
+            }
+        }
     }
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
 }

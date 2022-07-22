@@ -47,6 +47,8 @@ tracks/1/keys = {
 }
 
 [node name="Flame" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 378
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -59,6 +59,8 @@ tracks/0/keys = {
 }
 
 [node name="Bomb" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

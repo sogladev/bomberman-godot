@@ -1,0 +1,104 @@
+[1mdiff --git a/.mono/metadata/ide_messaging_meta.txt b/.mono/metadata/ide_messaging_meta.txt[m
+[1mindex 667c6a7..b75ae04 100644[m
+[1m--- a/.mono/metadata/ide_messaging_meta.txt[m
+[1m+++ b/.mono/metadata/ide_messaging_meta.txt[m
+[36m@@ -1,2 +1,2 @@[m
+[31m-﻿33625[m
+[32m+[m[32m﻿35661[m
+ /home/jelle/bin/Godot_v3.4.4-stable_mono_x11_64/Godot_v3.4.4-stable_mono_x11.64[m
+[1mdiff --git a/.mono/metadata/scripts_metadata.editor b/.mono/metadata/scripts_metadata.editor[m
+[1mindex 5bc3514..56f9fb5 100644[m
+[1m--- a/.mono/metadata/scripts_metadata.editor[m
+[1m+++ b/.mono/metadata/scripts_metadata.editor[m
+[36m@@ -1 +1 @@[m
+[31m-{"res://player/Player.cs":{"modified_time":"1658357208","class":{"namespace":"","class_name":"Player","nested":false}}}[m
+\ No newline at end of file[m
+[32m+[m[32m{"res://player/Player.cs":{"modified_time":"1658357966","class":{"namespace":"","class_name":"Player","nested":false}}}[m
+\ No newline at end of file[m
+[1mdiff --git a/.mono/metadata/scripts_metadata.editor_player b/.mono/metadata/scripts_metadata.editor_player[m
+[1mindex 5bc3514..56f9fb5 100644[m
+[1m--- a/.mono/metadata/scripts_metadata.editor_player[m
+[1m+++ b/.mono/metadata/scripts_metadata.editor_player[m
+[36m@@ -1 +1 @@[m
+[31m-{"res://player/Player.cs":{"modified_time":"1658357208","class":{"namespace":"","class_name":"Player","nested":false}}}[m
+\ No newline at end of file[m
+[32m+[m[32m{"res://player/Player.cs":{"modified_time":"1658357966","class":{"namespace":"","class_name":"Player","nested":false}}}[m
+\ No newline at end of file[m
+[1mdiff --git a/player/Player.cs b/player/Player.cs[m
+[1mindex c7802b9..f837236 100644[m
+[1m--- a/player/Player.cs[m
+[1m+++ b/player/Player.cs[m
+[36m@@ -7,15 +7,21 @@[m [mpublic class Player : KinematicBody2D[m
+     // private int a = 2;[m
+     // private string b = "text";[m
+     [Export][m
+[31m-    public int moveSpeed = 250;[m
+[32m+[m[32m    public int moveSpeed = 80;[m
+[32m+[m
+[32m+[m[32m    private AnimationNodeStateMachinePlayback _stateMachine;[m
+[32m+[m[32m    private Vector2 _velociy = Vector2(0,0);[m
+ [m
+     // Called when the node enters the scene tree for the first time.[m
+     public override void _Ready()[m
+     {[m
+[32m+[m[32m        machine = GD.AnimationTree.get("parameters/playback");[m
+         GD.Print("Player ready!");[m
+     }[m
+ [m
+     public override void _PhysicsProcess(float delta) {[m
+[32m+[m[32m        var animTree = (AnimationTree)GetNode("AnimationTree");[m
+[32m+[m[32m        _stateMachine = (AnimationNodeStateMachinePlayback)animTree.Get("parameters/playback");[m
+         Vector2 motion = new Vector2();[m
+         motion.x = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");[m
+         motion.y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");[m
+[1mdiff --git a/player/Player.tscn b/player/Player.tscn[m
+[1mindex b52348f..579b381 100644[m
+[1m--- a/player/Player.tscn[m
+[1m+++ b/player/Player.tscn[m
+[36m@@ -1,18 +1,39 @@[m
+[31m-[gd_scene load_steps=4 format=2][m
+[32m+[m[32m[gd_scene load_steps=10 format=2][m
+ [m
+ [ext_resource path="res://player/Player.cs" type="Script" id=1][m
+[31m-[ext_resource path="res://assets/sprites/green_square.png" type="Texture" id=2][m
+[32m+[m[32m[ext_resource path="res://assets/sprites/Bunny/down1.png" type="Texture" id=2][m
+[32m+[m[32m[ext_resource path="res://assets/sprites/Bunny/down4.png" type="Texture" id=3][m
+[32m+[m[32m[ext_resource path="res://assets/sprites/Bunny/idle0.png" type="Texture" id=4][m
+[32m+[m[32m[ext_resource path="res://assets/sprites/Bunny/down3.png" type="Texture" id=5][m
+[32m+[m[32m[ext_resource path="res://player/StateMachine.cs" type="Script" id=6][m
+[32m+[m[32m[ext_resource path="res://assets/sprites/Bunny/down2.png" type="Texture" id=7][m
+ [m
+ [sub_resource type="CircleShape2D" id=1][m
+ radius = 100.319[m
+ [m
+[31m-[node name="Game" type="Node2D"][m
+[32m+[m[32m[sub_resource type="SpriteFrames" id=2][m
+[32m+[m[32manimations = [ {[m
+[32m+[m[32m"frames": [ ExtResource( 4 ) ],[m
+[32m+[m[32m"loop": true,[m
+[32m+[m[32m"name": "idle",[m
+[32m+[m[32m"speed": 5.0[m
+[32m+[m[32m}, {[m
+[32m+[m[32m"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],[m
+[32m+[m[32m"loop": true,[m
+[32m+[m[32m"name": "down",[m
+[32m+[m[32m"speed": 5.0[m
+[32m+[m[32m} ][m
+ [m
+[31m-[node name="Player" type="KinematicBody2D" parent="."][m
+[32m+[m[32m[node name="Player" type="KinematicBody2D"][m
+[32m+[m[32mposition = Vector2( 530, 308 )[m
+ script = ExtResource( 1 )[m
+ [m
+[31m-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"][m
+[32m+[m[32m[node name="CollisionShape2D" type="CollisionShape2D" parent="."][m
+ shape = SubResource( 1 )[m
+ [m
+[31m-[node name="Sprite" type="Sprite" parent="Player"][m
+[31m-texture = ExtResource( 2 )[m
+[32m+[m[32m[node name="StateMachine" type="Node" parent="."][m
+[32m+[m[32mscript = ExtResource( 6 )[m
+[32m+[m
+[32m+[m[32m[node name="AnimatedSprite" type="AnimatedSprite" parent="."][m
+[32m+[m[32mframes = SubResource( 2 )[m
+[32m+[m[32manimation = "down"[m

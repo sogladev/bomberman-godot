@@ -7,8 +7,8 @@
 [ext_resource path="res://tile/Wall_edge.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Mushroom expansion/Backgrounds/bg_shroom.png" type="Texture" id=6]
 [ext_resource path="res://tile/Box_unbreakable.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Flame.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Bomb.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tile/Bomb.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tile/Flame.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/RPGPack/Vector/RPGpack_vector.svg" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/Powerups/SpeedPowerup.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/Powerups/FlamePowerup.png" type="Texture" id=12]
@@ -26,8 +26,11 @@ texture = ExtResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="CameraDBG" type="Camera2D" parent="."]
+position = Vector2( 320, 192 )
+current = true
 
 [node name="Grass" type="Node" parent="."]
 
@@ -337,56 +340,59 @@ position = Vector2( 576, 288 )
 [node name="Player" parent="Player" instance=ExtResource( 1 )]
 process_priority = 1
 position = Vector2( 160, 96 )
+collision_mask = 308
 
-[node name="Node" type="Node" parent="."]
+[node name="Powerups" type="Node" parent="."]
 
-[node name="Flame" parent="Node" instance=ExtResource( 8 )]
-collision_layer = 2
-collision_mask = 511
-
-[node name="Bomb" parent="Node" instance=ExtResource( 9 )]
-
-[node name="Powerup_speed" type="StaticBody2D" parent="Node"]
+[node name="Powerup_speed" type="StaticBody2D" parent="Powerups"]
 collision_layer = 256
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Powerup_speed"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Powerups/Powerup_speed"]
 visible = false
 position = Vector2( 432, 240 )
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Node/Powerup_speed"]
+[node name="Sprite" type="Sprite" parent="Powerups/Powerup_speed"]
 position = Vector2( 416, 224 )
 texture = ExtResource( 11 )
 centered = false
 
-[node name="Powerup_flame" type="StaticBody2D" parent="Node"]
+[node name="Powerup_flame" type="StaticBody2D" parent="Powerups"]
 collision_layer = 256
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Powerup_flame"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Powerups/Powerup_flame"]
 visible = false
 position = Vector2( 336, 240 )
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Node/Powerup_flame"]
+[node name="Sprite" type="Sprite" parent="Powerups/Powerup_flame"]
 position = Vector2( 320, 224 )
 texture = ExtResource( 12 )
 centered = false
 
-[node name="Powerup_bomb" type="StaticBody2D" parent="Node"]
+[node name="Powerup_bomb" type="StaticBody2D" parent="Powerups"]
 collision_layer = 256
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Powerup_bomb"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Powerups/Powerup_bomb"]
 visible = false
 position = Vector2( 240, 240 )
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Node/Powerup_bomb"]
+[node name="Sprite" type="Sprite" parent="Powerups/Powerup_bomb"]
 position = Vector2( 224, 224 )
 texture = ExtResource( 13 )
 centered = false
+
+[node name="BombFlame" type="Node" parent="Powerups"]
+
+[node name="Flame" parent="Powerups/BombFlame" instance=ExtResource( 9 )]
+position = Vector2( 64, 128 )
+
+[node name="Bomb" parent="Powerups/BombFlame" instance=ExtResource( 8 )]
+position = Vector2( 64, 64 )

@@ -6,13 +6,14 @@ public class Player : KinematicBody2D
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
-    [Export]
-    public int moveSpeed = 80;
+    private int _moveSpeed = 80;
 
     private AnimationTree _animTree;
     private AnimationNodeStateMachinePlayback _animStateMachine;
     private Vector2 _movement = new Vector2();
     private Vector2 _direction = new Vector2();
+
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -49,7 +50,7 @@ public class Player : KinematicBody2D
         _movement.x = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
         _movement.y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
         _direction = _movement.Normalized();
-        var possibleCollision = MoveAndCollide(_direction * moveSpeed * delta);
+        var possibleCollision = MoveAndCollide(_direction * _moveSpeed * delta);
 
         // Update animation tree based on direction
         string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";
@@ -74,5 +75,19 @@ public class Player : KinematicBody2D
             else if (collider.Name.StartsWith("Powerup_flame")){
             }
         }
+
+        if (Input.IsActionPressed("place_bomb"))
+        {
+            //Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
+            //newBomb.Init(5);
+            //newBomb.Position = Position;
+            //GetTree().Root.AddChild(newBomb);
+            //GD.Print("Place Bomb");
+            //const string _FlameResource = "res://tile/Flame.tscn";
+            //PackedScene _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
+            //Flame newFlame = _packedSceneFlame.Instance() as Flame;
+            //GetTree().Root.AddChild(newFlame);
+        }
+
     }
 }

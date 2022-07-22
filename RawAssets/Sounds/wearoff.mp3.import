@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wearoff.mp3-a7287b15c92eb363b8490c67c3f1be6b.mp3str"
+
+[deps]
+
+source_file="res://RawAssets/Sounds/wearoff.mp3"
+dest_files=[ "res://.import/wearoff.mp3-a7287b15c92eb363b8490c67c3f1be6b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

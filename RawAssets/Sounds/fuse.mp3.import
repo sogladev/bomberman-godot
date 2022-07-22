@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fuse.mp3-b154fd4deb2a6ddffe9c8c4c98c9557c.mp3str"
+
+[deps]
+
+source_file="res://RawAssets/Sounds/fuse.mp3"
+dest_files=[ "res://.import/fuse.mp3-b154fd4deb2a6ddffe9c8c4c98c9557c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

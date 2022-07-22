@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="GameStateMachine" type="Node"]
+
+[node name="States" type="Node" parent="."]
+
+[node name="MainMenuState" type="Node" parent="States"]
+
+[node name="GameLoopState" type="Node" parent="States"]
+
+[node name="GameOverState" type="Node" parent="States"]
+
+[node name="AudioManager" type="Node" parent="."]

@@ -6,7 +6,8 @@ public class Player : KinematicBody2D
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
-    private int _moveSpeed = 80;
+    private int _moveSpeed = 100; 
+    private int _moveSpeedLimit = 320;
 
     private AnimationTree _animTree;
     private AnimationNodeStateMachinePlayback _animStateMachine;
@@ -16,8 +17,14 @@ public class Player : KinematicBody2D
     private const string _BombResource = "res://Nodes/Bomb.tscn";
     private PackedScene _packedSceneBomb;
 
-    private int _amountOfBombs = 5;
-    public int amountOfBombs = 5;
+    private int _amountOfBombs = 0;
+    public int bombPowerUp = 0;
+    public int flamePowerUp = 0;
+    public int speedPowerUp = 0;
+    public int speedPowerUpValue = 20;
+    public int flamePowerUpValue = 1;
+    public int bombPowerUpValue = 1;
+
 
     private bool _isInvincible = true;
     private AnimatedSprite _sprite;
@@ -41,7 +48,7 @@ public class Player : KinematicBody2D
     }
 
     private void Reload(){
-        if (_amountOfBombs < amountOfBombs){
+        if (_amountOfBombs < ( 1 + (bombPowerUp * bombPowerUpValue))){
             _amountOfBombs++;
         }
     }
@@ -69,7 +76,10 @@ public class Player : KinematicBody2D
         _isInvincible = false;
     }
 
-    private void Hit(){
+
+    private void CollectPrize(){
+    }
+    private void HitByFire(){
     }
 
 //    public override void _Input(InputEvent @event)
@@ -101,6 +111,7 @@ public class Player : KinematicBody2D
         _direction = _movement.Normalized();
         var possibleCollision = MoveAndCollide(_direction * _moveSpeed * delta);
 
+
         // Update animation tree based on direction
         string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";
         _animStateMachine.Travel(animStateAnimation);
@@ -114,17 +125,22 @@ public class Player : KinematicBody2D
             Node collider = (Node)collision.Collider;
             GD.Print("Collides with: ", collider.Name);
             if (collider.Name.StartsWith("Flame")){
+                if (!(_isInvincible)){
+                    HitByFire();
+                }
             }
             else if (collider.Name.StartsWith("Prize")){
+                CollectPrize();
             }
             else if (collider.Name.StartsWith("Powerup_speed")){
+                speedPowerUp++;
+                _moveSpeed = Math.Min(_moveSpeed + speedPowerUpValue, _moveSpeedLimit);
             }
             else if (collider.Name.StartsWith("Powerup_bomb")){
+                bombPowerUp++;
             }
             else if (collider.Name.StartsWith("Powerup_flame")){
-                if (!(_isInvincible)){
-                    Hit();
-                }
+                flamePowerUp++;
             }
         }
 
@@ -132,7 +148,7 @@ public class Player : KinematicBody2D
         {
             _amountOfBombs--;
             Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
-            newBomb.Init(5);
+            newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
             // Change position to center
             // cell size is 32, subtract module then add half cell size (16)
             Vector2 centeredPosition = new Vector2();

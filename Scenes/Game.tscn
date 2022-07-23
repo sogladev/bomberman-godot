@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Flame.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Nodes/Powerup_bomb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Nodes/Box_unbreakable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Powerup_flame.tscn" type="PackedScene" id=7]
-[ext_resource path="res://RawAssets/Mushroom expansion/Backgrounds/bg_shroom.png" type="Texture" id=8]
 [ext_resource path="res://Nodes/Wall_edge.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Nodes/Bomb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Nodes/Powerup_speed.tscn" type="PackedScene" id=11]
@@ -18,12 +17,6 @@
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource( 14 )]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-margin_right = 1024.0
-margin_bottom = 512.0
-texture = ExtResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -343,6 +336,14 @@ process_priority = 1
 position = Vector2( 160, 96 )
 collision_mask = 308
 
+[node name="BombFlame" type="Node" parent="."]
+
+[node name="Flame" parent="BombFlame" instance=ExtResource( 2 )]
+position = Vector2( 64, 128 )
+
+[node name="Bomb" parent="BombFlame" instance=ExtResource( 10 )]
+position = Vector2( 64, 64 )
+
 [node name="Powerups" type="Node" parent="."]
 
 [node name="Powerup_speed" parent="Powerups" instance=ExtResource( 11 )]
@@ -350,11 +351,3 @@ collision_mask = 308
 [node name="Powerup_flame" parent="Powerups" instance=ExtResource( 7 )]
 
 [node name="Powerup_bomb" parent="Powerups" instance=ExtResource( 5 )]
-
-[node name="BombFlame" type="Node" parent="Powerups"]
-
-[node name="Flame" parent="Powerups/BombFlame" instance=ExtResource( 2 )]
-position = Vector2( 64, 128 )
-
-[node name="Bomb" parent="Powerups/BombFlame" instance=ExtResource( 10 )]
-position = Vector2( 64, 64 )

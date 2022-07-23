@@ -53,23 +53,29 @@ public class Player : KinematicBody2D
         }
     }
 
-    private void Flicker(){
-        if (_isInvincible){
-            if (_isFlickerOn){
-                _sprite.Modulate = new Color(1,1,1,0.5f);
+    private void Flicker()
+    {
+        if (_isInvincible)
+        {
+            if (_isFlickerOn)
+            {
+                _sprite.Modulate = new Color(1, 1, 1, 0.5f);
                 _isFlickerOn = false;
             }
-            else {
-                _sprite.Modulate = new Color(1,1,1,1f);
+            else
+            {
+                _sprite.Modulate = new Color(1, 1, 1, 1f);
                 _isFlickerOn = true;
             }
         }
-    else{
-        if (!_isFlickerOn){
-            _isFlickerOn = true;
-            _sprite.Modulate = new Color(1,1,1,1f);
+        else
+        {
+            if (!_isFlickerOn)
+            {
+                _isFlickerOn = true;
+                _sprite.Modulate = new Color(1, 1, 1, 1f);
+            }
         }
-    }
     }
 
     private void RemoveInvincibility(){
@@ -132,15 +138,19 @@ public class Player : KinematicBody2D
             else if (collider.Name.StartsWith("Prize")){
                 CollectPrize();
             }
-            else if (collider.Name.StartsWith("Powerup_speed")){
-                speedPowerUp++;
-                _moveSpeed = Math.Min(_moveSpeed + speedPowerUpValue, _moveSpeedLimit);
-            }
-            else if (collider.Name.StartsWith("Powerup_bomb")){
-                bombPowerUp++;
-            }
-            else if (collider.Name.StartsWith("Powerup_flame")){
-                flamePowerUp++;
+            else if (collider.Name.StartsWith("Powerup")){
+                // Check type of powerup
+                string typeOfPowerUp = ((Powerup)collider).typeOfPowerUp;
+                if (typeOfPowerUp == "Powerup_bomb"){
+                    bombPowerUp++;
+                }
+                else if (typeOfPowerUp == "Powerup_flame"){
+                    flamePowerUp++;
+                }
+                else if (typeOfPowerUp == "Powerup_speed"){
+                    speedPowerUp++;
+                    _moveSpeed = Math.Min(_moveSpeed + speedPowerUpValue, _moveSpeedLimit);
+                }
             }
         }
 

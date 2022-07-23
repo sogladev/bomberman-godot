@@ -17,6 +17,8 @@ public class FlamesArea2D : Area2D
     {
         foreach(var x in GetOverlappingAreas()){
             GD.Print("Area2D: ", x);
+            // Send Ignite to every area2d.
+            // let area handle the signal.
         }
     }
 

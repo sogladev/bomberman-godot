@@ -4,23 +4,23 @@
 [ext_resource path="res://Scripts/Bomb.cs" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 32.0
+radius = 75.4247
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 16, 16 )
-scale = Vector2( 0.3, 0.3 )
-shape = SubResource( 1 )
-
 [node name="Bomb" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( 8, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bomb"]
+position = Vector2( 32, 32 )
+scale = Vector2( 0.32, 0.32 )
+shape = SubResource( 1 )
 
 [node name="Detonate" type="Timer" parent="."]
 wait_time = 4.0

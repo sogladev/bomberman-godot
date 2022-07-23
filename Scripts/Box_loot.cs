@@ -16,6 +16,6 @@ public class Box_loot : StaticBody2D
         Random random = new Random();
         int index = random.Next(_BoxTextures.Count);
         Texture img = (Texture)GD.Load(_BoxTextures[index]);
-        ((Sprite)this.GetNode("./Sprite")).SetTexture(img);
+        ((Sprite)this.GetNode("./Sprite")).Texture = img;
     }
 }

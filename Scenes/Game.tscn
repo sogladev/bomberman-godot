@@ -407,16 +407,13 @@ current = true
 [node name="Player" parent="Player" instance=ExtResource( 1 )]
 process_priority = 1
 position = Vector2( -288, 32 )
+z_index = 5
 collision_mask = 308
 
 [node name="BombFlame" type="Node" parent="."]
 
-[node name="Bomb" parent="BombFlame" instance=ExtResource( 10 )]
-position = Vector2( -384, 64 )
-scale = Vector2( 1, 1.0301 )
-
 [node name="Bomb2" parent="BombFlame" instance=ExtResource( 10 )]
-position = Vector2( -480, 128 )
+position = Vector2( -256, -64 )
 scale = Vector2( 1, 1.0301 )
 
 [node name="Powerups" type="Node" parent="."]
@@ -473,6 +470,58 @@ script = null
 
 [node name="Box_unbreakable51" parent="Box_unbreakables" instance=ExtResource( 6 )]
 position = Vector2( -448, 64 )
+script = null
+
+[node name="Box_unbreakable63" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -480, 64 )
+script = null
+
+[node name="Box_unbreakable64" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -512, 64 )
+script = null
+
+[node name="Box_unbreakable53" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -352, -64 )
+script = null
+
+[node name="Box_unbreakable55" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -256, -32 )
+script = null
+
+[node name="Box_unbreakable62" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -96, -64 )
+script = null
+
+[node name="Box_unbreakable61" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -320, 224 )
+script = null
+
+[node name="Box_unbreakable56" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -256, 64 )
+script = null
+
+[node name="Box_unbreakable57" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -256, -128 )
+script = null
+
+[node name="Box_unbreakable58" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -416, 96 )
+script = null
+
+[node name="Box_unbreakable59" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -352, 160 )
+script = null
+
+[node name="Box_unbreakable65" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -352, 96 )
+script = null
+
+[node name="Box_unbreakable60" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -288, 64 )
+script = null
+
+[node name="Box_unbreakable66" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( -352, 32 )
 script = null
 
 [node name="Box_unbreakable54" parent="Box_unbreakables" instance=ExtResource( 6 )]
@@ -680,8 +729,17 @@ position = Vector2( -384, 192 )
 [node name="Box_loot9" parent="." instance=ExtResource( 4 )]
 position = Vector2( -384, 128 )
 
+[node name="Box_loot11" parent="." instance=ExtResource( 4 )]
+position = Vector2( -416, 64 )
+
 [node name="Box_loot10" parent="." instance=ExtResource( 4 )]
 position = Vector2( -480, 192 )
+
+[node name="Box_loot12" parent="." instance=ExtResource( 4 )]
+position = Vector2( -544, 64 )
+
+[node name="Box_loot13" parent="." instance=ExtResource( 4 )]
+position = Vector2( -352, 64 )
 
 [node name="Box_loot4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 224, 192 )

@@ -37,7 +37,7 @@ autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 376
+collision_mask = 344
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

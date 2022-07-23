@@ -16,6 +16,13 @@ public class Player : KinematicBody2D
     private const string _BombResource = "res://Nodes/Bomb.tscn";
     private PackedScene _packedSceneBomb;
 
+    private int _amountOfBombs = 5;
+    public int amountOfBombs = 5;
+
+    private bool _isInvincible = true;
+    private AnimatedSprite _sprite;
+    private bool _isFlickerOn = true;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -24,9 +31,45 @@ public class Player : KinematicBody2D
 
         _packedSceneBomb = ResourceLoader.Load<PackedScene>(_BombResource);
         GD.Print("Player ready!");
+        Timer timer_reload = GetNode<Timer>("Reload");
+        timer_reload.Connect("timeout", this, "Reload");
+        Timer timer_invincibility = GetNode<Timer>("Invincibility");
+        timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
+        Timer timer_invincibility_flicker = GetNode<Timer>("InvincibilityFlicker");
+        timer_invincibility_flicker.Connect("timeout", this, "Flicker");
+        _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
     }
 
-    private void hit(){
+    private void Reload(){
+        if (_amountOfBombs < amountOfBombs){
+            _amountOfBombs++;
+        }
+    }
+
+    private void Flicker(){
+        if (_isInvincible){
+            if (_isFlickerOn){
+                _sprite.Modulate = new Color(1,1,1,0.5f);
+                _isFlickerOn = false;
+            }
+            else {
+                _sprite.Modulate = new Color(1,1,1,1f);
+                _isFlickerOn = true;
+            }
+        }
+    else{
+        if (!_isFlickerOn){
+            _isFlickerOn = true;
+            _sprite.Modulate = new Color(1,1,1,1f);
+        }
+    }
+    }
+
+    private void RemoveInvincibility(){
+        _isInvincible = false;
+    }
+
+    private void Hit(){
     }
 
 //    public override void _Input(InputEvent @event)
@@ -79,15 +122,25 @@ public class Player : KinematicBody2D
             else if (collider.Name.StartsWith("Powerup_bomb")){
             }
             else if (collider.Name.StartsWith("Powerup_flame")){
-                hit();
+                if (!(_isInvincible)){
+                    Hit();
+                }
             }
         }
 
-        if (Input.IsActionPressed("place_bomb"))
+        if (Input.IsActionPressed("place_bomb") && _amountOfBombs > 0)
         {
+            _amountOfBombs--;
             Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
             newBomb.Init(5);
-            newBomb.Position = Position;
+            // Change position to center
+            // cell size is 32, subtract module then add half cell size (16)
+            Vector2 centeredPosition = new Vector2();
+            centeredPosition.x = (float)(Math.Round(Position.x  / 32) * 32);
+            centeredPosition.y = (float)(Math.Round(Position.y  / 32) * 32);
+            newBomb.Position = centeredPosition;
+            GD.Print("Bomb position at: ", Position.x, " ", Position.y);
+            GD.Print("Bomb centered position at: ", centeredPosition.x, " ", centeredPosition.y);
             GetTree().Root.AddChild(newBomb);
         }
 

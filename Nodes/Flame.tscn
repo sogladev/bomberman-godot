@@ -26,11 +26,12 @@ centered = false
 offset = Vector2( 8, 8 )
 
 [node name="Fizzle" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
 [node name="Spread" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 autostart = true
 

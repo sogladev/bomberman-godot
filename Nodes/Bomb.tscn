@@ -23,6 +23,6 @@ centered = false
 offset = Vector2( 8, 8 )
 
 [node name="Detonate" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 autostart = true

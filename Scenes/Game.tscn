@@ -1,13 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Nodes/Flame.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Nodes/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/Box_loot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Nodes/Powerup_bomb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Nodes/Box_unbreakable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Powerup_flame.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/Flame.cs" type="Script" id=8]
 [ext_resource path="res://Nodes/Wall_edge.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Nodes/Bomb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Nodes/Powerup_speed.tscn" type="PackedScene" id=11]
@@ -15,7 +13,7 @@
 [ext_resource path="res://Nodes/Box_noloot.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Nodes/GameStateMachine.tscn" type="PackedScene" id=14]
 
-[node name="Game" type="Node2D"]
+[node name="Demo" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource( 14 )]
 
@@ -154,10 +152,12 @@ region_rect = Rect2( 20, 20, 150, 150 )
 [node name="Box_noloot" parent="Boxes" instance=ExtResource( 13 )]
 position = Vector2( 224, 160 )
 collision_layer = 1
+collision_mask = 6
 
 [node name="Box_noloot2" parent="Boxes" instance=ExtResource( 13 )]
 position = Vector2( 256, 160 )
 collision_layer = 1
+collision_mask = 6
 
 [node name="Box_loot" parent="Boxes" instance=ExtResource( 4 )]
 position = Vector2( 128, 160 )
@@ -339,17 +339,17 @@ collision_mask = 308
 
 [node name="BombFlame" type="Node" parent="."]
 
-[node name="Flame" parent="BombFlame" instance=ExtResource( 2 )]
-position = Vector2( 64, 128 )
-script = ExtResource( 8 )
-
 [node name="Bomb" parent="BombFlame" instance=ExtResource( 10 )]
 position = Vector2( 64, 64 )
+scale = Vector2( 1, 1.0301 )
 
 [node name="Powerups" type="Node" parent="."]
 
 [node name="Powerup_speed" parent="Powerups" instance=ExtResource( 11 )]
+position = Vector2( 192, 64 )
 
 [node name="Powerup_flame" parent="Powerups" instance=ExtResource( 7 )]
+position = Vector2( 96, 160 )
 
 [node name="Powerup_bomb" parent="Powerups" instance=ExtResource( 5 )]
+position = Vector2( 96, 96 )

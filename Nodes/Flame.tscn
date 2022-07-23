@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://RawAssets/sprites/Flame/Flame_f00.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Flame.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/FlamesArea2D.cs" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 22.6274
+
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 4
-collision_mask = 378
+collision_mask = 66
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
@@ -17,3 +24,23 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( 8, 8 )
+
+[node name="Fizzle" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Spread" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 376
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( 16, 16 )
+scale = Vector2( 0.6, 0.6 )
+shape = SubResource( 2 )

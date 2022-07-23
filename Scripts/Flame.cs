@@ -11,7 +11,6 @@ public class Flame : StaticBody2D
     private const string _FlameResource = "res://Nodes/Flame.tscn";
     private PackedScene _packedSceneFlame;
 
-    private Sprite _sprite;
 
     public void Init(int left, int right, int up, int down){
         _directionalPowerLeft = left;
@@ -26,12 +25,6 @@ public class Flame : StaticBody2D
         Timer timer_fizzle = GetNode<Timer>("Fizzle");
         timer_spread.Connect("timeout", this, "Spread");
         timer_fizzle.Connect("timeout", this, "Fizzle");
-        _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
-
-
-        // Set sprite invisible
-        _sprite = (Sprite)this.GetNode("./Sprite");
-        _sprite.Modulate = new Color(1, 1, 1, 0.0f);
     }
 
     private void Fizzle(){
@@ -40,12 +33,6 @@ public class Flame : StaticBody2D
 
     private void _on_FlameArea2D_Ignited(){
         Fizzle();
-    }
-
-
-    private void _on_FlameArea2D_isNoOverlap(){
-        // Set visible
-        _sprite.Modulate = new Color(1, 1, 1, 1.0f);
     }
 
     private void Spread()

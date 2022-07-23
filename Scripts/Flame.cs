@@ -27,9 +27,12 @@ public class Flame : StaticBody2D
         _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
     }
 
-
     private void Fizzle(){
         QueueFree();
+    }
+
+    private void _on_FlameArea2D_Ignited(){
+        Fizzle();
     }
 
     private void Spread()

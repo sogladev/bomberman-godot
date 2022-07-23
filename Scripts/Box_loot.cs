@@ -9,7 +9,10 @@ public class Box_loot : StaticBody2D
         "res://Textures/Boxes/boxAlt.png",
         "res://Textures/Boxes/boxEmpty.png",
          };
-    // Called when the node enters the scene tree for the first time.
+
+    private const string _PowerUpResource = "res://Nodes/PowerUp.tscn";
+    private PackedScene _packedScenePowerUp;
+
     public override void _Ready()
     {
         // Set random box texture 
@@ -17,5 +20,20 @@ public class Box_loot : StaticBody2D
         int index = random.Next(_BoxTextures.Count);
         Texture img = (Texture)GD.Load(_BoxTextures[index]);
         ((Sprite)this.GetNode("./Sprite")).Texture = img;
+
+        // Load scene to spawn powerUp
+        _packedScenePowerUp = ResourceLoader.Load<PackedScene>(_PowerUpResource);
+    }
+
+    private void _on_BoxArea2D_Ignited(){
+        Ignite();
+    }
+
+    private void Ignite(){
+        // Spawn powerUp and destroy
+        Powerup newPowerUp = _packedScenePowerUp.Instance() as Powerup;
+        newPowerUp.Position = Position;
+        GetTree().Root.AddChild(newPowerUp);
+        QueueFree();
     }
 }

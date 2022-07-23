@@ -3,7 +3,7 @@ using System;
 
 public class Bomb : StaticBody2D
 {
-    private int _power = 5;
+    private int _power;
 
     private const string _FlameResource = "res://Nodes/Flame.tscn";
     private PackedScene _packedSceneFlame;
@@ -24,10 +24,14 @@ public class Bomb : StaticBody2D
     {
         // Detonate
         Flame newFlame = _packedSceneFlame.Instance() as Flame;
-        newFlame.Init(5, 5, 5, 5);
+        newFlame.Init(_power, _power, _power, _power);
         newFlame.Position = Position;
         GetTree().Root.AddChild(newFlame);
         QueueFree();
+    }
+
+    private void _on_BombArea2D_Ignited(){
+        Detonate();
     }
 
 }

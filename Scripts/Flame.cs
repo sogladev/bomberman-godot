@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Flame : Bomb
+public class Flame : StaticBody2D
 {
     private int _directionalPowerLeft;
     private int _directionalPowerRight;

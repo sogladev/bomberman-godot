@@ -13,8 +13,7 @@ public class Player : KinematicBody2D
     private Vector2 _movement = new Vector2();
     private Vector2 _direction = new Vector2();
 
-
-    private const string _BombResource = "res://Bomb.tscn";
+    private const string _BombResource = "res://Nodes/Bomb.tscn";
     private PackedScene _packedSceneBomb;
 
     // Called when the node enters the scene tree for the first time.
@@ -22,9 +21,12 @@ public class Player : KinematicBody2D
     {
         _animTree = (AnimationTree)GetNode("AnimationTree");
         _animStateMachine = (AnimationNodeStateMachinePlayback)_animTree.Get("parameters/playback");
-        _packedSceneBomb = ResourceLoader.Load<PackedScene>(_BombResource);
 
+        _packedSceneBomb = ResourceLoader.Load<PackedScene>(_BombResource);
         GD.Print("Player ready!");
+    }
+
+    private void hit(){
     }
 
 //    public override void _Input(InputEvent @event)
@@ -77,20 +79,16 @@ public class Player : KinematicBody2D
             else if (collider.Name.StartsWith("Powerup_bomb")){
             }
             else if (collider.Name.StartsWith("Powerup_flame")){
+                hit();
             }
         }
 
         if (Input.IsActionPressed("place_bomb"))
         {
-            //Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
-            //newBomb.Init(5);
-            //newBomb.Position = Position;
-            //GetTree().Root.AddChild(newBomb);
-            //GD.Print("Place Bomb");
-            //const string _FlameResource = "res://Flame.tscn";
-            //PackedScene _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
-            //Flame newFlame = _packedSceneFlame.Instance() as Flame;
-            //GetTree().Root.AddChild(newFlame);
+            Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
+            newBomb.Init(5);
+            newBomb.Position = Position;
+            GetTree().Root.AddChild(newBomb);
         }
 
     }

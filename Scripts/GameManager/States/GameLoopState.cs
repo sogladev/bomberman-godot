@@ -14,9 +14,13 @@ public class GameLoopState : GameManagerState
         base.OnExit(nextState);
     }
 
-    public void OnPlayerDied()
+    public override void _Ready()
     {
-        GM.ChangeState("GameOverState");
+        base._Ready();
     }
 
+
+    private void on_died(){
+        GD.Print("Player died!");
+    }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Flame.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Nodes/Powerup_bomb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Nodes/Box_unbreakable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Nodes/Powerup_flame.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Flame.cs" type="Script" id=8]
 [ext_resource path="res://Nodes/Wall_edge.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Nodes/Bomb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Nodes/Powerup_speed.tscn" type="PackedScene" id=11]
@@ -340,6 +341,7 @@ collision_mask = 308
 
 [node name="Flame" parent="BombFlame" instance=ExtResource( 2 )]
 position = Vector2( 64, 128 )
+script = ExtResource( 8 )
 
 [node name="Bomb" parent="BombFlame" instance=ExtResource( 10 )]
 position = Vector2( 64, 64 )

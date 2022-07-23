@@ -413,7 +413,7 @@ parameters/Walk/blend_position = Vector2( 0, 0 )
 autostart = true
 
 [node name="Invincibility" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 

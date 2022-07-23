@@ -41,11 +41,16 @@ public class Powerup : StaticBody2D
         timer_flicker.Connect("timeout", this, "Flicker");
     }
 
+
     private void Ignite(){
         if ( _isInvincible ){
             return;
         }
         Expire();
+    }
+
+    void _on_PowerUpArea2D_Ignited(){
+        Ignite();
     }
 
     private void Expire()

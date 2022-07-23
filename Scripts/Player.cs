@@ -33,6 +33,8 @@ public class Player : KinematicBody2D
     private AnimatedSprite _sprite;
     private bool _isFlickerOn = true;
 
+    private Timer _timer_invincibility;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -43,8 +45,8 @@ public class Player : KinematicBody2D
         GD.Print("Player ready!");
         Timer timer_reload = GetNode<Timer>("Reload");
         timer_reload.Connect("timeout", this, "Reload");
-        Timer timer_invincibility = GetNode<Timer>("Invincibility");
-        timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
+        _timer_invincibility = GetNode<Timer>("Invincibility");
+        _timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
         Timer timer_invincibility_flicker = GetNode<Timer>("InvincibilityFlicker");
         timer_invincibility_flicker.Connect("timeout", this, "Flicker");
         _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
@@ -89,6 +91,9 @@ public class Player : KinematicBody2D
     private void CollectPrize(){
     }
     private void HitByFire(){
+        _timer_invincibility.Start(5.0f);
+        _isInvincible = true;
+        _timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
     }
 
 //    public override void _Input(InputEvent @event)
@@ -134,7 +139,7 @@ public class Player : KinematicBody2D
             KinematicCollision2D collision = (KinematicCollision2D)possibleCollision;
             Node collider = (Node)collision.Collider;
             GD.Print("Collides with: ", collider.Name);
-            if (collider.Name.StartsWith("Flame")){
+            if (collider.Name.StartsWith("@Flame")){
                 if (!(_isInvincible)){
                     HitByFire();
                 }

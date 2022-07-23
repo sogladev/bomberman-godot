@@ -55,6 +55,6 @@ public class SimpleStateMachine : Node
         if(state == null){
             return;
         }
-        state.Updatestate(delta);
+        state.UpdateState(delta);
     }
 }

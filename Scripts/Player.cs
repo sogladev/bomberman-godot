@@ -87,10 +87,10 @@ public class Player : KinematicBody2D
             //newBomb.Position = Position;
             //GetTree().Root.AddChild(newBomb);
             //GD.Print("Place Bomb");
-            const string _FlameResource = "res://Flame.tscn";
-            PackedScene _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
-            Flame newFlame = _packedSceneFlame.Instance() as Flame;
-            GetTree().Root.AddChild(newFlame);
+            //const string _FlameResource = "res://Flame.tscn";
+            //PackedScene _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
+            //Flame newFlame = _packedSceneFlame.Instance() as Flame;
+            //GetTree().Root.AddChild(newFlame);
         }
 
     }

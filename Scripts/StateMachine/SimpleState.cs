@@ -22,4 +22,19 @@ public class SimpleState : Node{
         EmitSignal(nameof(StateUpdated));
         onUpdateHasFired = true;
     }
+
+    public virtual void UpdateState(float delta){
+        if (!onUpdateHasFired){
+            return;
+        }
+    }
+
+    public virtual void OnExit(string NextState){
+        if (!hasBeenInitialized){
+            return;
+        }
+        EmitSignal(nameof(StateExited));
+        hasBeenInitialized = false;
+        onUpdateHasFired = false;
+    }
 }

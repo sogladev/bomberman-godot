@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 22.6274
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Flame" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 66
 script = ExtResource( 2 )
@@ -35,12 +35,12 @@ wait_time = 0.2
 one_shot = true
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="FlameArea2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 344
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlameArea2D"]
 visible = false
 position = Vector2( 16, 16 )
 scale = Vector2( 0.6, 0.6 )

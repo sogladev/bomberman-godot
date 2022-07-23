@@ -1,5 +1,8 @@
 using Godot;
 using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Player : KinematicBody2D
 {
@@ -126,6 +129,7 @@ public class Player : KinematicBody2D
             _animTree.Set("parameters/Walk/blend_position", _direction);
         }
 
+        // Check collisions
         if (possibleCollision != null){
             KinematicCollision2D collision = (KinematicCollision2D)possibleCollision;
             Node collider = (Node)collision.Collider;
@@ -154,9 +158,9 @@ public class Player : KinematicBody2D
             }
         }
 
+        // Place bomb if key pressed
         if (Input.IsActionPressed("place_bomb") && _amountOfBombs > 0)
         {
-            _amountOfBombs--;
             Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
             newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
             // Change position to center
@@ -164,10 +168,16 @@ public class Player : KinematicBody2D
             Vector2 centeredPosition = new Vector2();
             centeredPosition.x = (float)(Math.Round(Position.x  / 32) * 32);
             centeredPosition.y = (float)(Math.Round(Position.y  / 32) * 32);
+            // Check if there already is a Bomb on center position
+            List<Bomb> bombs = GetTree().Root.GetChildren().OfType<Bomb>().ToList();
+            foreach(Bomb bomb in bombs){
+                if (bomb.Position == centeredPosition){
+                    return;
+                }
+            }
             newBomb.Position = centeredPosition;
-            GD.Print("Bomb position at: ", Position.x, " ", Position.y);
-            GD.Print("Bomb centered position at: ", centeredPosition.x, " ", centeredPosition.y);
             GetTree().Root.AddChild(newBomb);
+            _amountOfBombs--;
         }
 
     }

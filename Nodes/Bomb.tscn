@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://RawAssets/sprites/Bomb/Bomb_f01.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Bomb.cs" type="Script" id=2]
@@ -6,7 +6,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 75.4247
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Bomb" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource( 2 )
@@ -26,3 +28,10 @@ offset = Vector2( 8, 8 )
 wait_time = 4.0
 one_shot = true
 autostart = true
+
+[node name="BombArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BombArea2D"]
+position = Vector2( 16, 16 )
+scale = Vector2( 1.5, 1.5 )
+shape = SubResource( 2 )

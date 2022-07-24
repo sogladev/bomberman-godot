@@ -16,7 +16,7 @@ public class GameOverMenu : MarginContainer
         // Init select labels
         selector1 = GetNode<Label>("./CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector");
         selector2 = GetNode<Label>("./CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer/Selector");
-        titleLabel = GetNode<Label>("./CenterContainer/VBoxContainer/#CenterContainer/Label");
+        titleLabel = GetNode<Label>("./CenterContainer/VBoxContainer/CenterContainer/Label");
         SetCurrentSelection(_currentSelection);
     }
 

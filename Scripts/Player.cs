@@ -12,7 +12,7 @@ public class Player : KinematicBody2D
     [Signal]
     public delegate void died();
 
-    private int _moveSpeed = 100;
+    protected int _moveSpeed = 50;
     private int _moveSpeedLimit = 320;
     private int _health = 100;
 
@@ -24,19 +24,19 @@ public class Player : KinematicBody2D
     private const string _BombResource = "res://Nodes/Bomb.tscn";
     private PackedScene _packedSceneBomb;
 
-    private int _amountOfBombs = 8;
-    public int bombPowerUp = 10;
-    public int flamePowerUp = 10;
-    public int speedPowerUp = 5;
+    protected int _amountOfBombs = 1;
+    public int bombPowerUp = 0;
+    public int flamePowerUp = 0;
+    public int speedPowerUp = 0;
     public int speedPowerUpValue = 20;
     public int flamePowerUpValue = 1;
     public int bombPowerUpValue = 1;
 
-    private bool _isInvincible = true;
-    private AnimatedSprite _sprite;
+    protected bool _isInvincible = true;
+    protected AnimatedSprite _sprite;
     private bool _isFlickerOn = true;
 
-    private Timer _timer_invincibility;
+    protected Timer _timer_invincibility;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()

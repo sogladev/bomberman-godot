@@ -40,7 +40,7 @@ public class MainMenuState : GameManagerState
         GM.ChangeState("GameLoopState",
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/DBG.tscn"}, 
-            {"player_resource", "res://Nodes/Player.tscn"},
+            {"player_resource", "res://Nodes/PlayerDBG.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"is_debug", true},
 // TODO: Give color value of player
@@ -51,7 +51,7 @@ public class MainMenuState : GameManagerState
         GM.ChangeState("GameLoopState",
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/Demo.tscn"},
-            {"player_resource", "res://Nodes/Player.tscn"},
+            {"player_resource", "res://Nodes/PlayerImmortal.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"is_debug", false},
 // TODO: Give color value of player

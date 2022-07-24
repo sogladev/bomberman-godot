@@ -827,6 +827,9 @@ position = Vector2( 32, 416 )
 [node name="Box_unbreakable9" parent="Box_unbreakables" instance=ExtResource( 6 )]
 position = Vector2( 96, 416 )
 
+[node name="Box_unbreakable51" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( 128, 384 )
+
 [node name="Box_unbreakable10" parent="Box_unbreakables" instance=ExtResource( 6 )]
 position = Vector2( 160, 416 )
 
@@ -865,6 +868,9 @@ position = Vector2( 32, 96 )
 
 [node name="Box_unbreakable25" parent="Box_unbreakables" instance=ExtResource( 6 )]
 position = Vector2( 96, 160 )
+
+[node name="Box_unbreakable50" parent="Box_unbreakables" instance=ExtResource( 6 )]
+position = Vector2( 96, 192 )
 
 [node name="Box_unbreakable26" parent="Box_unbreakables" instance=ExtResource( 6 )]
 position = Vector2( 96, 224 )
@@ -961,16 +967,25 @@ position = Vector2( 352, 32 )
 position = Vector2( 64, 0 )
 
 [node name="Box_loot2" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 96, 0 )
+
+[node name="Box_loot73" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 128, 0 )
 
+[node name="Box_loot74" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 128, 32 )
+
+[node name="Box_loot72" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 160, 0 )
+
 [node name="Box_loot3" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 192, 0 )
+position = Vector2( 192, 32 )
 
 [node name="Box_loot4" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 256, 0 )
+position = Vector2( 256, 32 )
 
 [node name="Box_loot5" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 320, 0 )
+position = Vector2( 288, 0 )
 
 [node name="Box_loot6" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 384, 0 )
@@ -978,35 +993,44 @@ position = Vector2( 384, 0 )
 [node name="Box_loot49" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 448, 64 )
 
+[node name="Box_loot102" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 416, 64 )
+
 [node name="Box_loot50" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 448, 128 )
+position = Vector2( 448, 96 )
 
 [node name="Box_loot51" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 448, 192 )
+position = Vector2( 448, 160 )
 
 [node name="Box_loot52" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 448, 256 )
+position = Vector2( 416, 256 )
 
 [node name="Box_loot53" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 448, 320 )
 
+[node name="Box_loot101" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 448, 288 )
+
 [node name="Box_loot54" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 448, 384 )
+position = Vector2( 448, 352 )
 
 [node name="Box_loot55" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 0, 64 )
+position = Vector2( 0, 96 )
 
 [node name="Box_loot56" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 0, 128 )
 
 [node name="Box_loot57" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 0, 192 )
+position = Vector2( 0, 160 )
 
 [node name="Box_loot58" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 0, 256 )
+position = Vector2( 0, 288 )
 
 [node name="Box_loot59" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 0, 320 )
+
+[node name="Box_loot62" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 32, 320 )
 
 [node name="Box_loot60" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 0, 384 )
@@ -1014,23 +1038,68 @@ position = Vector2( 0, 384 )
 [node name="Box_loot7" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 64, 64 )
 
+[node name="Box_loot67" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 96, 64 )
+
+[node name="Box_loot66" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 64, 96 )
+
+[node name="Box_loot65" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 64, 32 )
+
+[node name="Box_loot64" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 32, 64 )
+
 [node name="Box_loot8" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 128, 64 )
+
+[node name="Box_loot77" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 128, 96 )
+
+[node name="Box_loot68" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 160, 64 )
 
 [node name="Box_loot9" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 192, 64 )
 
+[node name="Box_loot78" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 192, 96 )
+
+[node name="Box_loot69" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 224, 64 )
+
 [node name="Box_loot10" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 256, 64 )
+
+[node name="Box_loot79" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 256, 96 )
+
+[node name="Box_loot70" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 288, 64 )
 
 [node name="Box_loot11" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 320, 64 )
 
+[node name="Box_loot113" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 320, 32 )
+
+[node name="Box_loot80" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 320, 96 )
+
+[node name="Box_loot71" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 352, 64 )
+
 [node name="Box_loot12" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 384, 64 )
 
+[node name="Box_loot114" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 384, 32 )
+
+[node name="Box_loot81" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 384, 96 )
+
 [node name="Box_loot13" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 64, 128 )
+position = Vector2( 32, 128 )
 
 [node name="Box_loot14" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 128, 128 )
@@ -1039,10 +1108,16 @@ position = Vector2( 128, 128 )
 position = Vector2( 192, 128 )
 
 [node name="Box_loot16" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 256, 128 )
+position = Vector2( 224, 128 )
 
 [node name="Box_loot17" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 320, 128 )
+
+[node name="Box_loot76" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 352, 128 )
+
+[node name="Box_loot75" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 288, 128 )
 
 [node name="Box_loot18" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 384, 128 )
@@ -1050,26 +1125,68 @@ position = Vector2( 384, 128 )
 [node name="Box_loot19" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 64, 192 )
 
+[node name="Box_loot112" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 32, 192 )
+
+[node name="Box_loot63" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 64, 160 )
+
 [node name="Box_loot20" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 128, 192 )
+
+[node name="Box_loot111" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 128, 160 )
 
 [node name="Box_loot21" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 192, 192 )
 
+[node name="Box_loot110" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 192, 160 )
+
+[node name="Box_loot106" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 160, 192 )
+
 [node name="Box_loot22" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 256, 192 )
+
+[node name="Box_loot109" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 256, 160 )
+
+[node name="Box_loot105" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 224, 192 )
 
 [node name="Box_loot23" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 320, 192 )
 
+[node name="Box_loot108" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 320, 160 )
+
+[node name="Box_loot104" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 288, 192 )
+
 [node name="Box_loot24" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 384, 192 )
+
+[node name="Box_loot107" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 384, 160 )
+
+[node name="Box_loot103" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 352, 192 )
 
 [node name="Box_loot25" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 64, 256 )
 
+[node name="Box_loot83" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 96, 256 )
+
+[node name="Box_loot82" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 32, 256 )
+
 [node name="Box_loot26" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 128, 256 )
+
+[node name="Box_loot84" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 128, 224 )
 
 [node name="Box_loot27" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 192, 256 )
@@ -1080,14 +1197,26 @@ position = Vector2( 256, 256 )
 [node name="Box_loot29" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 320, 256 )
 
+[node name="Box_loot96" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 320, 288 )
+
 [node name="Box_loot30" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 384, 256 )
 
 [node name="Box_loot31" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 64, 320 )
+position = Vector2( 64, 288 )
 
 [node name="Box_loot32" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 128, 320 )
+
+[node name="Box_loot99" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 128, 288 )
+
+[node name="Box_loot98" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 160, 320 )
+
+[node name="Box_loot87" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 128, 352 )
 
 [node name="Box_loot33" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 192, 320 )
@@ -1095,17 +1224,32 @@ position = Vector2( 192, 320 )
 [node name="Box_loot34" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 256, 320 )
 
+[node name="Box_loot100" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 256, 288 )
+
 [node name="Box_loot35" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 320, 320 )
+position = Vector2( 288, 320 )
 
 [node name="Box_loot36" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 384, 320 )
+position = Vector2( 416, 320 )
+
+[node name="Box_loot94" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 352, 320 )
+
+[node name="Box_loot93" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 384, 288 )
 
 [node name="Box_loot37" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 64, 384 )
 
+[node name="Box_loot86" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 64, 352 )
+
+[node name="Box_loot85" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 64, 416 )
+
 [node name="Box_loot38" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 128, 384 )
+position = Vector2( 160, 384 )
 
 [node name="Box_loot39" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 192, 384 )
@@ -1113,29 +1257,53 @@ position = Vector2( 192, 384 )
 [node name="Box_loot40" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 256, 384 )
 
+[node name="Box_loot89" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 224, 384 )
+
+[node name="Box_loot88" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 256, 416 )
+
 [node name="Box_loot41" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 320, 384 )
+
+[node name="Box_loot97" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 320, 352 )
 
 [node name="Box_loot42" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 384, 384 )
 
+[node name="Box_loot95" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 384, 352 )
+
+[node name="Box_loot92" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 352, 384 )
+
+[node name="Box_loot91" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 384, 416 )
+
 [node name="Box_loot43" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 64, 448 )
+
+[node name="Box_loot61" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 96, 448 )
 
 [node name="Box_loot44" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 128, 448 )
 
 [node name="Box_loot45" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 192, 448 )
+position = Vector2( 160, 448 )
 
 [node name="Box_loot46" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 256, 448 )
+position = Vector2( 384, 448 )
 
 [node name="Box_loot47" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 320, 448 )
+position = Vector2( 448, 384 )
+
+[node name="Box_loot90" parent="Box_loots" instance=ExtResource( 4 )]
+position = Vector2( 320, 416 )
 
 [node name="Box_loot48" parent="Box_loots" instance=ExtResource( 4 )]
-position = Vector2( 384, 448 )
+position = Vector2( 352, 448 )
 
 [node name="Box_loot" parent="." instance=ExtResource( 4 )]
 position = Vector2( -960, -320 )

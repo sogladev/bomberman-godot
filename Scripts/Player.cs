@@ -49,6 +49,8 @@ public class Player : KinematicBody2D
         Timer timer_invincibility_flicker = GetNode<Timer>("InvincibilityFlicker");
         timer_invincibility_flicker.Connect("timeout", this, "Flicker");
         _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
+        // Set custom color
+//        _sprite.Modulate = new Color(0.0f,0.0f,0.8f);
     }
 
 
@@ -64,12 +66,12 @@ public class Player : KinematicBody2D
         {
             if (_isFlickerOn)
             {
-                _sprite.Modulate = new Color(1, 1, 1, 0.5f);
+                _sprite.Modulate = new Color(_sprite.Modulate.r, _sprite.Modulate.g, _sprite.Modulate.b, 0.5f);
                 _isFlickerOn = false;
             }
             else
             {
-                _sprite.Modulate = new Color(1, 1, 1, 1f);
+                _sprite.Modulate = new Color(_sprite.Modulate.r, _sprite.Modulate.g, _sprite.Modulate.b, 1f);
                 _isFlickerOn = true;
             }
         }
@@ -78,7 +80,7 @@ public class Player : KinematicBody2D
             if (!_isFlickerOn)
             {
                 _isFlickerOn = true;
-                _sprite.Modulate = new Color(1, 1, 1, 1f);
+                _sprite.Modulate = new Color(_sprite.Modulate.r, _sprite.Modulate.g, _sprite.Modulate.b, 1f);
             }
         }
     }

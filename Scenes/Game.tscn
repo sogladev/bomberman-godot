@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RawAssets/RPGPack/Spritesheet/RPGpack_sheet.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://RawAssets/Base pack/Tiles/brickWall.png" type="Texture" id=8]
 [ext_resource path="res://Nodes/Bomb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Nodes/PowerUp.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Nodes/GameStateMachine.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 23.9486, 8.88823, 36.4069, 6.07509, 45.6018, 8.51849, 83.8284, 0.850693, 110.417, 9.6759, 146.923, 0.046936, 172.338, 10.2546, 185.069, 22.9861, 182.176, 51.3426, 191.435, 79.6991, 180.44, 115.579, 192, 141.62, 184.491, 167.662, 170.023, 181.551, 156.713, 184.444, 140.509, 182.708, 112.153, 191.389, 93.4734, 184.71, 69.9073, 183.866, 57.1758, 190.81, 36.3425, 188.495, 20.1388, 181.551, 9.88293, 173.859, 6.24994, 156.088, 9.14343, 145.671, 7.40735, 134.676, 1.04156, 120.208, 5.6712, 95.9028, 10.8796, 82.0139, 7.98602, 69.2824, 2.77771, 55.3935, 1.04156, 42.662, 9.14343, 24.7222, 16.313, 14.5145 )
@@ -365,17 +364,17 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 240, 240 )
+current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="CameraDBG" type="Camera2D" parent="."]
 position = Vector2( -960, -96 )
-current = true
 
 [node name="Player" type="Node" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource( 1 )]
 process_priority = 1
-position = Vector2( -704, -288 )
+position = Vector2( 0, 0 )
 z_index = 5
 collision_mask = 308
 
@@ -968,8 +967,6 @@ position = Vector2( 288, 32 )
 
 [node name="Box_unbreakable24" parent="Box_unbreakables" instance=ExtResource( 6 )]
 position = Vector2( 352, 32 )
-
-[node name="GameManager" parent="." instance=ExtResource( 14 )]
 
 [node name="Box_loots" type="Node" parent="."]
 

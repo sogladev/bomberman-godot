@@ -35,7 +35,7 @@ public class Flame : StaticBody2D
         QueueFree();
     }
 
-    private void _on_FlameArea2D_Ignited()
+    private void _on_FlameArea2D_FlameIgnited()
     {
         Fizzle();
     }

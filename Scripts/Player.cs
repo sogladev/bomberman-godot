@@ -52,6 +52,7 @@ public class Player : KinematicBody2D
         _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
     }
 
+
     private void Reload(){
         if (_amountOfBombs < ( 1 + (bombPowerUp * bombPowerUpValue))){
             _amountOfBombs++;
@@ -118,13 +119,31 @@ public class Player : KinematicBody2D
 //        // Print the size of the viewport.
 //    }
 
+
+    private void _on_PlayerArea2D_PickedUpPowerUp(string typeOfPowerUp){
+        GD.Print("Type of powerUp: ", typeOfPowerUp);
+        if (typeOfPowerUp == "Powerup_bomb")
+        {
+            bombPowerUp++;
+        }
+        else if (typeOfPowerUp == "Powerup_flame")
+        {
+            flamePowerUp++;
+        }
+        else if (typeOfPowerUp == "Powerup_speed")
+        {
+            speedPowerUp++;
+            _moveSpeed = Math.Min(_moveSpeed + speedPowerUpValue, _moveSpeedLimit);
+        }
+
+    }
+
     public override void _PhysicsProcess(float delta)
     {
         _movement.x = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
         _movement.y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
         _direction = _movement.Normalized();
         var possibleCollision = MoveAndCollide(_direction * _moveSpeed * delta);
-
 
         // Update animation tree based on direction
         string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";
@@ -149,17 +168,6 @@ public class Player : KinematicBody2D
             }
             else if (collider.Name.StartsWith("Powerup")){
                 // Check type of powerup
-                string typeOfPowerUp = ((Powerup)collider).typeOfPowerUp;
-                if (typeOfPowerUp == "Powerup_bomb"){
-                    bombPowerUp++;
-                }
-                else if (typeOfPowerUp == "Powerup_flame"){
-                    flamePowerUp++;
-                }
-                else if (typeOfPowerUp == "Powerup_speed"){
-                    speedPowerUp++;
-                    _moveSpeed = Math.Min(_moveSpeed + speedPowerUpValue, _moveSpeedLimit);
-                }
             }
         }
 

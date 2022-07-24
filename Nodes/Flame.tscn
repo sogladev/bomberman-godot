@@ -48,4 +48,3 @@ scale = Vector2( 0.6, 0.6 )
 shape = SubResource( 2 )
 
 [connection signal="Ignited" from="FlameArea2D" to="." method="_on_FlameArea2D_Ignited"]
-[connection signal="isNoOverlap" from="FlameArea2D" to="." method="_on_FlameArea2D_isNoOverlap"]

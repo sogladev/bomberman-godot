@@ -12,7 +12,8 @@ public class Flame : StaticBody2D
     private PackedScene _packedSceneFlame;
 
 
-    public void Init(int left, int right, int up, int down){
+    public void Init(int left, int right, int up, int down)
+    {
         _directionalPowerLeft = left;
         _directionalPowerRight = right;
         _directionalPowerUp = up;
@@ -25,13 +26,17 @@ public class Flame : StaticBody2D
         Timer timer_fizzle = GetNode<Timer>("Fizzle");
         timer_spread.Connect("timeout", this, "Spread");
         timer_fizzle.Connect("timeout", this, "Fizzle");
+        _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
     }
 
-    private void Fizzle(){
+    public void Fizzle()
+    {
+
         QueueFree();
     }
 
-    private void _on_FlameArea2D_Ignited(){
+    private void _on_FlameArea2D_Ignited()
+    {
         Fizzle();
     }
 

@@ -25,13 +25,14 @@ public class Box_loot : StaticBody2D
         _packedScenePowerUp = ResourceLoader.Load<PackedScene>(_PowerUpResource);
     }
 
+
     private void _on_BoxArea2D_Ignited(){
         Ignite();
     }
 
     private void Ignite(){
         // Spawn powerUp and destroy
-        Powerup newPowerUp = _packedScenePowerUp.Instance() as Powerup;
+        PowerUp newPowerUp = _packedScenePowerUp.Instance() as PowerUp;
         newPowerUp.Position = Position;
         GetTree().Root.AddChild(newPowerUp);
         QueueFree();

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Powerup : StaticBody2D
+public class PowerUp : Area2D
 {
     private List<string> _PowerUpTextures = new List<string>{
         "res://Textures/Powerups/BombPowerup.png",
@@ -41,16 +41,31 @@ public class Powerup : StaticBody2D
         timer_flicker.Connect("timeout", this, "Flicker");
     }
 
+    public override void _PhysicsProcess(float delta)
+    {
+        var overlappingAreas = GetOverlappingAreas();
+        if (overlappingAreas.Count > 0){
+            foreach(Area2D area in overlappingAreas){
+                if (area.Name.StartsWith("Player")){
+                    PlayerPickup();
+                }
+                else {
+                    Ignite();
+                }
+            }
+            Ignite();
+        }
+    }
+
+    private void PlayerPickup(){
+        Expire();
+    }
 
     private void Ignite(){
         if ( _isInvincible ){
             return;
         }
         Expire();
-    }
-
-    void _on_PowerUpArea2D_Ignited(){
-        Ignite();
     }
 
     private void Expire()

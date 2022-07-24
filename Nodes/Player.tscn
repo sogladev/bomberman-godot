@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://RawAssets/sprites/Bunny/down1.png" type="Texture" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://RawAssets/sprites/Bunny/idle_left2.png" type="Texture" id=31]
 [ext_resource path="res://RawAssets/sprites/Bunny/idle_left4.png" type="Texture" id=32]
 [ext_resource path="res://RawAssets/sprites/Bunny/idle_right4.png" type="Texture" id=33]
+[ext_resource path="res://Scripts/PlayerArea2D.cs" type="Script" id=34]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.05539
@@ -373,6 +374,8 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
+[sub_resource type="CircleShape2D" id=42]
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 528, 304 )
 collision_layer = 2
@@ -388,6 +391,7 @@ shape = SubResource( 1 )
 position = Vector2( -16, -16 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 2
 centered = false
 offset = Vector2( 22.509, 19.078 )
 
@@ -420,3 +424,14 @@ autostart = true
 [node name="InvincibilityFlicker" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
+
+[node name="PlayerArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 256
+script = ExtResource( 34 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
+position = Vector2( 16, 16 )
+shape = SubResource( 42 )
+
+[connection signal="PickedUpPowerUp" from="PlayerArea2D" to="." method="_on_PlayerArea2D_PickedUpPowerUp"]

@@ -10,3 +10,6 @@ script = null
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
 region_rect = Rect2( 880, 666, 70, 71 )
+
+[node name="BoxArea2D" parent="." index="2"]
+script = null

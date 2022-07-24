@@ -95,7 +95,6 @@ public class Player : KinematicBody2D
     private void HitByFire(){
         _timer_invincibility.Start(5.0f);
         _isInvincible = true;
-        _timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
     }
 
 //    public override void _Input(InputEvent @event)

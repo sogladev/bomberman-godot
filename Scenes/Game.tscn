@@ -533,7 +533,17 @@ position = Vector2( -640, -64 )
 [node name="Box_unbreakable78" parent="TestNodes" instance=ExtResource( 6 )]
 position = Vector2( -672, -96 )
 
-[node name="Powerups" type="Node" parent="."]
+[node name="Box_loot" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( -960, -320 )
+
+[node name="Box_loot3" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( -1024, -224 )
+
+[node name="Box_loot5" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( -992, -224 )
+
+[node name="Box_loot4" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( -992, -128 )
 
 [node name="TileMapGround" type="TileMap" parent="."]
 z_index = -1
@@ -1304,15 +1314,3 @@ position = Vector2( 320, 416 )
 
 [node name="Box_loot48" parent="Box_loots" instance=ExtResource( 4 )]
 position = Vector2( 352, 448 )
-
-[node name="Box_loot" parent="." instance=ExtResource( 4 )]
-position = Vector2( -960, -320 )
-
-[node name="Box_loot3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -1024, -224 )
-
-[node name="Box_loot5" parent="." instance=ExtResource( 4 )]
-position = Vector2( -992, -224 )
-
-[node name="Box_loot4" parent="." instance=ExtResource( 4 )]
-position = Vector2( -992, -128 )

@@ -12,6 +12,7 @@ public class GameLoopState : GameManagerState
     private bool _isDebug;
 
     private Player _player;
+    private Node2D _newGame;
 
     public override void OnStart(Dictionary<string, object> message)
     {
@@ -21,8 +22,8 @@ public class GameLoopState : GameManagerState
         _packedScenePrize = ResourceLoader.Load<PackedScene>((string)message["prize_resource"]);
         _isDebug = (bool)message["is_debug"];
         // Create Map
-        Node2D newGame = _packedSceneGame.Instance() as Node2D;
-        GetTree().Root.AddChild(newGame);
+        _newGame = _packedSceneGame.Instance() as Node2D;
+        GetTree().Root.AddChild(_newGame);
         // Spawn Player and then listen until... score, dies, prize
         _player = _packedScenePlayer.Instance() as Player;
         if (_isDebug){
@@ -46,20 +47,29 @@ public class GameLoopState : GameManagerState
         GetTree().Root.AddChild(prize);
     }
 
-    private void died(){
-       GD.Print("Received Signal: died");
-        GM.ChangeState("GameOverState");
+    private void died()
+    {
+        GD.Print("Received Signal: died");
+        GM.ChangeState("GameOverState",
+        new Dictionary<string, object>(){
+            {"is_victory", false},
+    });
     }
 
     private void prize()
     {
         GD.Print("Received Signal: prize");
-        GM.ChangeState("GameOverState");
-   }
+        GM.ChangeState("GameOverState",
+        new Dictionary<string, object>(){
+            {"is_victory", true},
+    });
+    }
 
     public override void OnExit(string nextState)
     {
         base.OnExit(nextState);
+        _newGame.QueueFree();
+        _player.QueueFree();
     }
 
 }

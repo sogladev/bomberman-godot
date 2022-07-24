@@ -202,6 +202,5 @@ public class Player : KinematicBody2D
             GetTree().Root.AddChild(newBomb);
             _amountOfBombs--;
         }
-
     }
 }

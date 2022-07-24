@@ -42,10 +42,11 @@ margin_bottom = 33.0
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
 margin_right = 231.0
 margin_bottom = 33.0
+rect_min_size = Vector2( 164, 0 )
 theme = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Bomberman"
+text = "BOMBERMAN"
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 37.0
@@ -80,12 +81,38 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 116, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Start"
+text = "START"
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="CenterContainer1" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 29.0
 margin_right = 131.0
 margin_bottom = 54.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1"]
+margin_right = 131.0
+margin_bottom = 25.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer"]
+margin_right = 11.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 11, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "-"
+
+[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer"]
+margin_left = 15.0
+margin_right = 131.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 116, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "OPTIONS"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 58.0
+margin_right = 131.0
+margin_bottom = 83.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
 margin_right = 131.0
@@ -103,14 +130,15 @@ text = "-"
 margin_left = 15.0
 margin_right = 131.0
 margin_bottom = 25.0
+rect_min_size = Vector2( 116, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Options"
+text = "DBG"
 
 [node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 58.0
+margin_top = 87.0
 margin_right = 131.0
-margin_bottom = 83.0
+margin_bottom = 112.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
 margin_right = 131.0
@@ -131,30 +159,4 @@ margin_bottom = 25.0
 rect_min_size = Vector2( 116, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "DBG"
-
-[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 87.0
-margin_right = 131.0
-margin_bottom = 112.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
-margin_right = 131.0
-margin_bottom = 25.0
-
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_right = 11.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 11, 0 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "-"
-
-[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_left = 15.0
-margin_right = 131.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 116, 0 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Exit"
+text = "EXIT"

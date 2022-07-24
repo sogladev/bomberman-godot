@@ -17,6 +17,16 @@ public class GameManager : SimpleStateMachine
             GMS.GM = this;
         }
 
+        // Hide menus until needed
+        foreach(Control c in GetNode("../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        {
+            c.Hide();
+        }
+        foreach(Control c in GetNode("../../Game/CanvasLayerGameOver").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        {
+            c.Hide();
+        }
+
         ChangeState(gameManageStates[0].Name);
 
         Connect(nameof(PostExit), this, nameof(StatePostExit));

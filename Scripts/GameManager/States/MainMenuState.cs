@@ -5,29 +5,24 @@ using System.Collections.Generic;
 
 public class MainMenuState : GameManagerState
 {
-
-
-    private MainMenu _mainMenu;
-
+    private MainMenu _menu;
 
     public override void OnStart(Dictionary<string, object> message)
     {
         base.OnStart(message);
 
-        foreach(Control c in GetNode("../../../../Game/CanvasLayer").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        foreach(Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             GD.Print("control ", c.Name);
             c.Show();
         }
     }
 
-
     public override void OnExit(string nextState)
     {
         base.OnExit(nextState);
 
-        //_mainMenu.Destroy();
-        foreach(Control c in GetNode("../../../../Game/CanvasLayer").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        foreach(Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             GD.Print("control ", c.Name);
             c.Hide();
@@ -37,7 +32,7 @@ public class MainMenuState : GameManagerState
 
     public override void _Ready(){
         base._Ready();
-        _mainMenu = GetNode<MainMenu>("../../../../Game/CanvasLayer/MainMenu");
+        _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
     }
 
     public void ChangeToDebugLoopState()
@@ -69,15 +64,15 @@ public class MainMenuState : GameManagerState
         const int nElements = 4;
         if (Input.IsActionJustPressed("ui_down")){
             GD.Print("down");
-            _mainMenu.handleInput("ui_down");
+            _menu.handleInput("ui_down");
         }
         else if (Input.IsActionJustPressed("ui_up")){
             GD.Print("up");
-            _mainMenu.handleInput("ui_up");
+            _menu.handleInput("ui_up");
         }
         else if (Input.IsActionJustPressed("ui_accept")){
             GD.Print("select");
-            string action = _mainMenu.ParseSelection();
+            string action = _menu.ParseSelection();
             if (action == "new_game"){
                 ChangeToGameLoopState();
             }

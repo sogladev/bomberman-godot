@@ -42,7 +42,6 @@ public class Player : KinematicBody2D
         _animStateMachine = (AnimationNodeStateMachinePlayback)_animTree.Get("parameters/playback");
 
         _packedSceneBomb = ResourceLoader.Load<PackedScene>(_BombResource);
-        GD.Print("Player ready!");
         Timer timer_reload = GetNode<Timer>("Reload");
         timer_reload.Connect("timeout", this, "Reload");
         _timer_invincibility = GetNode<Timer>("Invincibility");
@@ -121,7 +120,6 @@ public class Player : KinematicBody2D
 
 
     private void _on_PlayerArea2D_PickedUpPowerUp(string typeOfPowerUp){
-        GD.Print("Type of powerUp: ", typeOfPowerUp);
         if (typeOfPowerUp == "Powerup_bomb")
         {
             bombPowerUp++;
@@ -157,7 +155,6 @@ public class Player : KinematicBody2D
         if (possibleCollision != null){
             KinematicCollision2D collision = (KinematicCollision2D)possibleCollision;
             Node collider = (Node)collision.Collider;
-            GD.Print("Collides with: ", collider.Name);
             if (collider.Name.StartsWith("@Flame")){
                 if (!(_isInvincible)){
                     HitByFire();

@@ -3,7 +3,7 @@ using System;
 
 public class Bomb : StaticBody2D
 {
-    private int _power;
+    private int _power = 5; // Used for testing
 
     private const string _FlameResource = "res://Nodes/Flame.tscn";
     private PackedScene _packedSceneFlame;

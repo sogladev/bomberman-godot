@@ -5,6 +5,7 @@
 
 [node name="Box_unbreakable" instance=ExtResource( 1 )]
 collision_layer = 128
+script = null
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )

@@ -169,8 +169,8 @@ public class Player : KinematicBody2D
             }
         }
 
-        // Place bomb if key pressed
-        if (Input.IsActionJustPressed("place_bomb") && _amountOfBombs > 0)
+        // Place bomb if key pressed or held down
+        if (Input.IsActionPressed("place_bomb") && _amountOfBombs > 0)
         {
             Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
             newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));

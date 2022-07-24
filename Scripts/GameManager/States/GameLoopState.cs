@@ -68,8 +68,11 @@ public class GameLoopState : GameManagerState
     public override void OnExit(string nextState)
     {
         base.OnExit(nextState);
-        _newGame.QueueFree();
-        _player.QueueFree();
+        var nodes = GetTree().Root.GetChildren();
+        // Game is node 0, clean up everything else
+        for (int i=1; i<nodes.Count; i++){
+            ((Node)nodes[i]).QueueFree();
+        }
     }
 
 }

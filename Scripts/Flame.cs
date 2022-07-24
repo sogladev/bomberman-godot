@@ -31,7 +31,6 @@ public class Flame : StaticBody2D
 
     public void Fizzle()
     {
-
         QueueFree();
     }
 

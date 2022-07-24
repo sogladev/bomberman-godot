@@ -11,7 +11,7 @@ radius = 75.4247
 
 [node name="Bomb" type="StaticBody2D"]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -40,5 +40,10 @@ visible = false
 position = Vector2( 16, 16 )
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 2 )
+
+[node name="PlayerCollision" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
 
 [connection signal="BombIgnited" from="BombArea2D" to="." method="_on_BombArea2D_BombIgnited"]

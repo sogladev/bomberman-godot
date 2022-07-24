@@ -30,7 +30,7 @@ public class Bomb : StaticBody2D
         QueueFree();
     }
 
-    private void _on_BombArea2D_Ignited(){
+    private void _on_BombArea2D_BombIgnited(){
         Detonate();
     }
 

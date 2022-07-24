@@ -32,7 +32,7 @@ autostart = true
 
 [node name="BombArea2D" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 0
+collision_mask = 4
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BombArea2D"]
@@ -40,4 +40,4 @@ position = Vector2( 16, 16 )
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 2 )
 
-[connection signal="Ignited" from="BombArea2D" to="." method="_on_BombArea2D_Ignited"]
+[connection signal="BombIgnited" from="BombArea2D" to="." method="_on_BombArea2D_BombIgnited"]

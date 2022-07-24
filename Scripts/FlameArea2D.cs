@@ -8,7 +8,7 @@ public class FlameArea2D : Area2D
     // private string b = "text";
 
     [Signal]
-     public delegate void Ignited();
+     public delegate void FlameIgnited();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -18,7 +18,7 @@ public class FlameArea2D : Area2D
     public override void _PhysicsProcess(float delta)
     {
         if (GetOverlappingAreas().Count > 0){
-            EmitSignal(nameof(Ignited));
+            EmitSignal(nameof(FlameIgnited));
         }
     }
 }

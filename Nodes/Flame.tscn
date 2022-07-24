@@ -11,7 +11,7 @@ radius = 22.6274
 
 [node name="Flame" type="StaticBody2D"]
 collision_layer = 4
-collision_mask = 330
+collision_mask = 346
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -47,4 +47,4 @@ position = Vector2( 16, 16 )
 scale = Vector2( 0.6, 0.6 )
 shape = SubResource( 2 )
 
-[connection signal="Ignited" from="FlameArea2D" to="." method="_on_FlameArea2D_Ignited"]
+[connection signal="FlameIgnited" from="FlameArea2D" to="." method="_on_FlameArea2D_FlameIgnited"]

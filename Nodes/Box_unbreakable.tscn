@@ -9,7 +9,3 @@ collision_layer = 128
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
 region_rect = Rect2( 880, 666, 70, 71 )
-
-[node name="Area2D" parent="." index="2"]
-collision_layer = 0
-collision_mask = 0

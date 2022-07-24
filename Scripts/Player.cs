@@ -20,10 +20,10 @@ public class Player : KinematicBody2D
     private const string _BombResource = "res://Nodes/Bomb.tscn";
     private PackedScene _packedSceneBomb;
 
-    private int _amountOfBombs = 0;
-    public int bombPowerUp = 0;
-    public int flamePowerUp = 0;
-    public int speedPowerUp = 0;
+    private int _amountOfBombs = 8;
+    public int bombPowerUp = 10;
+    public int flamePowerUp = 10;
+    public int speedPowerUp = 5;
     public int speedPowerUpValue = 20;
     public int flamePowerUpValue = 1;
     public int bombPowerUpValue = 1;

@@ -732,7 +732,7 @@ position = Vector2( 352, 32 )
 script = null
 
 [node name="Box_loot" parent="." instance=ExtResource( 4 )]
-position = Vector2( 352, 128 )
+position = Vector2( -288, -64 )
 
 [node name="Box_loot2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -384, 192 )

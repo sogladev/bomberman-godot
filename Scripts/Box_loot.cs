@@ -26,7 +26,7 @@ public class Box_loot : StaticBody2D
     }
 
 
-    private void _on_BoxArea2D_Ignited(){
+    private void _on_BoxArea2D_BoxIgnited(){
         Ignite();
     }
 

@@ -6,6 +6,9 @@ public class PlayerArea2D : Area2D
     [Signal]
      public delegate void PickedUpPowerUp(string typeOfPowerUp);
 
+    [Signal]
+     public delegate void PickedUpPrize();
+
     public override void _Ready()
     {
     }
@@ -14,9 +17,14 @@ public class PlayerArea2D : Area2D
     {
         var overlappingAreas = GetOverlappingAreas();
         if (overlappingAreas.Count > 0){
-            foreach(PowerUp powerUp in overlappingAreas){
-                string typeOfPowerUp = powerUp.typeOfPowerUp;
-                EmitSignal(nameof(PickedUpPowerUp), typeOfPowerUp);
+            foreach(Area2D area in overlappingAreas){
+                if (area is PowerUp){
+                    string typeOfPowerUp = ((PowerUp)area).typeOfPowerUp;
+                    EmitSignal(nameof(PickedUpPowerUp), typeOfPowerUp);
+                }
+                else {
+                    EmitSignal(nameof(PickedUpPrize));
+                }
             }
         }
     }

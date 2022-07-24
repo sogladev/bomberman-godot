@@ -62,9 +62,9 @@ animations = [ {
 "name": "idle_left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
 "loop": true,
-"name": "idle_right",
+"name": "idle_up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
@@ -72,9 +72,9 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 33 ) ],
 "loop": true,
-"name": "idle_up",
+"name": "idle_right",
 "speed": 5.0
 } ]
 
@@ -408,7 +408,7 @@ parameters/playback = SubResource( 39 )
 parameters/Idle/blend_position = Vector2( 0.00425529, 0.819512 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
-[node name="Reload" type="Timer" parent="."]
+[node name="Regenerate" type="Timer" parent="."]
 autostart = true
 
 [node name="Invincibility" type="Timer" parent="."]
@@ -427,12 +427,12 @@ shape = SubResource( 1 )
 
 [node name="PlayerArea2D" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 256
+collision_mask = 288
 script = ExtResource( 34 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
-visible = false
 position = Vector2( 16, 16 )
 shape = SubResource( 42 )
 
 [connection signal="PickedUpPowerUp" from="PlayerArea2D" to="." method="_on_PlayerArea2D_PickedUpPowerUp"]
+[connection signal="PickedUpPrize" from="PlayerArea2D" to="." method="_on_PlayerArea2D_PickedUpPrize"]

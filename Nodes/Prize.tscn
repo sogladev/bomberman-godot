@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://RawAssets/sprites/Vegetables.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 54.6411
+height = 138.564
+
+[node name="Sprite" type="Sprite"]
+position = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 70, 35, 24, 25 )
+
+[node name="PrizeArea2D" type="Area2D" parent="."]
+position = Vector2( 12, 12 )
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrizeArea2D"]
+rotation = -2.61799
+scale = Vector2( 0.1, 0.12 )
+shape = SubResource( 7 )

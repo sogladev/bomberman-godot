@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class GameManager : SimpleStateMachine
 {
+    [Signal]
+    public delegate void GuiInput(InputEvent e);
     public override void _Ready()
     {
         base._Ready();

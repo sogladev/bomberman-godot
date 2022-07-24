@@ -6,11 +6,15 @@ using System.Collections.Generic;
 
 public class Player : KinematicBody2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-    private int _moveSpeed = 100; 
+    [Signal]
+    public delegate void prize();
+
+    [Signal]
+    public delegate void died();
+
+    private int _moveSpeed = 100;
     private int _moveSpeedLimit = 320;
+    private int _health = 100;
 
     private AnimationTree _animTree;
     private AnimationNodeStateMachinePlayback _animStateMachine;
@@ -28,7 +32,6 @@ public class Player : KinematicBody2D
     public int flamePowerUpValue = 1;
     public int bombPowerUpValue = 1;
 
-
     private bool _isInvincible = true;
     private AnimatedSprite _sprite;
     private bool _isFlickerOn = true;
@@ -42,8 +45,8 @@ public class Player : KinematicBody2D
         _animStateMachine = (AnimationNodeStateMachinePlayback)_animTree.Get("parameters/playback");
 
         _packedSceneBomb = ResourceLoader.Load<PackedScene>(_BombResource);
-        Timer timer_reload = GetNode<Timer>("Reload");
-        timer_reload.Connect("timeout", this, "Reload");
+        Timer timer_reload = GetNode<Timer>("Regenerate");
+        timer_reload.Connect("timeout", this, "Regenerate");
         _timer_invincibility = GetNode<Timer>("Invincibility");
         _timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
         Timer timer_invincibility_flicker = GetNode<Timer>("InvincibilityFlicker");
@@ -54,9 +57,12 @@ public class Player : KinematicBody2D
     }
 
 
-    private void Reload(){
+    private void Regenerate(){
         if (_amountOfBombs < ( 1 + (bombPowerUp * bombPowerUpValue))){
             _amountOfBombs++;
+        }
+        if (_health < 100){
+            _health += 10;
         }
     }
 
@@ -90,11 +96,20 @@ public class Player : KinematicBody2D
     }
 
 
-    private void CollectPrize(){
-    }
     private void HitByFire(){
-        _timer_invincibility.Start(5.0f);
+        _health = _health - 100;
+        if (_health <= 0){
+            EmitSignal("died");
+        }
+        else {
+            _isInvincible = true;
+            _timer_invincibility.Start(5.0f);
+        }
+    }
+
+    private void Prize(){
         _isInvincible = true;
+        EmitSignal("prize");
     }
 
 //    public override void _Input(InputEvent @event)
@@ -120,6 +135,10 @@ public class Player : KinematicBody2D
 //    }
 
 
+    private void _on_PlayerArea2D_PickedUpPrize(){
+        Prize();
+    }
+
     private void _on_PlayerArea2D_PickedUpPowerUp(string typeOfPowerUp){
         if (typeOfPowerUp == "Powerup_bomb")
         {
@@ -134,7 +153,6 @@ public class Player : KinematicBody2D
             speedPowerUp++;
             _moveSpeed = Math.Min(_moveSpeed + speedPowerUpValue, _moveSpeedLimit);
         }
-
     }
 
     public override void _PhysicsProcess(float delta)
@@ -160,12 +178,6 @@ public class Player : KinematicBody2D
                 if (!(_isInvincible)){
                     HitByFire();
                 }
-            }
-            else if (collider.Name.StartsWith("Prize")){
-                CollectPrize();
-            }
-            else if (collider.Name.StartsWith("Powerup")){
-                // Check type of powerup
             }
         }
 

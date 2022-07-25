@@ -51,7 +51,6 @@ public class GameOverState : GameManagerState
     public override void UpdateState(float delta)
     {
         base.OnUpdate();
-        const int nElements = 2;
         if (Input.IsActionJustPressed("ui_down")){
             _menu.handleInput("ui_down");
         }

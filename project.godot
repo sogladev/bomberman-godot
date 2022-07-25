@@ -101,6 +101,7 @@ place_bomb={
 2d_physics/layer_7="box"
 2d_physics/layer_8="unbreakable_wall"
 2d_physics/layer_9="power_up"
+2d_physics/layer_10="spawn_areas"
 
 [physics]
 

@@ -11,7 +11,9 @@ public class PlayerDBG : Player
         base._Ready();
         // Set custom color
         _amountOfBombs = 8;
-        _moveSpeed = 120;
-        _sprite.Modulate = new Color(0.16f, 0.98f, 0.26f, 1);
+        flamePowerUp = 5;
+        bombPowerUp = 10;
+        moveSpeed = 100;
+        SetColor(new Color(0.16f, 0.98f, 0.26f, 1));
     }
 }

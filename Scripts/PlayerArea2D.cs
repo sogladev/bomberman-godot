@@ -22,7 +22,7 @@ public class PlayerArea2D : Area2D
                     string typeOfPowerUp = ((PowerUp)area).typeOfPowerUp;
                     EmitSignal(nameof(PickedUpPowerUp), typeOfPowerUp);
                 }
-                else {
+                else if (area.Name.StartsWith("Prize")) {
                     EmitSignal(nameof(PickedUpPrize));
                 }
             }

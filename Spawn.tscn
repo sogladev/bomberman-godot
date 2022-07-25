@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RawAssets/RPGPack/PNG/rpgTile173.png" type="Texture" id=1]
+
+[node name="Sprite1" type="Sprite"]
+light_mask = 0
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false

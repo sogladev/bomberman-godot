@@ -41,6 +41,7 @@ public class MainMenuState : GameManagerState
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/DBG.tscn"}, 
             {"player_resource", "res://Nodes/PlayerDBG.tscn"},
+            {"bot_resource", "res://Nodes/PlayerDummy.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"is_debug", true},
 // TODO: Give color value of player
@@ -52,6 +53,7 @@ public class MainMenuState : GameManagerState
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/Demo.tscn"},
             {"player_resource", "res://Nodes/PlayerImmortal.tscn"},
+            {"bot_resource", "res://Nodes/PlayerDummy.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"is_debug", false},
 // TODO: Give color value of player
@@ -61,7 +63,6 @@ public class MainMenuState : GameManagerState
     public override void UpdateState(float delta)
     {
         base.OnUpdate();
-        const int nElements = 4;
         if (Input.IsActionJustPressed("ui_down")){
             GD.Print("down");
             _menu.handleInput("ui_down");

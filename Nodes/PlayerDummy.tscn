@@ -1,6 +1,6 @@
 [gd_scene load_steps=60 format=2]
 
-[ext_resource path="res://Scripts/PlayerImmortal.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerDummy.cs" type="Script" id=1]
 [ext_resource path="res://RawAssets/sprites/Bunny/down1.png" type="Texture" id=2]
 [ext_resource path="res://RawAssets/sprites/Bunny/down4.png" type="Texture" id=3]
 [ext_resource path="res://RawAssets/sprites/Bunny/up3.png" type="Texture" id=4]
@@ -57,9 +57,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
 "loop": true,
-"name": "down",
+"name": "idle_up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 25 ), ExtResource( 32 ) ],
@@ -72,9 +72,9 @@ animations = [ {
 "name": "idle_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "idle_up",
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -371,8 +371,8 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
-[sub_resource type="RectangleShape2D" id=43]
-extents = Vector2( 16, 16 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 9.05539
 
 [sub_resource type="CircleShape2D" id=42]
 
@@ -386,7 +386,7 @@ script = ExtResource( 1 )
 position = Vector2( -16, -16 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 1
 centered = false
 offset = Vector2( 22.509, 19.078 )
 
@@ -422,8 +422,8 @@ autostart = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 16, 16 )
-scale = Vector2( 0.7, 0.7 )
-shape = SubResource( 43 )
+scale = Vector2( 0.6, 0.6 )
+shape = SubResource( 1 )
 
 [node name="PlayerArea2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -432,7 +432,6 @@ script = ExtResource( 34 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
 position = Vector2( 16, 16 )
-scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 42 )
 
 [connection signal="PickedUpPowerUp" from="PlayerArea2D" to="." method="_on_PlayerArea2D_PickedUpPowerUp"]

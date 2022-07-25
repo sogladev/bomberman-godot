@@ -1,14 +1,31 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://RawAssets/RPGPack/Spritesheet/RPGpack_sheet.png" type="Texture" id=1]
+[ext_resource path="res://Spawn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RawAssets/Base pack/Tiles/brickWall.png" type="Texture" id=2]
-[ext_resource path="res://Nodes/Box_unbreakable.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Nodes/PowerUp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Nodes/Bomb.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Spawns.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Nodes/Box_loot.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Nodes/Prize.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Nodes/SpawnsGraveyard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://RawAssets/RPGPack/Spritesheet/RPGpack_sheet.png" type="Texture" id=3]
+[ext_resource path="res://Nodes/Box_unbreakable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Spawns.cs" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 128, 128 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 160, 128 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 128, 160 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 128, 128 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 160, 128 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 128, 128 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 128, 160 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 23.9486, 8.88823, 36.4069, 6.07509, 45.6018, 8.51849, 83.8284, 0.850693, 110.417, 9.6759, 146.923, 0.046936, 172.338, 10.2546, 185.069, 22.9861, 182.176, 51.3426, 191.435, 79.6991, 180.44, 115.579, 192, 141.62, 184.491, 167.662, 170.023, 181.551, 156.713, 184.444, 140.509, 182.708, 112.153, 191.389, 93.4734, 184.71, 69.9073, 183.866, 57.1758, 190.81, 36.3425, 188.495, 20.1388, 181.551, 9.88293, 173.859, 6.24994, 156.088, 9.14343, 145.671, 7.40735, 134.676, 1.04156, 120.208, 5.6712, 95.9028, 10.8796, 82.0139, 7.98602, 69.2824, 2.77771, 55.3935, 1.04156, 42.662, 9.14343, 24.7222, 16.313, 14.5145 )
@@ -16,9 +33,9 @@ points = PoolVector2Array( 23.9486, 8.88823, 36.4069, 6.07509, 45.6018, 8.51849,
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.3179, 24.672, 32, 29.4945, 32, 64, 21.5308, 63.7345, 21.5308, 58.4297, 0, 58.912 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=7]
 1/name = "BigTree"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 640, 64, 128 )
@@ -32,7 +49,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 1/shapes = [  ]
 1/z_index = 1
 2/name = "smallTree"
-2/texture = ExtResource( 1 )
+2/texture = ExtResource( 3 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 640, 64, 128 )
@@ -46,7 +63,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 2/shapes = [  ]
 2/z_index = 1
 3/name = "Grass"
-3/texture = ExtResource( 1 )
+3/texture = ExtResource( 3 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 32, 32, 128, 128 )
@@ -69,7 +86,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 3/shapes = [  ]
 3/z_index = 0
 5/name = "Bigbush"
-5/texture = ExtResource( 1 )
+5/texture = ExtResource( 3 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 576, 64, 64 )
@@ -83,7 +100,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 5/shapes = [  ]
 5/z_index = 1
 8/name = "WaterPatch"
-8/texture = ExtResource( 1 )
+8/texture = ExtResource( 3 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 640, 0, 32, 32 )
@@ -113,7 +130,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 } ]
 8/z_index = 0
 9/name = "GateRight"
-9/texture = ExtResource( 1 )
+9/texture = ExtResource( 3 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 416, 640, 32, 64 )
@@ -134,7 +151,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 } ]
 9/z_index = 1
 11/name = "Fence"
-11/texture = ExtResource( 1 )
+11/texture = ExtResource( 3 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 384, 672, 32, 32 )
@@ -157,7 +174,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 11/shapes = [  ]
 11/z_index = 1
 12/name = "Dirt"
-12/texture = ExtResource( 1 )
+12/texture = ExtResource( 3 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 320, 0, 192, 192 )
@@ -180,7 +197,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 12/shapes = [  ]
 12/z_index = -1
 13/name = "Smallbush"
-13/texture = ExtResource( 1 )
+13/texture = ExtResource( 3 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 64, 608, 64, 32 )
@@ -222,7 +239,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 15/shapes = [  ]
 15/z_index = 0
 16/name = "DirtSingle"
-16/texture = ExtResource( 1 )
+16/texture = ExtResource( 3 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 544, 96, 32, 32 )
@@ -236,7 +253,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 16/shapes = [  ]
 16/z_index = 0
 17/name = "WaterBottomLeft"
-17/texture = ExtResource( 1 )
+17/texture = ExtResource( 3 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 640, 160, 32, 32 )
@@ -250,7 +267,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 17/shapes = [  ]
 17/z_index = 0
 18/name = "WaterTopRightCorner"
-18/texture = ExtResource( 1 )
+18/texture = ExtResource( 3 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 800, 0, 32, 32 )
@@ -264,7 +281,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 18/shapes = [  ]
 18/z_index = 0
 19/name = "WaterBottomRight"
-19/texture = ExtResource( 1 )
+19/texture = ExtResource( 3 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 800, 160, 32, 32 )
@@ -278,7 +295,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 19/shapes = [  ]
 19/z_index = 0
 20/name = "WaterTopLeftCorner"
-20/texture = ExtResource( 1 )
+20/texture = ExtResource( 3 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 640, 0, 32, 32 )
@@ -292,7 +309,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 20/shapes = [  ]
 20/z_index = 0
 21/name = "WaterLineTop"
-21/texture = ExtResource( 1 )
+21/texture = ExtResource( 3 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 672, 0, 64, 32 )
@@ -306,7 +323,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 21/shapes = [  ]
 21/z_index = 0
 22/name = "WaterLineRight"
-22/texture = ExtResource( 1 )
+22/texture = ExtResource( 3 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 800, 32, 32, 64 )
@@ -320,7 +337,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 22/shapes = [  ]
 22/z_index = 0
 23/name = "WaterLineBottom"
-23/texture = ExtResource( 1 )
+23/texture = ExtResource( 3 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 672, 160, 64, 32 )
@@ -334,7 +351,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 23/shapes = [  ]
 23/z_index = 0
 24/name = "WaterLineLeft"
-24/texture = ExtResource( 1 )
+24/texture = ExtResource( 3 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 640, 32, 32, 64 )
@@ -348,7 +365,7 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 24/shapes = [  ]
 24/z_index = 0
 25/name = "WaterT"
-25/texture = ExtResource( 1 )
+25/texture = ExtResource( 3 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 832, 32, 32, 32 )
@@ -362,212 +379,109 @@ points = PoolVector2Array( 0, 36.2461, 22.0131, 36.2461, 22.0131, 29.9768, 27.31
 25/shapes = [  ]
 25/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 128, 96 )
 
-[node name="CameraDBG" type="Camera2D" parent="."]
-position = Vector2( -960, -96 )
-current = true
+[node name="Spawns" type="Node2D"]
+script = ExtResource( 5 )
 
-[node name="TestNodes" type="Node" parent="."]
-
-[node name="Bomb2" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1344, -320 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Bomb3" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1344, -224 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Box_unbreakable50" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1024, -192 )
+[node name="Area2D1" type="Area2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Box_unbreakable68" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1504, -128 )
+[node name="Spawn" parent="Area2D1" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D1"]
+position = Vector2( 128, 128 )
+shape = SubResource( 8 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2( 192, 0 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Box_unbreakable51" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -992, -192 )
+[node name="Spawn" parent="Area2D2" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 96, 128 )
+shape = SubResource( 9 )
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2( 448, 224 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Box_unbreakable63" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1184, 64 )
+[node name="Spawn" parent="Area2D4" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2( -64, 32 )
+shape = SubResource( 11 )
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2( 448, 448 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Box_unbreakable64" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -928, -224 )
+[node name="Spawn" parent="Area2D5" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2( -64, -64 )
+shape = SubResource( 12 )
+
+[node name="Area2D6" type="Area2D" parent="."]
+position = Vector2( 224, 352 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Box_unbreakable61" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1440, 32 )
+[node name="Spawn" parent="Area2D6" instance=ExtResource( 1 )]
+position = Vector2( 64, 192 )
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
+position = Vector2( 32, 128 )
+shape = SubResource( 13 )
+
+[node name="Area2D8" type="Area2D" parent="."]
+position = Vector2( 0, 448 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Box_unbreakable58" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1184, -96 )
+[node name="Spawn" parent="Area2D8" instance=ExtResource( 1 )]
+position = Vector2( 0, -448 )
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
+position = Vector2( 128, -64 )
+shape = SubResource( 14 )
+
+[node name="Area2D7" type="Area2D" parent="."]
+position = Vector2( 0, 224 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Box_unbreakable79" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1280, -64 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Spawn" parent="Area2D7" instance=ExtResource( 1 )]
+position = Vector2( 0, 448 )
+scale = Vector2( 1, 1 )
 
-[node name="Box_unbreakable59" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1152, -64 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable65" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1312, 32 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable80" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1216, 32 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable54" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -928, -192 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable52" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -960, -160 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Powerup" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -1408, -32 )
-
-[node name="Powerup2" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -1024, -96 )
-
-[node name="Powerup3" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -992, -96 )
-
-[node name="Powerup4" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -960, -96 )
-
-[node name="Powerup5" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -928, -96 )
-
-[node name="Powerup6" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -864, -96 )
-
-[node name="Powerup7" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -832, -96 )
-
-[node name="Powerup8" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -896, -96 )
-
-[node name="Box_unbreakable53" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1440, -224 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable55" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, -288 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable56" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1312, -320 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable57" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1376, -320 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable66" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, -352 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable62" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, -192 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable67" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1312, -224 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable69" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, -256 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Bomb4" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1344, -128 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Box_unbreakable70" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, -96 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable71" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1312, -128 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable73" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, -160 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Bomb5" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1344, -32 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Bomb7" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1248, -64 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Bomb9" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1248, 32 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Bomb8" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1184, -64 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Box_unbreakable72" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, 0 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable74" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1312, -32 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable75" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1344, -64 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable60" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1248, 64 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Powerup9" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( -1088, -96 )
-
-[node name="Bomb6" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( -1120, 32 )
-scale = Vector2( 1, 1.0301 )
-
-[node name="Box_unbreakable76" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1120, 64 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable77" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1088, 32 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_unbreakable78" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( -1120, 0 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Box_loot" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( -1408, -224 )
-
-[node name="Box_loot3" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( -1472, -128 )
-
-[node name="Box_loot5" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( -1440, -128 )
-
-[node name="Box_loot4" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( -1440, -32 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
+position = Vector2( 128, 32 )
+shape = SubResource( 15 )
 
 [node name="TileMapGround" type="TileMap" parent="."]
+visible = false
 z_index = -1
-tile_set = SubResource( 4 )
+tile_set = SubResource( 7 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
 cell_tile_origin = 1
@@ -578,335 +492,272 @@ tile_data = PoolIntArray( -852018, 3, 0, -852017, 3, 0, -852016, 3, 0, -852015, 
 
 [node name="WaterWall" type="Node" parent="TileMapGround"]
 
-[node name="Box_unbreakable67" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable67" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable68" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable68" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 0, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable69" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable69" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 32, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable70" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable70" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 64, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable71" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable71" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 96, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable72" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable72" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 128, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable73" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable73" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 160, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable74" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable74" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 192, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable75" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable75" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 224, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable76" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable76" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 256, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable77" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable77" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 288, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable78" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable78" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 320, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable79" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable79" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 352, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable80" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable80" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 384, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable81" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable81" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 416, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable82" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable82" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 448, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable83" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable83" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable84" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable84" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 0, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable85" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable85" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 32, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable86" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable86" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 64, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable87" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable87" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 96, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable88" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable88" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 128, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable89" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable89" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 160, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable90" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable90" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 192, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable91" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable91" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 224, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable92" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable92" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 256, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable93" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable93" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 288, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable94" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable94" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 320, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable95" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable95" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 352, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable96" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable96" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 384, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable97" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable97" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 416, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable62" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable62" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, -32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable99" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable99" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 480 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable100" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable100" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 448 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable101" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable101" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 416 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable102" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable102" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 384 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable103" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable103" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 352 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable104" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable104" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 320 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable105" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable105" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 288 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable106" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable106" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 256 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable107" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable107" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 224 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable108" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable108" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 192 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable109" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable109" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 160 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable110" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable110" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 128 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable111" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable111" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 96 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable112" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable112" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 64 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable113" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable113" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable114" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable114" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 480, 0 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable115" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable115" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 448 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable116" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable116" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 416 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable117" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable117" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 384 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable118" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable118" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 352 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable119" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable119" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 320 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable120" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable120" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 288 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable121" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable121" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 256 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable122" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable122" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 224 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable123" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable123" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 192 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable124" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable124" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 160 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable125" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable125" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 128 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable126" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable126" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 96 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable127" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable127" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 64 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable128" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable128" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 32 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable129" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable129" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( -32, 0 )
-scale = Vector2( 0.5, 0.5 )
 
-[node name="Box_unbreakable98" parent="TileMapGround/WaterWall" instance=ExtResource( 3 )]
+[node name="Box_unbreakable98" parent="TileMapGround/WaterWall" instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 448, 480 )
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2( 416, 64 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 512
+collision_mask = 2
 
-[node name="Prize" type="Node2D" parent="."]
-position = Vector2( -992, 160 )
+[node name="Spawn" parent="Area2D3" instance=ExtResource( 1 )]
+position = Vector2( 64, -128 )
+scale = Vector2( 1, 1 )
 
-[node name="Prize" parent="Prize" instance=ExtResource( 8 )]
-position = Vector2( -112, -304 )
-
-[node name="Spawns" parent="." instance=ExtResource( 6 )]
-position = Vector2( -992, -32 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="SpawnsGraveyard" parent="." instance=ExtResource( 9 )]
-position = Vector2( -544, -256 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2( 0, -32 )
+shape = SubResource( 10 )

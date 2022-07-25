@@ -7,19 +7,22 @@ using System.Collections.Generic;
 public class Player : KinematicBody2D
 {
     [Signal]
-    public delegate void prize();
+    public delegate void collectedPrize(string playerName);
 
     [Signal]
-    public delegate void died();
+    public delegate void playerDied(string playerName);
 
-    protected int _moveSpeed = 50;
+    public bool isDead = false;
+    public bool isReadyToRespawn;
+
+    public int moveSpeed = 50;
     private int _moveSpeedLimit = 320;
     private int _health = 100;
 
-    private AnimationTree _animTree;
-    private AnimationNodeStateMachinePlayback _animStateMachine;
-    private Vector2 _movement = new Vector2();
-    private Vector2 _direction = new Vector2();
+    protected AnimationTree _animTree;
+    protected AnimationNodeStateMachinePlayback _animStateMachine;
+    protected Vector2 _movement = new Vector2();
+    protected Vector2 _direction = new Vector2();
 
     private const string _BombResource = "res://Nodes/Bomb.tscn";
     private PackedScene _packedSceneBomb;
@@ -27,8 +30,7 @@ public class Player : KinematicBody2D
     protected int _amountOfBombs = 1;
     public int bombPowerUp = 0;
     public int flamePowerUp = 0;
-    public int speedPowerUp = 0;
-    public int speedPowerUpValue = 20;
+    public int speedPowerUpValue = 20; // How many units should add per powerUp
     public int flamePowerUpValue = 1;
     public int bombPowerUpValue = 1;
 
@@ -37,6 +39,20 @@ public class Player : KinematicBody2D
     private bool _isFlickerOn = true;
 
     protected Timer _timer_invincibility;
+
+    public string name = "default";
+    
+    public Color color = new Color(1.0f,1.0f,1.0f, 1.0f);
+    
+
+    public void Init(string name)
+    {
+        this.name = name;
+    }
+
+    public void SetColor(Color color){
+        _sprite.Modulate = color;
+    }
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -52,8 +68,6 @@ public class Player : KinematicBody2D
         Timer timer_invincibility_flicker = GetNode<Timer>("InvincibilityFlicker");
         timer_invincibility_flicker.Connect("timeout", this, "Flicker");
         _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
-        // Set custom color
-//        _sprite.Modulate = new Color(0.0f,0.0f,0.8f);
     }
 
 
@@ -91,25 +105,43 @@ public class Player : KinematicBody2D
         }
     }
 
+    public void ApplyInvincibility(float duration){
+        _isInvincible = true;
+        _timer_invincibility.Start(duration);
+    }
+
     private void RemoveInvincibility(){
         _isInvincible = false;
     }
 
+    private void Die(){
+        isDead = true;
+        _isInvincible = true;
+        isReadyToRespawn = false;
+        EmitSignal("playerDied", name);
+        // PlayDeath animation
+        // set isReadyToRespawn to true somehwere
+        isReadyToRespawn = true;
+    }
 
-    private void HitByFire(){
+    public void Respawn(){
+        isDead = false;
+        ApplyInvincibility(15.0f);
+    }
+
+    protected void HitByFire(){
         _health = _health - 100;
         if (_health <= 0){
-            EmitSignal("died");
+            Die();
         }
         else {
-            _isInvincible = true;
-            _timer_invincibility.Start(5.0f);
+            ApplyInvincibility(5.0f);
         }
     }
 
     private void Prize(){
         _isInvincible = true;
-        EmitSignal("prize");
+        EmitSignal("collectedPrize", name);
     }
 
 //    public override void _Input(InputEvent @event)
@@ -150,17 +182,17 @@ public class Player : KinematicBody2D
         }
         else if (typeOfPowerUp == "Powerup_speed")
         {
-            speedPowerUp++;
-            _moveSpeed = Math.Min(_moveSpeed + speedPowerUpValue, _moveSpeedLimit);
+            moveSpeed = Math.Min(moveSpeed + speedPowerUpValue, _moveSpeedLimit);
         }
     }
 
     public override void _PhysicsProcess(float delta)
     {
+        if (isDead){ return; }
         _movement.x = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
         _movement.y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
         _direction = _movement.Normalized();
-        var possibleCollision = MoveAndCollide(_direction * _moveSpeed * delta);
+        var possibleCollision = MoveAndCollide(_direction * moveSpeed * delta);
 
         // Update animation tree based on direction
         string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";

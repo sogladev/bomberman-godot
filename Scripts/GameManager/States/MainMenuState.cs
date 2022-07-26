@@ -41,7 +41,7 @@ public class MainMenuState : GameManagerState
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/DBG.tscn"}, 
             {"player_resource", "res://Nodes/PlayerDBG.tscn"},
-            {"bot_resource", "res://Nodes/PlayerDummy.tscn"},
+            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"is_debug", true},
 // TODO: Give color value of player
@@ -53,7 +53,7 @@ public class MainMenuState : GameManagerState
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/Demo.tscn"},
             {"player_resource", "res://Nodes/PlayerImmortal.tscn"},
-            {"bot_resource", "res://Nodes/PlayerDummy.tscn"},
+            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"is_debug", false},
 // TODO: Give color value of player

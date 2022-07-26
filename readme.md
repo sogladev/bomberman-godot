@@ -2,11 +2,12 @@
 wine
 https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 
-
+change bunny to single bunny with profile
 add background state, clears and refreshes MainMenu loop animation
 let bunny move left right animation with timers.
     change colors
 add animations to fire and bomb
+do not fizzle fire on ignite powerup
 ------------------------------
 create graveyard spawns that are named
 order players and give them names 1-8

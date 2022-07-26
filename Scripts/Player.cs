@@ -38,6 +38,9 @@ public class Player : KinematicBody2D
     protected AnimatedSprite _sprite;
     private bool _isFlickerOn = true;
 
+    public bool isImmortal = false; // if set Die() does nothing 
+    public bool isCollectPrize = false; // if set Prize() does nothing
+
     protected Timer _timer_invincibility;
 
     public string name = "default";
@@ -115,6 +118,7 @@ public class Player : KinematicBody2D
     }
 
     private void Die(){
+        if (isImmortal){return;};
         isDead = true;
         _isInvincible = true;
         isReadyToRespawn = false;
@@ -140,6 +144,7 @@ public class Player : KinematicBody2D
     }
 
     private void Prize(){
+        if (!isCollectPrize){return;};
         _isInvincible = true;
         EmitSignal("collectedPrize", name);
     }
@@ -186,6 +191,24 @@ public class Player : KinematicBody2D
         }
     }
 
+    public void PlaceBomb(){
+        Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
+        newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
+        // Change position to center
+        Vector2 centeredPosition = new Vector2();
+        centeredPosition.x = (float)(Math.Round(Position.x  / 32) * 32);
+        centeredPosition.y = (float)(Math.Round(Position.y  / 32) * 32);
+        // Check if there already is a Bomb on center position
+        List<Bomb> bombs = GetTree().Root.GetChildren().OfType<Bomb>().ToList();
+        foreach(Bomb bomb in bombs){
+            if (bomb.Position == centeredPosition){
+                return;
+            }
+        }
+        newBomb.Position = centeredPosition;
+        GetTree().Root.AddChild(newBomb);
+    }
+
     public override void _PhysicsProcess(float delta)
     {
         if (isDead){ return; }
@@ -216,22 +239,7 @@ public class Player : KinematicBody2D
         // Place bomb if key pressed or held down
         if (Input.IsActionPressed("place_bomb") && _amountOfBombs > 0)
         {
-            Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
-            newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
-            // Change position to center
-            // cell size is 32, subtract module then add half cell size (16)
-            Vector2 centeredPosition = new Vector2();
-            centeredPosition.x = (float)(Math.Round(Position.x  / 32) * 32);
-            centeredPosition.y = (float)(Math.Round(Position.y  / 32) * 32);
-            // Check if there already is a Bomb on center position
-            List<Bomb> bombs = GetTree().Root.GetChildren().OfType<Bomb>().ToList();
-            foreach(Bomb bomb in bombs){
-                if (bomb.Position == centeredPosition){
-                    return;
-                }
-            }
-            newBomb.Position = centeredPosition;
-            GetTree().Root.AddChild(newBomb);
+            PlaceBomb();
             _amountOfBombs--;
         }
     }

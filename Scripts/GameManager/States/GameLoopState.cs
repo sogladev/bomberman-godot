@@ -39,11 +39,11 @@ public class GameLoopState : GameManagerState
         // Connect signals: died, prize
         _player.Connect("collectedPrize", this, "collectedPrize");
         _player.Connect("playerDied", this, "playerDied");
-        // Spawn 7 Dummy Players
-        PlayerDummy bot;
+        // Spawn 7 PlayerBots
+        PlayerBot bot;
         for (int i = 0; i < 7; i++)
         {
-            bot = _packedScenePlayerBot.Instance() as PlayerDummy;
+            bot = _packedScenePlayerBot.Instance() as PlayerBot;
             bot.Init($"Bot{i}");
             bot.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
             bot.Connect("playerDied", this, "botDied");

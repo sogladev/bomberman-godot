@@ -12,7 +12,8 @@ public class GameLoopState : GameManagerState
 
     private List<Player> playersInTheGame;
 
-    private bool _isDebug;
+    private string _specialType;
+
 
     private Player _player;
     private Node2D _newGame;
@@ -24,14 +25,26 @@ public class GameLoopState : GameManagerState
         _packedScenePlayer = ResourceLoader.Load<PackedScene>((string)message["player_resource"]);
         _packedScenePlayerBot = ResourceLoader.Load<PackedScene>((string)message["bot_resource"]);
         _packedScenePrize = ResourceLoader.Load<PackedScene>((string)message["prize_resource"]);
-        _isDebug = (bool)message["is_debug"];
+        _specialType = (string)message["special_type"];
         // Create Map
         playersInTheGame = new List<Player>();
         _newGame = _packedSceneGame.Instance() as Node2D;
         GetTree().Root.AddChild(_newGame);
-        // Spawn Player and then listen until... score, dies, prize
+        // Spawn Player 
         _player = _packedScenePlayer.Instance() as Player;
         _player.Init("playerName");
+        // Set player if special state
+        if (_specialType == "immortal"){
+            _player.color = new Color(0.69f, 0.69f, 0.0f, 1); // gold
+            _player.isImmortal = true;
+        }
+        else if (_specialType == "DBG"){
+            _player.amountOfBombs = 8;
+            _player.flamePowerUp = 5;
+            _player.bombPowerUp = 10;
+            _player.moveSpeed = 100;
+            _player.color = new Color(0.16f, 0.98f, 0.26f, 1); // green
+        }
         _player.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
         GD.Print("Player position generated: ", _player.Position);
         GetTree().Root.AddChild(_player);

@@ -34,7 +34,10 @@ public class PlayerBot : Player
             }
         }
         if (StatePlaceBomb){
-            PlaceBomb();
+            if (_TryPlaceBomb()){
+                // Bomb placed
+                StatePlaceBomb = false;
+            }
         }
 
     }

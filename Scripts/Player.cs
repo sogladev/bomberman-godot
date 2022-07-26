@@ -27,7 +27,7 @@ public class Player : KinematicBody2D
     private const string _BombResource = "res://Nodes/Bomb.tscn";
     private PackedScene _packedSceneBomb;
 
-    protected int _amountOfBombs = 1;
+    public int amountOfBombs = 1;
     public int bombPowerUp = 0;
     public int flamePowerUp = 0;
     public int speedPowerUpValue = 20; // How many units should add per powerUp
@@ -53,7 +53,7 @@ public class Player : KinematicBody2D
         this.name = name;
     }
 
-    public void SetColor(Color color){
+    protected void SetColor(Color color){
         _sprite.Modulate = color;
     }
 
@@ -71,12 +71,13 @@ public class Player : KinematicBody2D
         Timer timer_invincibility_flicker = GetNode<Timer>("InvincibilityFlicker");
         timer_invincibility_flicker.Connect("timeout", this, "Flicker");
         _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
+        SetColor(color);
     }
 
 
     private void Regenerate(){
-        if (_amountOfBombs < ( 1 + (bombPowerUp * bombPowerUpValue))){
-            _amountOfBombs++;
+        if (amountOfBombs < ( 1 + (bombPowerUp * bombPowerUpValue))){
+            amountOfBombs++;
         }
         if (_health < 100){
             _health += 10;
@@ -191,7 +192,7 @@ public class Player : KinematicBody2D
         }
     }
 
-    public void PlaceBomb(){
+    protected bool _TryPlaceBomb(){
         Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
         newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
         // Change position to center
@@ -202,11 +203,13 @@ public class Player : KinematicBody2D
         List<Bomb> bombs = GetTree().Root.GetChildren().OfType<Bomb>().ToList();
         foreach(Bomb bomb in bombs){
             if (bomb.Position == centeredPosition){
-                return;
+                return false;
             }
         }
+        GD.Print("Bomb placed at ", centeredPosition.x, centeredPosition.y);
         newBomb.Position = centeredPosition;
         GetTree().Root.AddChild(newBomb);
+        return true;
     }
 
     public override void _PhysicsProcess(float delta)
@@ -237,10 +240,12 @@ public class Player : KinematicBody2D
         }
 
         // Place bomb if key pressed or held down
-        if (Input.IsActionPressed("place_bomb") && _amountOfBombs > 0)
+        if (Input.IsActionPressed("place_bomb") && amountOfBombs > 0)
         {
-            PlaceBomb();
-            _amountOfBombs--;
+            GD.Print("Bombs ", amountOfBombs);
+            if (_TryPlaceBomb()){
+                amountOfBombs--;
+            }
         }
     }
 }

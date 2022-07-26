@@ -32,6 +32,17 @@ public class PlayerBot : Player
                 _animTree.Set("parameters/Idle/blend_position", _direction);
                 _animTree.Set("parameters/Walk/blend_position", _direction);
             }
+
+            // Check collisions
+            if (possibleCollision != null){
+                KinematicCollision2D collision = (KinematicCollision2D)possibleCollision;
+                Node collider = (Node)collision.Collider;
+                if (collider.Name.StartsWith("@Flame")){
+                    if (!(_isInvincible)){
+                        HitByFire();
+                    }
+                }
+            }
         }
         if (StatePlaceBomb){
             if (_TryPlaceBomb()){

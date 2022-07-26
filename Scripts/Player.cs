@@ -193,6 +193,10 @@ public class Player : KinematicBody2D
         {
             moveSpeed = Math.Min(moveSpeed + speedPowerUpValue, _moveSpeedLimit);
         }
+        else if (typeOfPowerUp == "Powerup_shield")
+        {
+            ApplyInvincibility(10.0f);
+        }
     }
 
     protected bool _TryPlaceBomb(){

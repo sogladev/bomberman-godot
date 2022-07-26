@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FlamePowerup.png-74a7a1cc3b4596ca523c73f8e1a7010e.stex"
+path="res://.import/ShieldPowerup.png-192feeee12c8278ba35a2e1f66836565.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Powerups/FlamePowerup.png"
-dest_files=[ "res://.import/FlamePowerup.png-74a7a1cc3b4596ca523c73f8e1a7010e.stex" ]
+source_file="res://RawAssets/sprites/Powerups/ShieldPowerup.png"
+dest_files=[ "res://.import/ShieldPowerup.png-192feeee12c8278ba35a2e1f66836565.stex" ]
 
 [params]
 

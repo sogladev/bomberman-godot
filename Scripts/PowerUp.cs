@@ -8,11 +8,13 @@ public class PowerUp : Area2D
         "res://Textures/Powerups/BombPowerup.png",
         "res://Textures/Powerups/FlamePowerup.png",
         "res://Textures/Powerups/SpeedPowerup.png",
+        "res://Textures/Powerups/ShieldPowerup.png",
          };
     private List<string> _PowerUpNames = new List<string>{
         "Powerup_bomb",
         "Powerup_flame",
         "Powerup_speed",
+        "Powerup_shield",
          };
 
     private bool _isInvincible = true;

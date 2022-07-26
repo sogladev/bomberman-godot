@@ -120,7 +120,7 @@ public class Player : KinematicBody2D
 
     private void Die(){
         if (isImmortal){return;};
-//        if (isDead){return;}; // Avoid dying twice
+        if (isDead){return;}; // Avoid dying twice
         isDead = true;
         _isInvincible = true;
         isReadyToRespawn = false;

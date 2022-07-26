@@ -386,7 +386,6 @@ script = ExtResource( 1 )
 position = Vector2( -16, -16 )
 frames = SubResource( 42 )
 animation = "idle"
-frame = 2
 centered = false
 offset = Vector2( 22.509, 19.078 )
 
@@ -409,7 +408,7 @@ parameters/Idle/blend_position = Vector2( 0.00425529, 0.819512 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="Regenerate" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [node name="Invincibility" type="Timer" parent="."]

@@ -180,6 +180,7 @@ public class Player : KinematicBody2D
     private void _on_PlayerArea2D_PickedUpPowerUp(string typeOfPowerUp){
         if (typeOfPowerUp == "Powerup_bomb")
         {
+            amountOfBombs++;
             bombPowerUp++;
         }
         else if (typeOfPowerUp == "Powerup_flame")
@@ -206,7 +207,6 @@ public class Player : KinematicBody2D
                 return false;
             }
         }
-        GD.Print("Bomb placed at ", centeredPosition.x, centeredPosition.y);
         newBomb.Position = centeredPosition;
         GetTree().Root.AddChild(newBomb);
         return true;
@@ -242,7 +242,6 @@ public class Player : KinematicBody2D
         // Place bomb if key pressed or held down
         if (Input.IsActionPressed("place_bomb") && amountOfBombs > 0)
         {
-            GD.Print("Bombs ", amountOfBombs);
             if (_TryPlaceBomb()){
                 amountOfBombs--;
             }

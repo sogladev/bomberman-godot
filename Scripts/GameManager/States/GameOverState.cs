@@ -10,6 +10,8 @@ public class GameOverState : GameManagerState
 
     private bool _isVictory;
 
+    private Node2D _menuAnimation;
+
 
     public override void OnStart(Dictionary<string, object> message)
     {
@@ -23,6 +25,7 @@ public class GameOverState : GameManagerState
             GD.Print("control ", c.Name);
             c.Show();
         }
+        _menuAnimation.QueueFree();
     }
 
 
@@ -41,6 +44,8 @@ public class GameOverState : GameManagerState
     public override void _Ready(){
         base._Ready();
         _menu = GetNode<GameOverMenu>("../../../../Game/CanvasLayerGameOver/GameOverMenu");
+        _menuAnimation = ResourceLoader.Load<PackedScene>("res://Nodes/Menus/GameOverMenuAnimation.tscn").Instance() as Node2D;
+        GetTree().Root.AddChild(_menuAnimation);
     }
 
     public void ChangeToMainMenuState()

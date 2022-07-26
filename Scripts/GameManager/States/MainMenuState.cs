@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class MainMenuState : GameManagerState
 {
     private MainMenu _menu;
+    private Node2D _menuAnimation;
 
     public override void OnStart(Dictionary<string, object> message)
     {
@@ -27,12 +28,16 @@ public class MainMenuState : GameManagerState
             GD.Print("control ", c.Name);
             c.Hide();
         }
+
+        _menuAnimation.QueueFree();
     }
 
 
     public override void _Ready(){
         base._Ready();
         _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
+        _menuAnimation = ResourceLoader.Load<PackedScene>("res://Nodes/Menus/MainMenuAnimation.tscn").Instance() as Node2D;
+        GetTree().Root.AddChild(_menuAnimation);
     }
 
     public void ChangeToDebugLoopState()

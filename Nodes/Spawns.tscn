@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Spawn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Spawn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RawAssets/Base pack/Tiles/brickWall.png" type="Texture" id=2]
 [ext_resource path="res://RawAssets/RPGPack/Spritesheet/RPGpack_sheet.png" type="Texture" id=3]
 [ext_resource path="res://Nodes/Box_unbreakable.tscn" type="PackedScene" id=4]

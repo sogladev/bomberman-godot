@@ -112,6 +112,14 @@ public class GameLoopState : GameManagerState
         }
     }
 
+    public override void UpdateState(float delta)
+    {
+        if (Input.IsActionJustPressed("ui_cancel"))
+        {
+            GM.ChangeState("MainMenuState");
+        }
+    }
+
 
     private void collectedPrize(string playerName)
     {

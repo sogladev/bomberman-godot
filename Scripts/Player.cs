@@ -196,6 +196,7 @@ public class Player : KinematicBody2D
     }
 
     protected bool _TryPlaceBomb(){
+        if (amountOfBombs <= 0){ return false; };
         Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
         newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
         // Change position to center
@@ -211,6 +212,7 @@ public class Player : KinematicBody2D
         }
         newBomb.Position = centeredPosition;
         GetTree().Root.AddChild(newBomb);
+        amountOfBombs--;
         return true;
     }
 
@@ -241,12 +243,9 @@ public class Player : KinematicBody2D
             }
         }
 
-        // Place bomb if key pressed or held down
-        if (Input.IsActionPressed("place_bomb") && amountOfBombs > 0)
-        {
-            if (_TryPlaceBomb()){
-                amountOfBombs--;
-            }
+        // Try place bomb if key pressed or held down
+        if (Input.IsActionPressed("place_bomb")){
+            _TryPlaceBomb();
         }
     }
 }

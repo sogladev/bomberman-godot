@@ -22,7 +22,7 @@ public class GameManager : SimpleStateMachine
         {
             c.Hide();
         }
-        foreach(Control c in GetNode("../../Game/CanvasLayerGameOver").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        foreach(Control c in GetNode("../../Game/CanvasLayerGameOverMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             c.Hide();
         }

@@ -39,7 +39,7 @@ public class Player : KinematicBody2D
     private bool _isFlickerOn = true;
 
     public bool isImmortal = false; // if set Die() does nothing 
-    public bool isCollectPrize = false; // if set Prize() does nothing
+    public bool isCollectPrize = true; // if not set Prize() does nothing
 
     protected Timer _timer_invincibility;
 
@@ -120,10 +120,11 @@ public class Player : KinematicBody2D
 
     private void Die(){
         if (isImmortal){return;};
+//        if (isDead){return;}; // Avoid dying twice
         isDead = true;
         _isInvincible = true;
         isReadyToRespawn = false;
-        EmitSignal("playerDied", name);
+        EmitSignal(nameof(playerDied), name);
         // PlayDeath animation
         // set isReadyToRespawn to true somehwere
         isReadyToRespawn = true;
@@ -147,6 +148,7 @@ public class Player : KinematicBody2D
     private void Prize(){
         if (!isCollectPrize){return;};
         _isInvincible = true;
+        GD.Print("Emit collectedPrize");
         EmitSignal("collectedPrize", name);
     }
 

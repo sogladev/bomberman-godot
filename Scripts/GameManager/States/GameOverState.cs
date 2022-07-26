@@ -11,21 +11,28 @@ public class GameOverState : GameManagerState
     private bool _isVictory;
 
     private Node2D _menuAnimation;
+    private string _menuAnimationResource = "res://Nodes/Menus/GameOverMenuAnimation.tscn";
+
+    private PackedScene _packedSceneMenuAnimation;
 
 
     public override void OnStart(Dictionary<string, object> message)
     {
         base.OnStart(message);
+        _menu = GetNode<GameOverMenu>("../../../../Game/CanvasLayerGameOverMenu/GameOverMenu");
 
         _isVictory = (bool)message["is_victory"];
         _menu.SetTitle(_isVictory ? "You win!" : "You lose!");
 
-        foreach(Control c in GetNode("../../../../Game/CanvasLayerGameOver").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        foreach(Control c in GetNode("../../../../Game/CanvasLayerGameOverMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             GD.Print("control ", c.Name);
             c.Show();
         }
-        _menuAnimation.QueueFree();
+
+        _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
+        _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
+        AddChild(_menuAnimation);
     }
 
 
@@ -33,19 +40,13 @@ public class GameOverState : GameManagerState
     {
         base.OnExit(nextState);
 
-        foreach(Control c in GetNode("../../../../Game/CanvasLayerGameOver").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        foreach(Control c in GetNode("../../../../Game/CanvasLayerGameOverMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             GD.Print("control ", c.Name);
             c.Hide();
         }
-    }
 
-
-    public override void _Ready(){
-        base._Ready();
-        _menu = GetNode<GameOverMenu>("../../../../Game/CanvasLayerGameOver/GameOverMenu");
-        _menuAnimation = ResourceLoader.Load<PackedScene>("res://Nodes/Menus/GameOverMenuAnimation.tscn").Instance() as Node2D;
-        GetTree().Root.AddChild(_menuAnimation);
+        _menuAnimation.QueueFree();
     }
 
     public void ChangeToMainMenuState()

@@ -7,6 +7,9 @@ public class MainMenuState : GameManagerState
 {
     private MainMenu _menu;
     private Node2D _menuAnimation;
+    private string _menuAnimationResource = "res://Nodes/Menus/MainMenuAnimation.tscn";
+
+    private PackedScene _packedSceneMenuAnimation;
 
     public override void OnStart(Dictionary<string, object> message)
     {
@@ -17,6 +20,11 @@ public class MainMenuState : GameManagerState
             GD.Print("control ", c.Name);
             c.Show();
         }
+
+        _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
+        _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
+        _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
+        AddChild(_menuAnimation);
     }
 
     public override void OnExit(string nextState)
@@ -30,14 +38,6 @@ public class MainMenuState : GameManagerState
         }
 
         _menuAnimation.QueueFree();
-    }
-
-
-    public override void _Ready(){
-        base._Ready();
-        _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
-        _menuAnimation = ResourceLoader.Load<PackedScene>("res://Nodes/Menus/MainMenuAnimation.tscn").Instance() as Node2D;
-        GetTree().Root.AddChild(_menuAnimation);
     }
 
     public void ChangeToDebugLoopState()

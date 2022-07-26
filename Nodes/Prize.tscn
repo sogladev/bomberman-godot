@@ -16,6 +16,7 @@ region_rect = Rect2( 70, 35, 24, 25 )
 [node name="PrizeArea2D" type="Area2D" parent="."]
 position = Vector2( 12, 12 )
 collision_layer = 32
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PrizeArea2D"]
 rotation = -2.61799

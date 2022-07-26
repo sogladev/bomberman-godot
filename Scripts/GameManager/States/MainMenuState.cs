@@ -11,6 +11,26 @@ public class MainMenuState : GameManagerState
 
     private PackedScene _packedSceneMenuAnimation;
 
+    private PackedScene _packedScenePlayerBot;
+
+    private List<string> _playerNames = new List<string>(){ // Generate later
+        "botA", "botB", "botC", "botD", "botE", "botF", "botG", "botH", "botI",
+    };
+    private List<Color> _playerColors = new List<Color>(){
+        // bad colors: dark blue
+        new Color(0.86f, 0.06f, 0.09f, 1), // red
+        new Color(0.95f, 0.93f, 0.15f, 1), // yellow
+        //new Color(0.03f, 0.4f, 0.69f, 1), // blue
+        new Color(0.04f, 0.96f, 0.89f, 1), // cyan
+        new Color(0.16f, 0.98f, 0.26f, 1), // green
+        //new Color(0.79f, 0.79f, 0.0f, 1), // gold
+        new Color(0.99f, 0.3f, 0.99f, 1), // pink
+        new Color(0.67f, 0.84f, 0.89f, 1), // lightblue
+        new Color(0.59f, 0.6f, 0.95f, 1), // violet blue
+        new Color(0.52f, 1, 0.62f, 1), // mint green
+    };
+    //TODO: Change to structure to keeps track of index, name, color, score
+
     public override void OnStart(Dictionary<string, object> message)
     {
         base.OnStart(message);
@@ -21,10 +41,24 @@ public class MainMenuState : GameManagerState
             c.Show();
         }
 
+        // Add menu animation
         _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
         _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
         _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
         AddChild(_menuAnimation);
+        // Spawn bots
+        _packedScenePlayerBot = ResourceLoader.Load<PackedScene>("res://Nodes/PlayerBot.tscn");
+        PlayerBot bot;
+        for (int i = 0; i < 8; i++)
+        {
+            bot = _packedScenePlayerBot.Instance() as PlayerBot;
+            bot.Init($"{i}_{_playerNames[i]}");
+            bot.color = _playerColors[i];
+            bot.Position = _menuAnimation.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
+//            bot.Connect("playerDied", this, "botDied");
+            _menuAnimation.AddChild(bot);
+//          playersInTheGame.Add(bot);
+        }
     }
 
     public override void OnExit(string nextState)

@@ -19,10 +19,10 @@ extents = Vector2( 128, 128 )
 extents = Vector2( 160, 128 )
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 128, 128 )
+extents = Vector2( 128, 192 )
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 128, 160 )
+extents = Vector2( 128, 96 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 128, 96 )
@@ -106,7 +106,7 @@ position = Vector2( 0, -448 )
 scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
-position = Vector2( 128, -64 )
+position = Vector2( 128, -384 )
 shape = SubResource( 14 )
 
 [node name="Area2D7" type="Area2D" parent="."]
@@ -120,7 +120,7 @@ position = Vector2( 0, 448 )
 scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
-position = Vector2( 128, 32 )
+position = Vector2( 128, 416 )
 shape = SubResource( 15 )
 
 [node name="Area2D3" type="Area2D" parent="."]

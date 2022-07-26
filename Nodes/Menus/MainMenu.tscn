@@ -50,16 +50,16 @@ margin_right = 231.0
 margin_bottom = 149.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 50.0
-margin_right = 181.0
+margin_left = 28.0
+margin_right = 203.0
 margin_bottom = 112.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
@@ -72,20 +72,20 @@ text = "-"
 
 [node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
 margin_left = 15.0
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
-rect_min_size = Vector2( 116, 0 )
+rect_min_size = Vector2( 160, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "START"
 
 [node name="CenterContainer1" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 29.0
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 54.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1"]
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer"]
@@ -98,20 +98,20 @@ text = "-"
 
 [node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer"]
 margin_left = 15.0
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
-rect_min_size = Vector2( 116, 0 )
+rect_min_size = Vector2( 160, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "OPTIONS"
+text = "PICK COLOR"
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 58.0
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 83.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
@@ -124,20 +124,20 @@ text = "-"
 
 [node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
 margin_left = 15.0
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
-rect_min_size = Vector2( 116, 0 )
+rect_min_size = Vector2( 160, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "DBG"
 
 [node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 87.0
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 112.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
@@ -150,9 +150,9 @@ text = "-"
 
 [node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
 margin_left = 15.0
-margin_right = 131.0
+margin_right = 175.0
 margin_bottom = 25.0
-rect_min_size = Vector2( 116, 0 )
+rect_min_size = Vector2( 160, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "EXIT"

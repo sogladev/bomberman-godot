@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/ColorSelector.cs" type="Script" id=1]
+
+[node name="ColorSelector" type="GridContainer"]
+margin_right = 140.0
+margin_bottom = 96.0
+columns = 6
+script = ExtResource( 1 )

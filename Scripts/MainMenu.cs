@@ -3,7 +3,6 @@ using System;
 
 public class MainMenu : MarginContainer
 {
-    // Called when the node enters the scene tree for the first time.
     private Label selector1;
     private Label selector2;
     private Label selector3;
@@ -20,21 +19,26 @@ public class MainMenu : MarginContainer
         SetCurrentSelection(_currentSelection);
     }
 
-    public void SetCurrentSelection(int index){
+    public void SetCurrentSelection(int index)
+    {
         selector1.Text = "";
         selector2.Text = "";
         selector3.Text = "";
         selector4.Text = "";
-        if (_currentSelection == 0){
+        if (_currentSelection == 0)
+        {
             selector1.Text = "-";
         }
-        else if (_currentSelection == 1){
+        else if (_currentSelection == 1)
+        {
             selector2.Text = "-";
         }
-        else if (_currentSelection == 2){
+        else if (_currentSelection == 2)
+        {
             selector3.Text = "-";
         }
-        else {
+        else
+        {
             selector4.Text = "-";
         }
     }
@@ -42,29 +46,37 @@ public class MainMenu : MarginContainer
     public void handleInput(string ui_action)
     {
         const int nElements = 4;
-        if (ui_action ==("ui_down")){
+        if (ui_action == ("ui_down"))
+        {
             _currentSelection = (_currentSelection + 1) % nElements;
             SetCurrentSelection(_currentSelection);
         }
-        else if (ui_action ==("ui_up")){
-            _currentSelection = _currentSelection == 0 ? nElements-1 : _currentSelection - 1; 
+        else if (ui_action == ("ui_up"))
+        {
+            _currentSelection = _currentSelection == 0 ? nElements - 1 : _currentSelection - 1;
             SetCurrentSelection(_currentSelection);
         }
     }
-    public string ParseSelection(){
-        if (_currentSelection == 0){
+    public string ParseSelection()
+    {
+        if (_currentSelection == 0)
+        {
             return "new_game";
         }
-        else if (_currentSelection == 1){
+        else if (_currentSelection == 1)
+        {
             return "options";
         }
-        else if (_currentSelection == 2){
+        else if (_currentSelection == 2)
+        {
             return "dbg";
         }
-        else if (_currentSelection == 3){
+        else if (_currentSelection == 3)
+        {
             return "quit";
         }
-        else {
+        else
+        {
             return "invalid";
         }
     }

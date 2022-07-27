@@ -22,7 +22,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.3.3
+      image: barichello/godot-ci:mono-3.4.4
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -49,5 +49,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: main # The branch the action should deploy to.
+          BRANCH: deploy # The branch the action should deploy to.
           FOLDER: build/web # The folder the action should deploy.

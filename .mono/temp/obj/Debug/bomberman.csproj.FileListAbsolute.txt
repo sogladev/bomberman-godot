@@ -1,8 +1,0 @@
-/home/jelle/wd/godot/bomberman/.mono/temp/obj/Debug/bomberman.csproj.AssemblyReference.cache
-/home/jelle/wd/godot/bomberman/.mono/temp/obj/Debug/bomberman.AssemblyInfoInputs.cache
-/home/jelle/wd/godot/bomberman/.mono/temp/obj/Debug/bomberman.AssemblyInfo.cs
-/home/jelle/wd/godot/bomberman/.mono/temp/obj/Debug/bomberman.csproj.CoreCompileInputs.cache
-/home/jelle/wd/godot/bomberman/.mono/temp/bin/Debug/bomberman.dll
-/home/jelle/wd/godot/bomberman/.mono/temp/bin/Debug/bomberman.pdb
-/home/jelle/wd/godot/bomberman/.mono/temp/obj/Debug/bomberman.dll
-/home/jelle/wd/godot/bomberman/.mono/temp/obj/Debug/bomberman.pdb

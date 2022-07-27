@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/powerup_firepower.mp3-eaf15eb1ef0bcc08c1442b811c948c7f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/powerup_firepower.mp3"
+dest_files=[ "res://.import/powerup_firepower.mp3-eaf15eb1ef0bcc08c1442b811c948c7f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

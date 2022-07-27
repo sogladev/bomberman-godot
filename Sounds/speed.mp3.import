@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/speed.mp3-84b424c9616c93f85e86a0c9bdd78199.mp3str"
+
+[deps]
+
+source_file="res://Sounds/speed.mp3"
+dest_files=[ "res://.import/speed.mp3-84b424c9616c93f85e86a0c9bdd78199.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

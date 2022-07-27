@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/eirik_suhrke-a_new_morning.ogg-09aecf377723b1d1fb137ef997582ca4.oggstr"
+
+[deps]
+
+source_file="res://Sounds/eirik_suhrke-a_new_morning.ogg"
+dest_files=[ "res://.import/eirik_suhrke-a_new_morning.ogg-09aecf377723b1d1fb137ef997582ca4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

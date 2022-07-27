@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://RawAssets/sprites/Bunny/down1.png" type="Texture" id=2]
@@ -34,6 +34,17 @@
 [ext_resource path="res://RawAssets/sprites/Bunny/idle_left4.png" type="Texture" id=32]
 [ext_resource path="res://RawAssets/sprites/Bunny/idle_right4.png" type="Texture" id=33]
 [ext_resource path="res://Scripts/PlayerArea2D.cs" type="Script" id=34]
+[ext_resource path="res://Sounds/spawn.wav" type="AudioStream" id=35]
+[ext_resource path="res://Sounds/player_hurt.wav" type="AudioStream" id=36]
+[ext_resource path="res://Sounds/new_life.wav" type="AudioStream" id=37]
+[ext_resource path="res://Sounds/enemy_fly_death.ogg" type="AudioStream" id=38]
+[ext_resource path="res://Sounds/enemy_basic_death.ogg" type="AudioStream" id=39]
+[ext_resource path="res://Sounds/invincibility_wearoff.wav" type="AudioStream" id=40]
+[ext_resource path="res://Sounds/powerup_shield.wav" type="AudioStream" id=41]
+[ext_resource path="res://Sounds/powerup_firepower.wav" type="AudioStream" id=42]
+[ext_resource path="res://Sounds/powerup_bomb.wav" type="AudioStream" id=43]
+[ext_resource path="res://Sounds/powerup_speed.wav" type="AudioStream" id=44]
+[ext_resource path="res://Sounds/bonus.wav" type="AudioStream" id=45]
 
 [sub_resource type="SpriteFrames" id=42]
 animations = [ {
@@ -57,16 +68,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "idle_up",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 33 ) ],
 "loop": true,
 "name": "idle_right",
@@ -75,6 +76,16 @@ animations = [ {
 "frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 25 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "idle_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "idle_up",
 "speed": 5.0
 } ]
 
@@ -384,10 +395,53 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Listener2D" type="Listener2D" parent="."]
+current = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="SoundSpawn" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 35 )
+volume_db = -20.0
+
+[node name="SoundHurtBot2D" type="AudioStreamPlayer2D" parent="Sounds"]
+position = Vector2( 192, -160 )
+stream = ExtResource( 36 )
+
+[node name="SoundHurtPlayer" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 37 )
+
+[node name="SoundDiePlayer" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 38 )
+
+[node name="SoundDieBot2D" type="AudioStreamPlayer2D" parent="Sounds"]
+position = Vector2( -160, -160 )
+stream = ExtResource( 39 )
+
+[node name="SoundPowerUpBomb" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 43 )
+
+[node name="SoundPowerUpFirePower" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 42 )
+
+[node name="SoundPowerUpSpeed" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 44 )
+
+[node name="SoundApplyInvincibility" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 41 )
+volume_db = -30.0
+
+[node name="SoundRemoveInvincibility" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 40 )
+
+[node name="SoundCollectPrize" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 45 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -16, -16 )
 frames = SubResource( 42 )
 animation = "idle"
+frame = 2
 centered = false
 offset = Vector2( 22.509, 19.078 )
 
@@ -415,9 +469,11 @@ autostart = true
 
 [node name="Invincibility" type="Timer" parent="."]
 wait_time = 15.0
+one_shot = true
 
 [node name="Respawn" type="Timer" parent="."]
 wait_time = 15.0
+one_shot = true
 
 [node name="JustLoaded" type="Timer" parent="."]
 wait_time = 2.0

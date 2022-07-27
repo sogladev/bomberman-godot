@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bomb-sound.wav-e732e6bdb8ed58c0ed1ca8dee7d9560f.sample"
+
+[deps]
+
+source_file="res://Sounds/bomb-sound.wav"
+dest_files=[ "res://.import/bomb-sound.wav-e732e6bdb8ed58c0ed1ca8dee7d9560f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -25,6 +25,8 @@ public class MainMenuState : GameManagerState
         _playerNames = (List<string>)message["player_names"];
         _playerColors = (List<Color>)message["player_colors"];
 
+        GM.audioManager.PlayMusic("main_menu");
+
         foreach (Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             c.Show();

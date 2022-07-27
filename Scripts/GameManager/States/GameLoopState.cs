@@ -21,10 +21,13 @@ public class GameLoopState : GameManagerState
 
     private Player _player;
     private Node2D _newGame;
+    Timer waitBeforeEndGame;
+    private bool isVictory;
 
     public override void OnStart(Dictionary<string, object> message)
     {
         base.OnStart(message);
+        GM.audioManager.PlayMusic("battle1");
         _packedSceneGame = ResourceLoader.Load<PackedScene>((string)message["map_resource"]);
         _packedScenePlayer = ResourceLoader.Load<PackedScene>((string)message["player_resource"]);
         _packedScenePlayerBot = ResourceLoader.Load<PackedScene>((string)message["bot_resource"]);
@@ -39,6 +42,7 @@ public class GameLoopState : GameManagerState
         // Spawn Player 
         _player = _packedScenePlayer.Instance() as Player;
         _player.Init(_playerNames[0]);
+        _player.isMainCharacter = true;
         // Set player if special state
         if (_specialType == "immortal")
         {
@@ -72,22 +76,11 @@ public class GameLoopState : GameManagerState
             GetTree().Root.AddChild(bot);
             playersInTheGame.Add(bot);
         }
-        // Spawn Prize
-        // Manually spawn for now.
-        //Sprite prize = _packedScenePrize.Instance() as Sprite;
-        //if (_isDebug)
-        //{
-        //    prize.Position = new Vector2(-750 + 32 + 4, -250 + 32 + 4);
-        //}
-        //else
-        //{
-        //    prize.Position = new Vector2(224 + 4, 448 + 4);
-        //}
-        //GetTree().Root.AddChild(prize);
         // Respawn timer
-
         Timer respawn = GetNode<Timer>("Respawn");
         respawn.Connect("timeout", this, "RespawnDeadPlayers");
+        waitBeforeEndGame = GetNode<Timer>("WaitBeforeGameOver");
+        waitBeforeEndGame.Connect("timeout", this, "EndTheGame");
     }
 
     private void RespawnDeadPlayers()
@@ -101,17 +94,30 @@ public class GameLoopState : GameManagerState
             }
         }
     }
-    private void playerDied(string playerName)
+
+    private void EndTheGame()
     {
-        GD.Print("Received Signal: died");
         GM.ChangeState("GameOverState",
         new Dictionary<string, object>(){
-            {"is_victory", false},
+            {"is_victory", isVictory},
             {"player_colors", _playerColors},
             {"player_names", _playerNames},
     });
 
-
+    }
+    private void collectedPrize(string playerName)
+    {
+        playersInTheGame[0].GetNode<AudioStreamPlayer>("./Sounds/SoundCollectPrize").Play();
+        GD.Print("Received Signal: prize");
+        waitBeforeEndGame.Start(1.0f);
+        isVictory = true;
+    }
+    private void playerDied(string playerName)
+    {
+        playersInTheGame[0].GetNode<AudioStreamPlayer>("./Sounds/SoundDiePlayer").Play();
+        GD.Print("Received Signal: died");
+        waitBeforeEndGame.Start(1.0f);
+        isVictory = false;
     }
     private void botDied(string botName)
     {
@@ -120,6 +126,7 @@ public class GameLoopState : GameManagerState
         {
             if (botName == player.name)
             {
+                player.GetNode<AudioStreamPlayer2D>("./Sounds/SoundDieBot2D").Play();
                 player.Position = _newGame.GetNode<Spawns>("./SpawnsGraveyard").nextValidSpawnPoint();
             }
         }
@@ -149,16 +156,6 @@ public class GameLoopState : GameManagerState
     }
 
 
-    private void collectedPrize(string playerName)
-    {
-        GD.Print("Received Signal: prize");
-        GM.ChangeState("GameOverState",
-        new Dictionary<string, object>(){
-            {"is_victory", true},
-            {"player_colors", _playerColors},
-            {"player_names", _playerNames},
-    });
-    }
 
     public override void OnExit(string nextState)
     {

@@ -51,6 +51,7 @@ public class Player : KinematicBody2D
     public Color color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     public float spawnInvincibilityDuration = 15.0f;
 
+    public bool isMainCharacter = false; // sound management
 
     public void Init(string name)
     {
@@ -91,6 +92,7 @@ public class Player : KinematicBody2D
         SetColor(color);
         // Apply spawn invincibility 
         ApplyInvincibility(spawnInvincibilityDuration);
+        if (isMainCharacter) {GetNode<AudioStreamPlayer>("./Sounds/SoundSpawn").Play();};
     }
 
     private void TurnOffIsJustLoaded()
@@ -146,6 +148,7 @@ public class Player : KinematicBody2D
         // Set timer to turn off fire collision
         _timer_collision_with_fire.Start(1.5f);
         _timer_invincibility.Start(duration);
+        if (isMainCharacter && !isJustLoaded) {GetNode<AudioStreamPlayer>("./Sounds/SoundApplyInvincibility").Play();};
     }
 
     private void RemoveInvincibility()
@@ -153,6 +156,11 @@ public class Player : KinematicBody2D
         // Add collision with Flame
         CollisionMask = 1 + 4 + 64 + 128; //  Walls, Flame, Box, Unbreakable wall
         _isInvincible = false;
+        if (isMainCharacter)
+        {
+            GD.Print("Remove Player Invincibility");
+            GetNode<AudioStreamPlayer>("./Sounds/SoundRemoveInvincibility").Play();
+        };
     }
 
     private void SetReadyToRespawn()
@@ -187,6 +195,13 @@ public class Player : KinematicBody2D
         }
         else
         {
+            // If bot
+            if (isMainCharacter){
+                GetNode<AudioStreamPlayer>("./Sounds/SoundHurtPlayer").Play();
+            } else {
+                // Fix 2D positioning
+                GetNode<AudioStreamPlayer2D>("./Sounds/SoundHurtBot2D").Play();
+            }
             ApplyInvincibility(5.0f);
         }
     }
@@ -197,6 +212,7 @@ public class Player : KinematicBody2D
         _isInvincible = true;
         GD.Print("Emit collectedPrize");
         EmitSignal("collectedPrize", name);
+        isCollectPrize = false; // avoid emitting twice
     }
 
 
@@ -211,14 +227,17 @@ public class Player : KinematicBody2D
         {
             amountOfBombs++;
             bombPowerUp++;
+            if (isMainCharacter) {GetNode<AudioStreamPlayer>("./Sounds/SoundPowerUpBomb").Play();};
         }
         else if (typeOfPowerUp == "Powerup_flame")
         {
             flamePowerUp++;
+            if (isMainCharacter) {GetNode<AudioStreamPlayer>("./Sounds/SoundPowerUpFirePower").Play();};
         }
         else if (typeOfPowerUp == "Powerup_speed")
         {
             moveSpeed = Math.Min(moveSpeed + speedPowerUpValue, _moveSpeedLimit);
+            if (isMainCharacter) {GetNode<AudioStreamPlayer>("./Sounds/SoundPowerUpSpeed").Play();};
         }
         else if (typeOfPowerUp == "Powerup_shield")
         {

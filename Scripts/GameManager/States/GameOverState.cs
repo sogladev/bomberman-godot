@@ -20,6 +20,7 @@ public class GameOverState : GameManagerState
     public override void OnStart(Dictionary<string, object> message)
     {
         base.OnStart(message);
+        GM.audioManager.PlayMusic("main_menu");
         _playerNames = (List<string>)message["player_names"];
         _playerColors = (List<Color>)message["player_colors"];
         _menu = GetNode<GameOverMenu>("../../../../Game/CanvasLayerGameOverMenu/GameOverMenu");

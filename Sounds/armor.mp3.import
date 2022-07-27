@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/armor.mp3-c6283119f6a48200116a49d0ec5ed4f7.mp3str"
+
+[deps]
+
+source_file="res://Sounds/armor.mp3"
+dest_files=[ "res://.import/armor.mp3-c6283119f6a48200116a49d0ec5ed4f7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

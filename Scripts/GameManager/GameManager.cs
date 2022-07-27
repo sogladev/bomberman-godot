@@ -8,10 +8,13 @@ public class GameManager : SimpleStateMachine
 {
     [Signal]
     public delegate void GuiInput(InputEvent e);
+
+    public AudioManager audioManager;
     public override void _Ready()
     {
         base._Ready();
         List<GameManagerState> gameManageStates = GetNode<Node>("States").GetChildren().OfType<GameManagerState>().ToList();
+        audioManager = GetNode<AudioManager>("./AudioManager");
 
         foreach (GameManagerState GMS in gameManageStates)
         {

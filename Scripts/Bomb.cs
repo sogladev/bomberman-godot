@@ -7,6 +7,9 @@ public class Bomb : StaticBody2D
 
     private const string _FlameResource = "res://Nodes/Flame.tscn";
     private PackedScene _packedSceneFlame;
+    // Sounds
+    protected AudioStreamPlayer2D _soundFuse2D;
+    protected AudioStreamPlayer2D _soundDetonate2D;
 
     public void Init(int power)
     {
@@ -20,6 +23,10 @@ public class Bomb : StaticBody2D
         timer_detonate.Connect("timeout", this, "Detonate");
         Timer timer_PlayerCollision = GetNode<Timer>("PlayerCollision");
         timer_PlayerCollision.Connect("timeout", this, "SetPlayerCollision");
+        _soundDetonate2D = GetNode<AudioStreamPlayer2D>("./SoundDetonate2D");
+        _soundFuse2D = GetNode<AudioStreamPlayer2D>("./SoundFuse2D");
+        _soundFuse2D.Position = Position;
+        _soundFuse2D.Play();
     }
 
     private void SetPlayerCollision(){
@@ -28,6 +35,8 @@ public class Bomb : StaticBody2D
 
     private void Detonate()
     {
+        _soundDetonate2D.Position = Position;
+        _soundDetonate2D.Play();
         Flame newFlame = _packedSceneFlame.Instance() as Flame;
         newFlame.Init(_power, _power, _power, _power);
         newFlame.Position = Position;

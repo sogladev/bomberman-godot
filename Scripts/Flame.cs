@@ -27,6 +27,9 @@ public class Flame : StaticBody2D
         timer_spread.Connect("timeout", this, "Spread");
         timer_fizzle.Connect("timeout", this, "Fizzle");
         _packedSceneFlame = ResourceLoader.Load<PackedScene>(_FlameResource);
+        AudioStreamPlayer2D _soundFlame2D = GetNode<AudioStreamPlayer2D>("./SoundFlame2D");
+        _soundFlame2D.Position = Position;
+        _soundFlame2D.Play();
     }
 
     public void Fizzle()

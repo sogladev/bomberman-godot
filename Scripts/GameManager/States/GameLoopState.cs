@@ -15,6 +15,10 @@ public class GameLoopState : GameManagerState
     private string _specialType;
 
 
+    private List<string> _playerNames;
+    private List<Color> _playerColors;
+
+
     private Player _player;
     private Node2D _newGame;
 
@@ -25,6 +29,8 @@ public class GameLoopState : GameManagerState
         _packedScenePlayer = ResourceLoader.Load<PackedScene>((string)message["player_resource"]);
         _packedScenePlayerBot = ResourceLoader.Load<PackedScene>((string)message["bot_resource"]);
         _packedScenePrize = ResourceLoader.Load<PackedScene>((string)message["prize_resource"]);
+        _playerNames = (List<string>)message["player_names"];
+        _playerColors = (List<Color>)message["player_colors"];
         _specialType = (string)message["special_type"];
         // Create Map
         playersInTheGame = new List<Player>();
@@ -32,10 +38,9 @@ public class GameLoopState : GameManagerState
         GetTree().Root.AddChild(_newGame);
         // Spawn Player 
         _player = _packedScenePlayer.Instance() as Player;
-        _player.Init("playerName");
+        _player.Init(_playerNames[0]);
         // Set player if special state
         if (_specialType == "immortal"){
-            _player.color = new Color(0.69f, 0.69f, 0.0f, 1); // gold
             _player.isImmortal = true;
         }
         else if (_specialType == "DBG"){
@@ -43,8 +48,8 @@ public class GameLoopState : GameManagerState
             _player.flamePowerUp = 5;
             _player.bombPowerUp = 10;
             _player.moveSpeed = 100;
-            _player.color = new Color(0.16f, 0.98f, 0.26f, 1); // green
         }
+        _player.color = _playerColors[0];
         _player.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
         GD.Print("Player position generated: ", _player.Position);
         GetTree().Root.AddChild(_player);
@@ -54,10 +59,11 @@ public class GameLoopState : GameManagerState
         _player.Connect("playerDied", this, "playerDied");
         // Spawn 7 PlayerBots
         PlayerBot bot;
-        for (int i = 0; i < 7; i++)
+        for (int i = 1; i < 8; i++)
         {
             bot = _packedScenePlayerBot.Instance() as PlayerBot;
-            bot.Init($"Bot{i}");
+            bot.Init(_playerNames[i]);
+            bot.color = _playerColors[i];
             bot.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
             bot.Connect("playerDied", this, "botDied");
             GetTree().Root.AddChild(bot);

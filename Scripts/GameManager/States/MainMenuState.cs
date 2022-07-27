@@ -14,10 +14,11 @@ public class MainMenuState : GameManagerState
     private PackedScene _packedScenePlayerBot;
 
     private List<string> _playerNames = new List<string>(){ // Generate later
-        "botA", "botB", "botC", "botD", "botE", "botF", "botG", "botH", "botI",
+        "playerA", "playerB", "playerC", "playerD", "playerE",
+        "playerF", "playerG", "playerH", "playerI",
     };
     private List<Color> _playerColors = new List<Color>(){
-        // bad colors: dark blue
+        new Color(1, 1, 1, 1), // white
         new Color(0.86f, 0.06f, 0.09f, 1), // red
         new Color(0.95f, 0.93f, 0.15f, 1), // yellow
         //new Color(0.03f, 0.4f, 0.69f, 1), // blue
@@ -35,7 +36,7 @@ public class MainMenuState : GameManagerState
     {
         base.OnStart(message);
 
-        foreach(Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        foreach (Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             GD.Print("control ", c.Name);
             c.Show();
@@ -49,15 +50,15 @@ public class MainMenuState : GameManagerState
         // Spawn bots
         _packedScenePlayerBot = ResourceLoader.Load<PackedScene>("res://Nodes/PlayerBot.tscn");
         PlayerBot bot;
-        for (int i = 0; i < 8; i++)
+        for (int i = 1; i < 9; i++)
         {
             bot = _packedScenePlayerBot.Instance() as PlayerBot;
             bot.Init($"{i}_{_playerNames[i]}");
             bot.color = _playerColors[i];
             bot.Position = _menuAnimation.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
-//            bot.Connect("playerDied", this, "botDied");
+            //            bot.Connect("playerDied", this, "botDied");
             _menuAnimation.AddChild(bot);
-//          playersInTheGame.Add(bot);
+            //          playersInTheGame.Add(bot);
         }
     }
 
@@ -65,7 +66,7 @@ public class MainMenuState : GameManagerState
     {
         base.OnExit(nextState);
 
-        foreach(Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        foreach (Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
             GD.Print("control ", c.Name);
             c.Hide();
@@ -78,12 +79,13 @@ public class MainMenuState : GameManagerState
     {
         GM.ChangeState("GameLoopState",
         new Dictionary<string, object>(){
-            {"map_resource", "res://Scenes/DBG.tscn"}, 
+            {"map_resource", "res://Scenes/DBG.tscn"},
             {"player_resource", "res://Nodes/Player.tscn"},
+            {"player_colors", _playerColors},
+            {"player_names", _playerNames},
             {"bot_resource", "res://Nodes/PlayerBot.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"special_type", "DBG"},
-// TODO: Give color value of player
         });
     }
     public void ChangeToGameLoopState()
@@ -92,37 +94,45 @@ public class MainMenuState : GameManagerState
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/Demo.tscn"},
             {"player_resource", "res://Nodes/Player.tscn"},
+            {"player_colors", _playerColors},
+            {"player_names", _playerNames},
             {"bot_resource", "res://Nodes/PlayerBot.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"special_type", "immortal"},
-// TODO: Give color value of player
         });
     }
 
     public override void UpdateState(float delta)
     {
         base.OnUpdate();
-        if (Input.IsActionJustPressed("ui_down")){
+        if (Input.IsActionJustPressed("ui_down"))
+        {
             GD.Print("down");
             _menu.handleInput("ui_down");
         }
-        else if (Input.IsActionJustPressed("ui_up")){
+        else if (Input.IsActionJustPressed("ui_up"))
+        {
             GD.Print("up");
             _menu.handleInput("ui_up");
         }
-        else if (Input.IsActionJustPressed("ui_accept")){
+        else if (Input.IsActionJustPressed("ui_accept"))
+        {
             GD.Print("select");
             string action = _menu.ParseSelection();
-            if (action == "new_game"){
+            if (action == "new_game")
+            {
                 ChangeToGameLoopState();
             }
-            else if (action == "options"){
+            else if (action == "options")
+            {
                 GD.Print("Options");
             }
-            else if (action == "dbg"){
+            else if (action == "dbg")
+            {
                 ChangeToDebugLoopState();
             }
-            else if (action == "quit"){
+            else if (action == "quit")
+            {
                 GetTree().Quit();
             }
         }

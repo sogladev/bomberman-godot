@@ -53,7 +53,7 @@ public class Player : KinematicBody2D
         this.name = name;
     }
 
-    protected void SetColor(Color color){
+    public void SetColor(Color color){
         _sprite.Modulate = color;
     }
 

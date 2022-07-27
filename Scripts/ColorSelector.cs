@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class ColorSelector : GridContainer
 {
+    [Signal]
+    public delegate void ColorSelected();
     private List<string> colors = new List<string>(){
         "#5e315b",
         "#8c3f5d",
@@ -44,7 +46,6 @@ public class ColorSelector : GridContainer
         "#ff6b97",
         "#ffb5b5",
     };
-
     public Color color = new Color(1, 1, 1, 1);
 
     // Called when the node enters the scene tree for the first time.
@@ -64,7 +65,9 @@ public class ColorSelector : GridContainer
 
     private void _on_ColorSwatch_pressed(Color color)
     {
-        GD.Print("New color selected: ", color);
+        GD.Print("Signal received: ColorSwatch_pressed", color);
         this.color = color;
+        EmitSignal(nameof(ColorSelected));
+        GD.Print("Signal sent: ColorSelected", color);
     }
 }

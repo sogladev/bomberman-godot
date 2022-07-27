@@ -13,6 +13,8 @@ public class MainMenuState : GameManagerState
 
     private PackedScene _packedScenePlayerBot;
 
+    private ColorSelector _colorSelector;
+
     private List<string> _playerNames = new List<string>(){ // Generate later
         "playerA", "playerB", "playerC", "playerD", "playerE",
         "playerF", "playerG", "playerH", "playerI",
@@ -41,7 +43,16 @@ public class MainMenuState : GameManagerState
             GD.Print("control ", c.Name);
             c.Show();
         }
+        // Toggle with show options?
+        foreach (Control c in GetNode("../../../../Game/CanvasLayerColorSelector").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        {
+            GD.Print("control ", c.Name);
+            c.Show();
+        }
 
+        // Connect to colorSelector
+        _colorSelector = GetNode<ColorSelector>("../../../../Game/CanvasLayerColorSelector/ColorSelector");
+        _colorSelector.Connect("ColorSelected", this, nameof(_on_ColorSelector_ColorSelected));
         // Add menu animation
         _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
         _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
@@ -62,6 +73,7 @@ public class MainMenuState : GameManagerState
         }
     }
 
+
     public override void OnExit(string nextState)
     {
         base.OnExit(nextState);
@@ -71,6 +83,15 @@ public class MainMenuState : GameManagerState
             GD.Print("control ", c.Name);
             c.Hide();
         }
+
+        // Toggle with show options?
+        foreach (Control c in GetNode("../../../../Game/CanvasLayerColorSelector").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        {
+            GD.Print("control ", c.Name);
+            c.Hide();
+        }
+
+        _colorSelector.Disconnect("ColorSelected", this, nameof(_on_ColorSelector_ColorSelected));
 
         _menuAnimation.QueueFree();
     }
@@ -100,6 +121,13 @@ public class MainMenuState : GameManagerState
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"special_type", "immortal"},
         });
+    }
+
+    private void _on_ColorSelector_ColorSelected(){
+        GD.Print("MainMenu received signal color");
+        _menuAnimation.GetNode<Player>("./Player")
+            .SetColor(_colorSelector.color);
+        _playerColors[0] = _colorSelector.color;
     }
 
     public override void UpdateState(float delta)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Nodes/Menus/GameOverMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Menus/ColorSelector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Nodes/Menus/MainMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/MenuTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Fonts/DynamicFont_colorpicker.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Nodes/GameStateMachine.tscn" type="PackedScene" id=14]
 
 [node name="Game" type="Node2D"]
@@ -33,9 +35,28 @@ mouse_filter = 1
 [node name="CanvasLayerColorSelector" type="CanvasLayer" parent="."]
 layer = 4
 
-[node name="ColorSelector" parent="CanvasLayerColorSelector" instance=ExtResource( 2 )]
-margin_left = 704.0
-margin_top = 416.0
-margin_right = 916.0
-margin_bottom = 628.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerColorSelector"]
+margin_left = 736.0
+margin_top = 448.0
+margin_right = 885.0
+margin_bottom = 609.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayerColorSelector/VBoxContainer"]
+margin_right = 149.0
+margin_bottom = 15.0
+
+[node name="Label" type="Label" parent="CanvasLayerColorSelector/VBoxContainer/CenterContainer"]
+margin_left = 3.0
+margin_right = 145.0
+margin_bottom = 15.0
+theme = ExtResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Click to select"
+percent_visible = -0.0769231
+
+[node name="ColorSelector" parent="CanvasLayerColorSelector/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 19.0
+margin_right = 149.0
+margin_bottom = 159.0
 mouse_filter = 0

@@ -31,7 +31,7 @@ public class MainMenuState : GameManagerState
         }
 
         // Connect to colorSelector
-        _colorSelector = GetNode<ColorSelector>("../../../../Game/CanvasLayerColorSelector/ColorSelector");
+        _colorSelector = GetNode<ColorSelector>("../../../../Game/CanvasLayerColorSelector/VBoxContainer/ColorSelector");
         _colorSelector.Connect("ColorSelected", this, nameof(_on_ColorSelector_ColorSelected));
         // Add menu animation
         _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
@@ -69,6 +69,7 @@ public class MainMenuState : GameManagerState
         {
             c.Hide();
         }
+        isColorSelectorVisible = false;
 
         _colorSelector.Disconnect("ColorSelected", this, nameof(_on_ColorSelector_ColorSelected));
 

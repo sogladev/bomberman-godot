@@ -14,11 +14,14 @@ public class GameOverState : GameManagerState
     private string _menuAnimationResource = "res://Nodes/Menus/GameOverMenuAnimation.tscn";
 
     private PackedScene _packedSceneMenuAnimation;
-
+    private List<string> _playerNames;
+    private List<Color> _playerColors;
 
     public override void OnStart(Dictionary<string, object> message)
     {
         base.OnStart(message);
+        _playerNames = (List<string>)message["player_names"];
+        _playerColors = (List<Color>)message["player_colors"];
         _menu = GetNode<GameOverMenu>("../../../../Game/CanvasLayerGameOverMenu/GameOverMenu");
 
         _isVictory = (bool)message["is_victory"];
@@ -32,6 +35,8 @@ public class GameOverState : GameManagerState
 
         _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
         _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
+        _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
+        _menuAnimation.GetNode<Player>("./Player").color = _playerColors[0];
         AddChild(_menuAnimation);
     }
 
@@ -51,7 +56,16 @@ public class GameOverState : GameManagerState
 
     public void ChangeToMainMenuState()
     {
-        GM.ChangeState("MainMenuState"); // Keep settings
+        GM.ChangeState("MainMenuState",
+        new Dictionary<string, object>(){
+            {"map_resource", "res://Scenes/DBG.tscn"},
+            {"player_resource", "res://Nodes/Player.tscn"},
+            {"player_colors", _playerColors},
+            {"player_names", _playerNames},
+            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
+            {"prize_resource", "res://Nodes/Prize.tscn"},
+            {"special_type", "DBG"},
+        });
     }
 
     public override void UpdateState(float delta)

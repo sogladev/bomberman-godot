@@ -15,28 +15,14 @@ public class MainMenuState : GameManagerState
 
     private ColorSelector _colorSelector;
 
-    private List<string> _playerNames = new List<string>(){ // Generate later
-        "playerA", "playerB", "playerC", "playerD", "playerE",
-        "playerF", "playerG", "playerH", "playerI",
-    };
-    private List<Color> _playerColors = new List<Color>(){
-        new Color(1, 1, 1, 1), // white
-        new Color(0.86f, 0.06f, 0.09f, 1), // red
-        new Color(0.95f, 0.93f, 0.15f, 1), // yellow
-        //new Color(0.03f, 0.4f, 0.69f, 1), // blue
-        new Color(0.04f, 0.96f, 0.89f, 1), // cyan
-        new Color(0.16f, 0.98f, 0.26f, 1), // green
-        //new Color(0.79f, 0.79f, 0.0f, 1), // gold
-        new Color(0.99f, 0.3f, 0.99f, 1), // pink
-        new Color(0.67f, 0.84f, 0.89f, 1), // lightblue
-        new Color(0.59f, 0.6f, 0.95f, 1), // violet blue
-        new Color(0.52f, 1, 0.62f, 1), // mint green
-    };
-    //TODO: Change to structure to keeps track of index, name, color, score
+    private List<string> _playerNames;
+    private List<Color> _playerColors;
 
     public override void OnStart(Dictionary<string, object> message)
     {
         base.OnStart(message);
+        _playerNames = (List<string>)message["player_names"];
+        _playerColors = (List<Color>)message["player_colors"];
 
         foreach (Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
@@ -57,6 +43,7 @@ public class MainMenuState : GameManagerState
         _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
         _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
         _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
+        _menuAnimation.GetNode<Player>("./Player").color = _playerColors[0];
         AddChild(_menuAnimation);
         // Spawn bots
         _packedScenePlayerBot = ResourceLoader.Load<PackedScene>("res://Nodes/PlayerBot.tscn");

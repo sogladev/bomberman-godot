@@ -133,6 +133,8 @@ public class GameLoopState : GameManagerState
         GM.ChangeState("GameOverState",
         new Dictionary<string, object>(){
             {"is_victory", true},
+            {"player_colors", _playerColors},
+            {"player_names", _playerNames},
     });
     }
 

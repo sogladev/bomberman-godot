@@ -1,4 +1,7 @@
-## Sprice splicer
+## Resources
+color palette
+https://lospec.com/palette-list/pear36
+sprite splicer
 wine
 https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 

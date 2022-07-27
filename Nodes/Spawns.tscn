@@ -35,12 +35,12 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D1" instance=ExtResource( 1 )]
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D1"]
 position = Vector2( 128, 128 )
 shape = SubResource( 8 )
+
+[node name="Spawn" parent="Area2D1" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2( 192, 0 )
@@ -48,12 +48,12 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D2" instance=ExtResource( 1 )]
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 96, 128 )
 shape = SubResource( 9 )
+
+[node name="Spawn" parent="Area2D2" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
 
 [node name="Area2D4" type="Area2D" parent="."]
 position = Vector2( 448, 224 )
@@ -61,12 +61,13 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D4" instance=ExtResource( 1 )]
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
 position = Vector2( -64, 32 )
 shape = SubResource( 11 )
+
+[node name="Spawn" parent="Area2D4" instance=ExtResource( 1 )]
+position = Vector2( 0, -64 )
+scale = Vector2( 1, 1 )
 
 [node name="Area2D5" type="Area2D" parent="."]
 position = Vector2( 448, 448 )
@@ -74,12 +75,12 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D5" instance=ExtResource( 1 )]
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
 position = Vector2( -64, -64 )
 shape = SubResource( 12 )
+
+[node name="Spawn" parent="Area2D5" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
 
 [node name="Area2D6" type="Area2D" parent="."]
 position = Vector2( 224, 352 )
@@ -87,13 +88,13 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D6" instance=ExtResource( 1 )]
-position = Vector2( 64, 192 )
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
 position = Vector2( 32, 128 )
 shape = SubResource( 13 )
+
+[node name="Spawn" parent="Area2D6" instance=ExtResource( 1 )]
+position = Vector2( -64, 192 )
+scale = Vector2( 1, 1 )
 
 [node name="Area2D8" type="Area2D" parent="."]
 position = Vector2( 0, 448 )
@@ -101,13 +102,13 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D8" instance=ExtResource( 1 )]
-position = Vector2( 0, -448 )
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
 position = Vector2( 128, -384 )
 shape = SubResource( 14 )
+
+[node name="Spawn" parent="Area2D8" instance=ExtResource( 1 )]
+position = Vector2( 0, -448 )
+scale = Vector2( 1, 1 )
 
 [node name="Area2D7" type="Area2D" parent="."]
 position = Vector2( 0, 224 )
@@ -115,13 +116,13 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D7" instance=ExtResource( 1 )]
-position = Vector2( 0, 448 )
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
 position = Vector2( 128, 416 )
 shape = SubResource( 15 )
+
+[node name="Spawn" parent="Area2D7" instance=ExtResource( 1 )]
+position = Vector2( 0, 448 )
+scale = Vector2( 1, 1 )
 
 [node name="Area2D3" type="Area2D" parent="."]
 position = Vector2( 416, 64 )
@@ -129,10 +130,10 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 2
 
-[node name="Spawn" parent="Area2D3" instance=ExtResource( 1 )]
-position = Vector2( 64, -128 )
-scale = Vector2( 1, 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 position = Vector2( 0, -32 )
 shape = SubResource( 10 )
+
+[node name="Spawn" parent="Area2D3" instance=ExtResource( 1 )]
+position = Vector2( 64, -128 )
+scale = Vector2( 1, 1 )

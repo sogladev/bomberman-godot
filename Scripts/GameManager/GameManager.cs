@@ -39,18 +39,18 @@ public class GameManager : SimpleStateMachine
         "playerF", "playerG", "playerH", "playerI",
         };
         List<Color> _playerColors = new List<Color>(){
-        new Color(1, 1, 1, 1), // white
-        new Color(0.86f, 0.06f, 0.09f, 1), // red
-        new Color(0.95f, 0.93f, 0.15f, 1), // yellow
-        //new Color(0.03f, 0.4f, 0.69f, 1), // blue
-        new Color(0.04f, 0.96f, 0.89f, 1), // cyan
-        new Color(0.16f, 0.98f, 0.26f, 1), // green
-        //new Color(0.79f, 0.79f, 0.0f, 1), // gold
-        new Color(0.99f, 0.3f, 0.99f, 1), // pink
-        new Color(0.67f, 0.84f, 0.89f, 1), // lightblue
-        new Color(0.59f, 0.6f, 0.95f, 1), // violet blue
-        new Color(0.52f, 1, 0.62f, 1), // mint green
+            new Color("#ffffff"),
+            new Color("#cfff70"),
+            new Color("#66ffe3"),
+            new Color("#00b6de"),
+            new Color("#ffe478"),
+            new Color("#ed46e5"),
+            new Color("#ff6b97"),
+            new Color("#ffb5b5"),
+            new Color("#00b6de"),
         };
+
+
         ChangeState("MainMenuState",
         new Dictionary<string, object>(){
             {"map_resource", "res://Scenes/DBG.tscn"},

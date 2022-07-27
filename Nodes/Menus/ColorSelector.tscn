@@ -6,7 +6,7 @@
 [node name="ColorSelector" type="GridContainer"]
 margin_right = 140.0
 margin_bottom = 96.0
-columns = 6
+columns = 4
 script = ExtResource( 1 )
 
 [node name="ColorSwatch" parent="." instance=ExtResource( 3 )]
@@ -24,179 +24,67 @@ margin_left = 108.0
 margin_right = 140.0
 
 [node name="ColorSwatch5" parent="." instance=ExtResource( 3 )]
-margin_left = 144.0
-margin_right = 176.0
+margin_top = 36.0
+margin_bottom = 68.0
 
 [node name="ColorSwatch6" parent="." instance=ExtResource( 3 )]
-margin_left = 180.0
-margin_right = 212.0
+margin_left = 36.0
+margin_top = 36.0
+margin_right = 68.0
+margin_bottom = 68.0
 
 [node name="ColorSwatch7" parent="." instance=ExtResource( 3 )]
+margin_left = 72.0
 margin_top = 36.0
+margin_right = 104.0
 margin_bottom = 68.0
 
 [node name="ColorSwatch8" parent="." instance=ExtResource( 3 )]
-margin_left = 36.0
+margin_left = 108.0
 margin_top = 36.0
-margin_right = 68.0
+margin_right = 140.0
 margin_bottom = 68.0
 
 [node name="ColorSwatch9" parent="." instance=ExtResource( 3 )]
-margin_left = 72.0
-margin_top = 36.0
-margin_right = 104.0
-margin_bottom = 68.0
-
-[node name="ColorSwatch10" parent="." instance=ExtResource( 3 )]
-margin_left = 108.0
-margin_top = 36.0
-margin_right = 140.0
-margin_bottom = 68.0
-
-[node name="ColorSwatch11" parent="." instance=ExtResource( 3 )]
-margin_left = 144.0
-margin_top = 36.0
-margin_right = 176.0
-margin_bottom = 68.0
-
-[node name="ColorSwatch12" parent="." instance=ExtResource( 3 )]
-margin_left = 180.0
-margin_top = 36.0
-margin_right = 212.0
-margin_bottom = 68.0
-
-[node name="ColorSwatch13" parent="." instance=ExtResource( 3 )]
 margin_top = 72.0
 margin_bottom = 104.0
+
+[node name="ColorSwatch10" parent="." instance=ExtResource( 3 )]
+margin_left = 36.0
+margin_top = 72.0
+margin_right = 68.0
+margin_bottom = 104.0
+
+[node name="ColorSwatch11" parent="." instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 104.0
+margin_bottom = 104.0
+
+[node name="ColorSwatch12" parent="." instance=ExtResource( 3 )]
+margin_left = 108.0
+margin_top = 72.0
+margin_right = 140.0
+margin_bottom = 104.0
+
+[node name="ColorSwatch13" parent="." instance=ExtResource( 3 )]
+margin_top = 108.0
+margin_bottom = 140.0
 
 [node name="ColorSwatch14" parent="." instance=ExtResource( 3 )]
 margin_left = 36.0
-margin_top = 72.0
+margin_top = 108.0
 margin_right = 68.0
-margin_bottom = 104.0
+margin_bottom = 140.0
 
 [node name="ColorSwatch15" parent="." instance=ExtResource( 3 )]
 margin_left = 72.0
-margin_top = 72.0
+margin_top = 108.0
 margin_right = 104.0
-margin_bottom = 104.0
+margin_bottom = 140.0
 
 [node name="ColorSwatch16" parent="." instance=ExtResource( 3 )]
 margin_left = 108.0
-margin_top = 72.0
-margin_right = 140.0
-margin_bottom = 104.0
-
-[node name="ColorSwatch17" parent="." instance=ExtResource( 3 )]
-margin_left = 144.0
-margin_top = 72.0
-margin_right = 176.0
-margin_bottom = 104.0
-
-[node name="ColorSwatch18" parent="." instance=ExtResource( 3 )]
-margin_left = 180.0
-margin_top = 72.0
-margin_right = 212.0
-margin_bottom = 104.0
-
-[node name="ColorSwatch19" parent="." instance=ExtResource( 3 )]
-margin_top = 108.0
-margin_bottom = 140.0
-
-[node name="ColorSwatch20" parent="." instance=ExtResource( 3 )]
-margin_left = 36.0
-margin_top = 108.0
-margin_right = 68.0
-margin_bottom = 140.0
-
-[node name="ColorSwatch21" parent="." instance=ExtResource( 3 )]
-margin_left = 72.0
-margin_top = 108.0
-margin_right = 104.0
-margin_bottom = 140.0
-
-[node name="ColorSwatch22" parent="." instance=ExtResource( 3 )]
-margin_left = 108.0
 margin_top = 108.0
 margin_right = 140.0
 margin_bottom = 140.0
-
-[node name="ColorSwatch23" parent="." instance=ExtResource( 3 )]
-margin_left = 144.0
-margin_top = 108.0
-margin_right = 176.0
-margin_bottom = 140.0
-
-[node name="ColorSwatch24" parent="." instance=ExtResource( 3 )]
-margin_left = 180.0
-margin_top = 108.0
-margin_right = 212.0
-margin_bottom = 140.0
-
-[node name="ColorSwatch25" parent="." instance=ExtResource( 3 )]
-margin_top = 144.0
-margin_bottom = 176.0
-
-[node name="ColorSwatch26" parent="." instance=ExtResource( 3 )]
-margin_left = 36.0
-margin_top = 144.0
-margin_right = 68.0
-margin_bottom = 176.0
-
-[node name="ColorSwatch27" parent="." instance=ExtResource( 3 )]
-margin_left = 72.0
-margin_top = 144.0
-margin_right = 104.0
-margin_bottom = 176.0
-
-[node name="ColorSwatch28" parent="." instance=ExtResource( 3 )]
-margin_left = 108.0
-margin_top = 144.0
-margin_right = 140.0
-margin_bottom = 176.0
-
-[node name="ColorSwatch29" parent="." instance=ExtResource( 3 )]
-margin_left = 144.0
-margin_top = 144.0
-margin_right = 176.0
-margin_bottom = 176.0
-
-[node name="ColorSwatch30" parent="." instance=ExtResource( 3 )]
-margin_left = 180.0
-margin_top = 144.0
-margin_right = 212.0
-margin_bottom = 176.0
-
-[node name="ColorSwatch31" parent="." instance=ExtResource( 3 )]
-margin_top = 180.0
-margin_bottom = 212.0
-
-[node name="ColorSwatch32" parent="." instance=ExtResource( 3 )]
-margin_left = 36.0
-margin_top = 180.0
-margin_right = 68.0
-margin_bottom = 212.0
-
-[node name="ColorSwatch33" parent="." instance=ExtResource( 3 )]
-margin_left = 72.0
-margin_top = 180.0
-margin_right = 104.0
-margin_bottom = 212.0
-
-[node name="ColorSwatch34" parent="." instance=ExtResource( 3 )]
-margin_left = 108.0
-margin_top = 180.0
-margin_right = 140.0
-margin_bottom = 212.0
-
-[node name="ColorSwatch35" parent="." instance=ExtResource( 3 )]
-margin_left = 144.0
-margin_top = 180.0
-margin_right = 176.0
-margin_bottom = 212.0
-
-[node name="ColorSwatch36" parent="." instance=ExtResource( 3 )]
-margin_left = 180.0
-margin_top = 180.0
-margin_right = 212.0
-margin_bottom = 212.0

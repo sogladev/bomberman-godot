@@ -9,29 +9,38 @@ public class ColorSelector : GridContainer
     [Signal]
     public delegate void ColorSelected();
     private List<string> colors = new List<string>(){
+        "#ffffff", // ok
+        "#28fb43", // ok
+        "#8fde5d", // ok
+        "#cfff70", // ok
+        "#83d0cd", // ok
+        "#66ffe3", // ok
+        "#00b6de", // ok
+        "#4da6ff", // ok
+        "#f2a65e", // ok
+        "#ffe478", // ok
+        "#f0e09e", // ok
+        "#ed46e5", // ok
+        "#b837ea", // ok
+        "#ff6b97", // ok
+        "#ffb5b5", // ok
+        "#ce0e15", // ok
+        "#272736", 
+        "#3e2347", 
         "#5e315b",
         "#8c3f5d",
         "#ba6156",
-        "#f2a65e",
-        "#ffe478",
-        "#cfff70",
-        "#8fde5d",
         "#3ca370",
         "#3d6e70",
         "#323e4f",
         "#322947",
+        "#57294b", 
         "#473b78",
         "#4b5bab",
-        "#4da6ff",
-        "#66ffe3",
-        "#ffffeb",
         "#c2c2d1",
         "#7e7e8f",
         "#606070",
         "#43434f",
-        "#272736",
-        "#3e2347",
-        "#57294b",
         "#964253",
         "#e36956",
         "#ffb570",
@@ -43,8 +52,6 @@ public class ColorSelector : GridContainer
         "#5a265e",
         "#80366b",
         "#bd4882",
-        "#ff6b97",
-        "#ffb5b5",
     };
     public Color color = new Color(1, 1, 1, 1);
 

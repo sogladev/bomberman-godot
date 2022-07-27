@@ -1,13 +1,11 @@
 using Godot;
 using System;
+using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 
-[Tool]
 public class ColorSelector : GridContainer
 {
-    public Color color = new Color(1,1,1,1);
-    private string _ColorSwatchResource = "res://Nodes/Menus/ColorSwatch.tscn";
-    private PackedScene _packedSceneColorSwatch;
     private List<string> colors = new List<string>(){
         "#5e315b",
         "#8c3f5d",
@@ -47,26 +45,25 @@ public class ColorSelector : GridContainer
         "#ffb5b5",
     };
 
+    public Color color = new Color(1, 1, 1, 1);
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        _packedSceneColorSwatch = ResourceLoader.Load<PackedScene>(_ColorSwatchResource);
-        ColorSwatch newColorSwatch;
-        foreach (string color in colors){
-            newColorSwatch = _packedSceneColorSwatch.Instance() as ColorSwatch;
-            newColorSwatch.colorInit = new Color(color);
-            AddChild(newColorSwatch);
-            newColorSwatch.Owner = GetTree().EditedSceneRoot;
-            //newColorSwatch.Connect("ColorSelected", this, "_on_ColorSwatch_pressed");
+        ColorSwatch swatch;
+        List<ColorSwatch> swatches = GetChildren().OfType<ColorSwatch>().ToList();
+        Color color;
+        for (int i = 0; i < swatches.Count(); i++)
+        {
+            swatch = swatches[i];
+            color = new Color(colors[i]);
+            swatch.SetColor(color);
+            swatch.Connect("pressed", this, "_on_ColorSwatch_pressed", new Godot.Collections.Array { color });
         }
-        //Already connected through UI?
-        //foreach (ColorSwatch swatch in GetChildren()){
-        //    swatch.Connect("ColorSelected", this, "_on_ColorSwatch_pressed");
-        //}
     }
 
-    private void _on_ColorSwatch_pressed(Color color){
+    private void _on_ColorSwatch_pressed(Color color)
+    {
         GD.Print("New color selected: ", color);
         this.color = color;
     }

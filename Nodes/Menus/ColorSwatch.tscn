@@ -6,6 +6,7 @@
 margin_right = 32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+mouse_default_cursor_shape = 2
 flat = true
 script = ExtResource( 1 )
 
@@ -14,4 +15,4 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = 28.0
 margin_bottom = 28.0
-color = Color( 0, 0, 0, 0 )
+mouse_filter = 1

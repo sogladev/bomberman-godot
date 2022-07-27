@@ -39,15 +39,15 @@ public class GameManager : SimpleStateMachine
         "playerF", "playerG", "playerH", "playerI",
         };
         List<Color> _playerColors = new List<Color>(){
-            new Color("#ffffff"),
-            new Color("#cfff70"),
-            new Color("#66ffe3"),
-            new Color("#00b6de"),
-            new Color("#ffe478"),
-            new Color("#ed46e5"),
-            new Color("#ff6b97"),
-            new Color("#ffb5b5"),
-            new Color("#00b6de"),
+            new Color("#ffffff"), // white
+            new Color("#e6194B"), // red
+            new Color("#f58231"), // orange
+            new Color("#ffe119"), // yellow
+            new Color("#3cb44b"), // green
+            new Color("#4363d8"), // blue
+            new Color("#911eb4"), // purple
+            new Color("#f032e6"), // magenta
+            new Color("#aaffc3"), // mint
         };
 
 

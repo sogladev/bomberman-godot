@@ -1,18 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/bm.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/DynamicFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scripts/MainMenu.cs" type="Script" id=3]
-
-[sub_resource type="DynamicFontData" id=1]
-antialiased = false
-font_path = "res://Fonts/bm.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-font_data = SubResource( 1 )
-
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
+[ext_resource path="res://Fonts/MenuTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Fonts/DynamicFont_smaller.tres" type="DynamicFont" id=5]
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
@@ -23,12 +15,34 @@ margin_right = 231.0
 margin_bottom = 149.0
 script = ExtResource( 3 )
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 629.0
+margin_bottom = 149.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 629.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 68.0
+margin_right = 629.0
+margin_bottom = 91.0
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer2"]
+margin_right = 629.0
+margin_bottom = 23.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "MOVE W,A,S,D or Arrows - bomb space or ctrl"
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 231.0
+margin_right = 629.0
 margin_bottom = 149.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_right = 231.0
+margin_left = 199.0
+margin_right = 430.0
 margin_bottom = 149.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
@@ -39,7 +53,7 @@ margin_bottom = 33.0
 margin_right = 231.0
 margin_bottom = 33.0
 rect_min_size = Vector2( 164, 0 )
-theme = SubResource( 3 )
+theme = ExtResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "BOMBERMAN"

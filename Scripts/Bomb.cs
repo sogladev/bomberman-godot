@@ -13,8 +13,6 @@ public class Bomb : StaticBody2D
     protected AudioStreamPlayer2D _soundFuse2D;
     protected AudioStreamPlayer2D _soundDetonate2D;
 
-    public bool isDetonated = false;
-
     public void Init(int power)
     {
         _power = power;
@@ -29,7 +27,7 @@ public class Bomb : StaticBody2D
         timer_PlayerCollision.Connect("timeout", this, "SetPlayerCollision");
         _soundDetonate2D = GetNode<AudioStreamPlayer2D>("./SoundDetonate2D");
         _soundFuse2D = GetNode<AudioStreamPlayer2D>("./SoundFuse2D");
-        _soundFuse2D.Position = Position;
+        _soundFuse2D.GlobalPosition = GlobalPosition;
         _soundFuse2D.Play();
     }
 
@@ -39,15 +37,18 @@ public class Bomb : StaticBody2D
 
     private void Detonate()
     {
-        if (isDetonated){return;}
         Flame newFlame = _packedSceneFlame.Instance() as Flame;
         newFlame.Init(_power, _power, _power, _power);
         newFlame.Position = Position;
         GetTree().Root.AddChild(newFlame);
-        _soundDetonate2D.GlobalPosition = Position;
+        _soundDetonate2D.GlobalPosition = GlobalPosition;
         _soundDetonate2D.Play();
-        Position = new Vector2(9999,9999); // hack to move collision offscreen
-        isDetonated = true;
+        // Remove children besides sound playing
+        foreach (Node node in GetChildren()){
+            if (node.Name != "SoundDetonate2D"){
+            node.QueueFree();
+            }
+        }
     }
     private void _on_SoundDetonate2D_finished(){
         QueueFree();

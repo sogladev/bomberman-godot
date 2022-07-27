@@ -7,7 +7,6 @@ https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 ## Roadmap
 - list other players on side
     create UI node
-- sound effects
 ------------------------------
 - turn on/off flicker timer (player)
 - turn off collision with fire (mask) when invincible

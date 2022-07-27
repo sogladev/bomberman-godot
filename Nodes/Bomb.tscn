@@ -100,11 +100,12 @@ autostart = true
 
 [node name="SoundFuse2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-max_distance = 1000.0
+volume_db = -6.0
+max_distance = 500.0
 
 [node name="SoundDetonate2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
-max_distance = 1000.0
+max_distance = 500.0
 
 [connection signal="BombIgnited" from="BombArea2D" to="." method="_on_BombArea2D_BombIgnited"]
 [connection signal="finished" from="SoundDetonate2D" to="." method="_on_SoundDetonate2D_finished"]

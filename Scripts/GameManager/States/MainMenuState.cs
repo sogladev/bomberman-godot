@@ -118,17 +118,14 @@ public class MainMenuState : GameManagerState
         base.OnUpdate();
         if (Input.IsActionJustPressed("ui_down"))
         {
-            GD.Print("down");
             _menu.handleInput("ui_down");
         }
         else if (Input.IsActionJustPressed("ui_up"))
         {
-            GD.Print("up");
             _menu.handleInput("ui_up");
         }
         else if (Input.IsActionJustPressed("ui_accept"))
         {
-            GD.Print("select");
             string action = _menu.ParseSelection();
             if (action == "new_game")
             {
@@ -136,7 +133,6 @@ public class MainMenuState : GameManagerState
             }
             else if (action == "options")
             {
-                GD.Print("Options");
                 // Show ColorSelector
                 foreach (Control c in GetNode("../../../../Game/CanvasLayerColorSelector").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
                 {

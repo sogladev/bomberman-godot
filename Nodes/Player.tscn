@@ -68,9 +68,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
 "loop": true,
-"name": "idle_right",
+"name": "idle_up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 25 ), ExtResource( 32 ) ],
@@ -78,14 +78,14 @@ animations = [ {
 "name": "idle_left",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "idle_up",
 "speed": 5.0
 } ]
 
@@ -399,7 +399,7 @@ position = Vector2( 16, 16 )
 
 [node name="SoundSpawn" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 35 )
-volume_db = -20.0
+volume_db = -16.0
 
 [node name="SoundHurtBot2D" type="AudioStreamPlayer2D" parent="Sounds"]
 position = Vector2( 16, 16 )
@@ -419,12 +419,15 @@ max_distance = 1000.0
 
 [node name="SoundPowerUpBomb" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 43 )
+volume_db = -18.0
 
 [node name="SoundPowerUpFirePower" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 42 )
+volume_db = -6.0
 
 [node name="SoundPowerUpSpeed" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 44 )
+volume_db = -12.0
 
 [node name="SoundApplyInvincibility" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 41 )
@@ -432,6 +435,7 @@ volume_db = -30.0
 
 [node name="SoundRemoveInvincibility" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 40 )
+volume_db = -6.0
 
 [node name="SoundCollectPrize" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 45 )
@@ -440,7 +444,6 @@ stream = ExtResource( 45 )
 position = Vector2( -16, -16 )
 frames = SubResource( 42 )
 animation = "idle"
-frame = 2
 centered = false
 offset = Vector2( 22.509, 19.078 )
 

@@ -32,4 +32,4 @@ script = ExtResource( 4 )
 script = ExtResource( 6 )
 
 [node name="MusicBackground" type="AudioStreamPlayer" parent="AudioManager"]
-volume_db = -18.0
+volume_db = -21.0

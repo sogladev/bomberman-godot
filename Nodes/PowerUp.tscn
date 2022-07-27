@@ -17,8 +17,9 @@ scale = Vector2( 0.9, 0.9 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 16, 16 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
-centered = false
 
 [node name="Invincibility" type="Timer" parent="."]
 wait_time = 3.0

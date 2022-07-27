@@ -10,8 +10,10 @@ list other players on side
 music
 sound effects
 ------------------------------
+turn on/off flicker timer (player)
 turn off collision with fire (mask) when invincible
 create graveyard spawns that are named
+    make graveyard fixed
 show names above players
 character model picker
 do not fizzle fire on ignite powerup

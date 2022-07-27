@@ -44,18 +44,21 @@ public class Player : KinematicBody2D
 
     protected Timer _timer_invincibility;
     private Timer _timer_ready_to_respawn;
+    private Timer _timer_collision_with_fire;
 
     public string name = "default";
-    
-    public Color color = new Color(1.0f,1.0f,1.0f, 1.0f);
-    
+
+    public Color color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    public float spawnInvincibilityDuration = 15.0f;
+
 
     public void Init(string name)
     {
         this.name = name;
     }
 
-    public void SetColor(Color color){
+    public void SetColor(Color color)
+    {
         _sprite.Modulate = color;
     }
 
@@ -71,6 +74,9 @@ public class Player : KinematicBody2D
         // Timer to stop placing bomb right after loading
         Timer timer_is_just_loaded = GetNode<Timer>("JustLoaded");
         timer_is_just_loaded.Connect("timeout", this, "TurnOffIsJustLoaded");
+        // Timer collision with fire
+        _timer_collision_with_fire = GetNode<Timer>("FireCollision");
+        _timer_collision_with_fire.Connect("timeout", this, "TurnOffCollisionWithFire");
         // Invincibility timers
         _timer_invincibility = GetNode<Timer>("Invincibility");
         _timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
@@ -83,18 +89,29 @@ public class Player : KinematicBody2D
         // 
         _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
         SetColor(color);
+        // Apply spawn invincibility 
+        ApplyInvincibility(spawnInvincibilityDuration);
     }
 
-    private void TurnOffIsJustLoaded(){
+    private void TurnOffIsJustLoaded()
+    {
         isJustLoaded = false;
     }
+    private void TurnOffCollisionWithFire()
+    {
+        // Remove collision with Flame
+        CollisionMask = 1 + 0 + 64 + 128; //  Walls, Flame, Box, Unbreakable wall
+    }
 
-    private void Regenerate(){
-        if (amountOfBombs < ( 1 + (bombPowerUp * bombPowerUpValue))){
+    private void Regenerate()
+    {
+        if (amountOfBombs < (1 + (bombPowerUp * bombPowerUpValue)))
+        {
             amountOfBombs++;
         }
-        if (_health < 100){
-            _health += 10;
+        if (_health < 100)
+        {
+            _health += 20;
         }
     }
 
@@ -123,82 +140,73 @@ public class Player : KinematicBody2D
         }
     }
 
-    public void ApplyInvincibility(float duration){
+    public void ApplyInvincibility(float duration)
+    {
         _isInvincible = true;
+        // Set timer to turn off fire collision
+        _timer_collision_with_fire.Start(1.5f);
         _timer_invincibility.Start(duration);
     }
 
-    private void RemoveInvincibility(){
+    private void RemoveInvincibility()
+    {
+        // Add collision with Flame
+        CollisionMask = 1 + 4 + 64 + 128; //  Walls, Flame, Box, Unbreakable wall
         _isInvincible = false;
     }
 
-    private void SetReadyToRespawn(){
+    private void SetReadyToRespawn()
+    {
         isReadyToRespawn = true;
     }
 
-    private void Die(){
-        if (isImmortal){return;};
-        if (isDead){return;}; // Avoid dying twice
+    private void Die()
+    {
+        if (isImmortal) { return; };
+        if (isDead) { return; }; // Avoid dying twice
         isDead = true;
         _isInvincible = true;
         isReadyToRespawn = false;
         EmitSignal(nameof(playerDied), name);
         // PlayDeath animation
         _timer_ready_to_respawn.Start(10.0f);
-        // set isReadyToRespawn to true somehwere
-        isReadyToRespawn = true;
     }
 
-    public void Respawn(){
+    public void Respawn()
+    {
         isDead = false;
         ApplyInvincibility(15.0f);
     }
 
-    protected void HitByFire(){
-        _health = _health - 100;
-        if (!isImmortal && (_health <= 0)){
+    protected void HitByFire()
+    {
+        _health = _health - 90;
+        if (!isImmortal && (_health <= 0))
+        {
             Die();
         }
-        else {
+        else
+        {
             ApplyInvincibility(5.0f);
         }
     }
 
-    private void Prize(){
-        if (!isCollectPrize){return;};
+    private void Prize()
+    {
+        if (!isCollectPrize) { return; };
         _isInvincible = true;
         GD.Print("Emit collectedPrize");
         EmitSignal("collectedPrize", name);
     }
 
-//    public override void _Input(InputEvent @event)
-//    {
-//        // Mouse in viewport coordinates.
-//        if (@event is InputEventMouseButton eventMouseButton)
-//        {
-//            //            GD.Print("Mouse Click/Unclick at: ", eventMouseButton.Position);
-//            //            GD.Print("Viewport Resolution is: ", GetViewportRect().Size);
-//            //            GD.Print("MousePositon is: ", GetViewport().GetMousePosition());
-//            GD.Print("Direction Mouse: ", Position.DirectionTo(eventMouseButton.Position).Normalized());
-//            _animTree.Set("parameters/Idle/blend_position", Position.DirectionTo(eventMouseButton.Position).Normalized());
-//            _animTree.Set("parameters/Walk/blend_position", Position.DirectionTo(eventMouseButton.Position).Normalized());
-//        }
-//        else if (@event is InputEventMouseMotion eventMouseMotion)
-//        {
-//           // _animTree.Set("parameters/Idle/blend_position", Position.DirectionTo(eventMouseMotion.Position).Normalized());
-//            // _animTree.Set("parameters/Walk/blend_position", Position.DirectionTo(eventMouseButton.Position).Normalized());
-//            //            GD.Print("Mouse Motion at: ", eventMouseMotion.Position);
-//            //           GD.Print("Mouse Motion at RELATIVE: ", eventMouseMotion.Relative);
-//        }
-//        // Print the size of the viewport.
-//    }
 
-
-    private void _on_PlayerArea2D_PickedUpPrize(){
+    private void _on_PlayerArea2D_PickedUpPrize()
+    {
         Prize();
     }
 
-    private void _on_PlayerArea2D_PickedUpPowerUp(string typeOfPowerUp){
+    private void _on_PlayerArea2D_PickedUpPowerUp(string typeOfPowerUp)
+    {
         if (typeOfPowerUp == "Powerup_bomb")
         {
             amountOfBombs++;
@@ -218,19 +226,22 @@ public class Player : KinematicBody2D
         }
     }
 
-    protected bool _TryPlaceBomb(){
-        if (amountOfBombs <= 0){ return false; };
-        if (isJustLoaded){ return false; };
+    protected bool _TryPlaceBomb()
+    {
+        if (amountOfBombs <= 0) { return false; };
+        if (isJustLoaded) { return false; };
         Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
         newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
         // Change position to center
         Vector2 centeredPosition = new Vector2();
-        centeredPosition.x = (float)(Math.Round(Position.x  / 32) * 32);
-        centeredPosition.y = (float)(Math.Round(Position.y  / 32) * 32);
+        centeredPosition.x = (float)(Math.Round(Position.x / 32) * 32);
+        centeredPosition.y = (float)(Math.Round(Position.y / 32) * 32);
         // Check if there already is a Bomb on center position
         List<Bomb> bombs = GetTree().Root.GetChildren().OfType<Bomb>().ToList();
-        foreach(Bomb bomb in bombs){
-            if (bomb.Position == centeredPosition){
+        foreach (Bomb bomb in bombs)
+        {
+            if (bomb.Position == centeredPosition)
+            {
                 return false;
             }
         }
@@ -242,7 +253,7 @@ public class Player : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
-        if (isDead){ return; }
+        if (isDead) { return; }
         _movement.x = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
         _movement.y = Input.GetActionStrength("move_down") - Input.GetActionStrength("move_up");
         _direction = _movement.Normalized();
@@ -251,24 +262,29 @@ public class Player : KinematicBody2D
         // Update animation tree based on direction
         string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";
         _animStateMachine.Travel(animStateAnimation);
-        if (animStateAnimation == "Walk"){
+        if (animStateAnimation == "Walk")
+        {
             _animTree.Set("parameters/Idle/blend_position", _direction);
             _animTree.Set("parameters/Walk/blend_position", _direction);
         }
 
         // Check collisions
-        if (possibleCollision != null){
+        if (possibleCollision != null)
+        {
             KinematicCollision2D collision = (KinematicCollision2D)possibleCollision;
             Node collider = (Node)collision.Collider;
-            if (collider.Name.StartsWith("@Flame")){
-                if (!(_isInvincible)){
+            if (collider.Name.StartsWith("@Flame"))
+            {
+                if (!(_isInvincible))
+                {
                     HitByFire();
                 }
             }
         }
 
         // Try place bomb if key pressed or held down
-        if (Input.IsActionPressed("place_bomb")){
+        if (Input.IsActionPressed("place_bomb"))
+        {
             _TryPlaceBomb();
         }
     }

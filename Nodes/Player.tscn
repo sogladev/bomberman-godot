@@ -57,6 +57,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "idle_up",
@@ -70,11 +75,6 @@ animations = [ {
 "frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 25 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "idle_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "down",
 "speed": 5.0
 } ]
 
@@ -388,7 +388,6 @@ __meta__ = {
 position = Vector2( -16, -16 )
 frames = SubResource( 42 )
 animation = "idle"
-frame = 2
 centered = false
 offset = Vector2( 22.509, 19.078 )
 
@@ -416,8 +415,6 @@ autostart = true
 
 [node name="Invincibility" type="Timer" parent="."]
 wait_time = 15.0
-one_shot = true
-autostart = true
 
 [node name="Respawn" type="Timer" parent="."]
 wait_time = 15.0
@@ -426,6 +423,10 @@ wait_time = 15.0
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="FireCollision" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="InvincibilityFlicker" type="Timer" parent="."]
 wait_time = 0.3

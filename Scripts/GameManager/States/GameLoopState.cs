@@ -50,6 +50,7 @@ public class GameLoopState : GameManagerState
             _player.flamePowerUp = 5;
             _player.bombPowerUp = 10;
             _player.moveSpeed = 100;
+            _player.spawnInvincibilityDuration = 5.0f;
         }
         _player.color = _playerColors[0];
         _player.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
@@ -105,7 +106,7 @@ public class GameLoopState : GameManagerState
         GD.Print("Received Signal: died");
         GM.ChangeState("GameOverState",
         new Dictionary<string, object>(){
-            {"is_victory", true},
+            {"is_victory", false},
             {"player_colors", _playerColors},
             {"player_names", _playerNames},
     });

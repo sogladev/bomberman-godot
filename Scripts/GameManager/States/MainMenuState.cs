@@ -99,7 +99,7 @@ public class MainMenuState : GameManagerState
             {"player_names", _playerNames},
             {"bot_resource", "res://Nodes/PlayerBot.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
-            {"special_type", "immortal"},
+            {"special_type", "none"},
         });
     }
 

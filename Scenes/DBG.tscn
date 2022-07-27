@@ -376,26 +376,17 @@ position = Vector2( 256, 128 )
 scale = Vector2( 1, 1.0301 )
 
 [node name="Bomb3" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( 256, 224 )
+position = Vector2( 256, 192 )
 scale = Vector2( 1, 1.0301 )
 
-[node name="Box_unbreakable50" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 576, 256 )
-
 [node name="Box_unbreakable68" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 96, 320 )
-
-[node name="Box_unbreakable51" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 608, 256 )
+position = Vector2( 64, 256 )
 
 [node name="Box_unbreakable63" parent="TestNodes" instance=ExtResource( 3 )]
 position = Vector2( 416, 512 )
 
-[node name="Box_unbreakable64" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 672, 224 )
-
 [node name="Box_unbreakable61" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 160, 480 )
+position = Vector2( 64, 384 )
 
 [node name="Box_unbreakable58" parent="TestNodes" instance=ExtResource( 3 )]
 position = Vector2( 416, 352 )
@@ -412,38 +403,44 @@ position = Vector2( 288, 480 )
 [node name="Box_unbreakable80" parent="TestNodes" instance=ExtResource( 3 )]
 position = Vector2( 384, 480 )
 
-[node name="Box_unbreakable54" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 672, 256 )
-
-[node name="Box_unbreakable52" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 640, 288 )
-
 [node name="Powerup" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 192, 416 )
+position = Vector2( 192, 384 )
 
 [node name="Powerup2" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 576, 352 )
+position = Vector2( 480, 288 )
 
 [node name="Powerup3" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 608, 352 )
+position = Vector2( 512, 288 )
 
 [node name="Powerup4" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 640, 352 )
+position = Vector2( 544, 288 )
 
 [node name="Powerup5" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 672, 352 )
+position = Vector2( 576, 288 )
 
 [node name="Powerup6" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 736, 352 )
-
-[node name="Powerup7" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 768, 352 )
+position = Vector2( 640, 288 )
 
 [node name="Powerup8" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 704, 352 )
+position = Vector2( 608, 288 )
+
+[node name="Powerup7" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( 512, 224 )
+
+[node name="Powerup11" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( 544, 224 )
+
+[node name="Powerup12" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( 576, 224 )
+
+[node name="Powerup13" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( 640, 224 )
+
+[node name="Powerup14" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( 608, 224 )
 
 [node name="Box_unbreakable53" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 160, 224 )
+position = Vector2( 128, 192 )
 
 [node name="Box_unbreakable55" parent="TestNodes" instance=ExtResource( 3 )]
 position = Vector2( 256, 160 )
@@ -458,29 +455,450 @@ position = Vector2( 224, 128 )
 position = Vector2( 256, 96 )
 
 [node name="Box_unbreakable62" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 256, 256 )
+position = Vector2( 256, 224 )
 
 [node name="Box_unbreakable67" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 288, 224 )
-
-[node name="Box_unbreakable69" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 256, 192 )
+position = Vector2( 288, 192 )
 
 [node name="Bomb4" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( 256, 320 )
+position = Vector2( 256, 256 )
 scale = Vector2( 1, 1.0301 )
 
 [node name="Box_unbreakable70" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 256, 352 )
-
-[node name="Box_unbreakable71" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 288, 320 )
-
-[node name="Box_unbreakable73" parent="TestNodes" instance=ExtResource( 3 )]
 position = Vector2( 256, 288 )
 
+[node name="Box_unbreakable71" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 288, 256 )
+
+[node name="Box_unbreakable81" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 0, 704 )
+
+[node name="Box_unbreakable82" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 32, 704 )
+
+[node name="Box_unbreakable83" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 64, 704 )
+
+[node name="Box_unbreakable84" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 96, 704 )
+
+[node name="Box_unbreakable85" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 128, 704 )
+
+[node name="Box_unbreakable86" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 160, 704 )
+
+[node name="Box_unbreakable87" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 192, 704 )
+
+[node name="Box_unbreakable88" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 224, 704 )
+
+[node name="Box_unbreakable89" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 256, 704 )
+
+[node name="Box_unbreakable90" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 288, 704 )
+
+[node name="Box_unbreakable91" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 320, 704 )
+
+[node name="Box_unbreakable92" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 352, 704 )
+
+[node name="Box_unbreakable93" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 384, 704 )
+
+[node name="Box_unbreakable94" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 416, 704 )
+
+[node name="Box_unbreakable95" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 448, 704 )
+
+[node name="Box_unbreakable96" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 480, 704 )
+
+[node name="Box_unbreakable97" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 512, 704 )
+
+[node name="Box_unbreakable98" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 544, 704 )
+
+[node name="Box_unbreakable99" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 576, 704 )
+
+[node name="Box_unbreakable100" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 608, 704 )
+
+[node name="Box_unbreakable101" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 640, 704 )
+
+[node name="Box_unbreakable102" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 672, 704 )
+
+[node name="Box_unbreakable103" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 704, 704 )
+
+[node name="Box_unbreakable104" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 736, 704 )
+
+[node name="Box_unbreakable105" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 768, 704 )
+
+[node name="Box_unbreakable106" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 800, 704 )
+
+[node name="Box_unbreakable107" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 832, 704 )
+
+[node name="Box_unbreakable108" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 864, 704 )
+
+[node name="Box_unbreakable109" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 896, 704 )
+
+[node name="Box_unbreakable110" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 928, 704 )
+
+[node name="Box_unbreakable111" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 960, 704 )
+
+[node name="Box_unbreakable112" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 992, 704 )
+
+[node name="Box_unbreakable113" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1024, 704 )
+
+[node name="Box_unbreakable114" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1056, 704 )
+
+[node name="Box_unbreakable115" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1088, 704 )
+
+[node name="Box_unbreakable116" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1120, 704 )
+
+[node name="Box_unbreakable117" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 0, -32 )
+
+[node name="Box_unbreakable118" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 32, -32 )
+
+[node name="Box_unbreakable119" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 64, -32 )
+
+[node name="Box_unbreakable120" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 96, -32 )
+
+[node name="Box_unbreakable121" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 128, -32 )
+
+[node name="Box_unbreakable122" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 160, -32 )
+
+[node name="Box_unbreakable123" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 192, -32 )
+
+[node name="Box_unbreakable124" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 224, -32 )
+
+[node name="Box_unbreakable125" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 256, -32 )
+
+[node name="Box_unbreakable126" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 288, -32 )
+
+[node name="Box_unbreakable127" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 320, -32 )
+
+[node name="Box_unbreakable128" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 352, -32 )
+
+[node name="Box_unbreakable129" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 0, -32 )
+
+[node name="Box_unbreakable183" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 0, -32 )
+
+[node name="Box_unbreakable184" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 0 )
+
+[node name="Box_unbreakable207" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 32 )
+
+[node name="Box_unbreakable185" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, -32 )
+
+[node name="Box_unbreakable186" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 64 )
+
+[node name="Box_unbreakable187" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 96 )
+
+[node name="Box_unbreakable188" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 128 )
+
+[node name="Box_unbreakable189" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 160 )
+
+[node name="Box_unbreakable190" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 192 )
+
+[node name="Box_unbreakable191" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 224 )
+
+[node name="Box_unbreakable192" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 256 )
+
+[node name="Box_unbreakable193" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 288 )
+
+[node name="Box_unbreakable194" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 320 )
+
+[node name="Box_unbreakable195" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 352 )
+
+[node name="Box_unbreakable196" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 384 )
+
+[node name="Box_unbreakable197" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 416 )
+
+[node name="Box_unbreakable198" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 448 )
+
+[node name="Box_unbreakable199" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 480 )
+
+[node name="Box_unbreakable200" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 512 )
+
+[node name="Box_unbreakable201" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 544 )
+
+[node name="Box_unbreakable202" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 576 )
+
+[node name="Box_unbreakable203" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 608 )
+
+[node name="Box_unbreakable204" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 640 )
+
+[node name="Box_unbreakable205" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 672 )
+
+[node name="Box_unbreakable206" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( -32, 704 )
+
+[node name="Box_unbreakable209" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 0 )
+
+[node name="Box_unbreakable210" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 32 )
+
+[node name="Box_unbreakable211" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 64 )
+
+[node name="Box_unbreakable212" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 96 )
+
+[node name="Box_unbreakable213" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 128 )
+
+[node name="Box_unbreakable214" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 160 )
+
+[node name="Box_unbreakable215" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 192 )
+
+[node name="Box_unbreakable216" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 224 )
+
+[node name="Box_unbreakable217" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 256 )
+
+[node name="Box_unbreakable218" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 288 )
+
+[node name="Box_unbreakable219" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 320 )
+
+[node name="Box_unbreakable220" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 352 )
+
+[node name="Box_unbreakable221" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 384 )
+
+[node name="Box_unbreakable222" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 416 )
+
+[node name="Box_unbreakable223" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 448 )
+
+[node name="Box_unbreakable224" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 480 )
+
+[node name="Box_unbreakable227" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 512 )
+
+[node name="Box_unbreakable228" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 544 )
+
+[node name="Box_unbreakable229" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 576 )
+
+[node name="Box_unbreakable230" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 608 )
+
+[node name="Box_unbreakable231" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 640 )
+
+[node name="Box_unbreakable232" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 672 )
+
+[node name="Box_unbreakable130" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 32, -32 )
+
+[node name="Box_unbreakable131" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 64, -32 )
+
+[node name="Box_unbreakable132" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 96, -32 )
+
+[node name="Box_unbreakable133" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 128, -32 )
+
+[node name="Box_unbreakable134" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 160, -32 )
+
+[node name="Box_unbreakable135" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 192, -32 )
+
+[node name="Box_unbreakable136" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 224, -32 )
+
+[node name="Box_unbreakable137" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 256, -32 )
+
+[node name="Box_unbreakable138" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 288, -32 )
+
+[node name="Box_unbreakable139" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 320, -32 )
+
+[node name="Box_unbreakable140" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 352, -32 )
+
+[node name="Box_unbreakable141" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 384, -32 )
+
+[node name="Box_unbreakable142" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 416, -32 )
+
+[node name="Box_unbreakable143" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 448, -32 )
+
+[node name="Box_unbreakable144" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 480, -32 )
+
+[node name="Box_unbreakable145" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 512, -32 )
+
+[node name="Box_unbreakable146" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 544, -32 )
+
+[node name="Box_unbreakable147" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 576, -32 )
+
+[node name="Box_unbreakable148" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 608, -32 )
+
+[node name="Box_unbreakable149" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 640, -32 )
+
+[node name="Box_unbreakable150" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 672, -32 )
+
+[node name="Box_unbreakable151" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 704, -32 )
+
+[node name="Box_unbreakable152" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 736, -32 )
+
+[node name="Box_unbreakable153" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 768, -32 )
+
+[node name="Box_unbreakable154" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 800, -32 )
+
+[node name="Box_unbreakable155" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 832, -32 )
+
+[node name="Box_unbreakable156" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 864, -32 )
+
+[node name="Box_unbreakable157" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 896, -32 )
+
+[node name="Box_unbreakable158" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 928, -32 )
+
+[node name="Box_unbreakable159" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 960, -32 )
+
+[node name="Box_unbreakable160" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 992, -32 )
+
+[node name="Box_unbreakable161" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1024, -32 )
+
+[node name="Box_unbreakable162" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1056, -32 )
+
+[node name="Box_unbreakable163" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1088, -32 )
+
+[node name="Box_unbreakable164" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1120, -32 )
+
+[node name="Box_unbreakable165" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1152, -32 )
+
+[node name="Box_unbreakable166" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1184, -32 )
+
+[node name="Box_unbreakable167" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1216, -32 )
+
+[node name="Box_unbreakable168" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1248, -32 )
+
+[node name="Box_unbreakable169" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, -32 )
+
+[node name="Box_unbreakable177" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1152, 704 )
+
+[node name="Box_unbreakable178" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1184, 704 )
+
+[node name="Box_unbreakable179" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1216, 704 )
+
+[node name="Box_unbreakable180" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1248, 704 )
+
+[node name="Box_unbreakable181" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 1280, 704 )
+
 [node name="Bomb5" parent="TestNodes" instance=ExtResource( 5 )]
-position = Vector2( 256, 416 )
+position = Vector2( 256, 320 )
+scale = Vector2( 1, 1.0301 )
+
+[node name="Bomb10" parent="TestNodes" instance=ExtResource( 5 )]
+position = Vector2( 256, 384 )
 scale = Vector2( 1, 1.0301 )
 
 [node name="Bomb7" parent="TestNodes" instance=ExtResource( 5 )]
@@ -495,20 +913,30 @@ scale = Vector2( 1, 1.0301 )
 position = Vector2( 416, 384 )
 scale = Vector2( 1, 1.0301 )
 
-[node name="Box_unbreakable72" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 256, 448 )
+[node name="Bomb11" parent="TestNodes" instance=ExtResource( 5 )]
+position = Vector2( 416, 480 )
+scale = Vector2( 1, 1.0301 )
 
-[node name="Box_unbreakable74" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 288, 416 )
+[node name="Box_unbreakable72" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 256, 352 )
+
+[node name="Box_unbreakable73" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 288, 384 )
 
 [node name="Box_unbreakable75" parent="TestNodes" instance=ExtResource( 3 )]
-position = Vector2( 256, 384 )
+position = Vector2( 256, 416 )
+
+[node name="Box_unbreakable74" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 288, 320 )
 
 [node name="Box_unbreakable60" parent="TestNodes" instance=ExtResource( 3 )]
 position = Vector2( 352, 512 )
 
 [node name="Powerup9" parent="TestNodes" instance=ExtResource( 4 )]
-position = Vector2( 512, 352 )
+position = Vector2( 416, 288 )
+
+[node name="Powerup10" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( 448, 288 )
 
 [node name="Bomb6" parent="TestNodes" instance=ExtResource( 5 )]
 position = Vector2( 480, 480 )
@@ -524,16 +952,38 @@ position = Vector2( 512, 480 )
 position = Vector2( 480, 448 )
 
 [node name="Box_loot" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( 192, 224 )
+position = Vector2( 192, 192 )
 
 [node name="Box_loot3" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( 128, 320 )
+position = Vector2( 128, 256 )
 
 [node name="Box_loot5" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( 160, 320 )
+position = Vector2( 160, 256 )
 
 [node name="Box_loot4" parent="TestNodes" instance=ExtResource( 7 )]
-position = Vector2( 160, 416 )
+position = Vector2( 128, 384 )
+
+[node name="Box_unbreakable64" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 96, 320 )
+
+[node name="Powerup15" parent="TestNodes" instance=ExtResource( 4 )]
+position = Vector2( 192, 320 )
+
+[node name="Box_loot6" parent="TestNodes" instance=ExtResource( 7 )]
+position = Vector2( 160, 320 )
+
+[node name="Box_unbreakable171" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 128, 448 )
+
+[node name="Box_unbreakable172" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 320, 448 )
+
+[node name="Bomb12" parent="TestNodes" instance=ExtResource( 5 )]
+position = Vector2( 256, 448 )
+scale = Vector2( 1, 1.0301 )
+
+[node name="Box_unbreakable173" parent="TestNodes" instance=ExtResource( 3 )]
+position = Vector2( 288, 448 )
 
 [node name="TileMapGround" type="TileMap" parent="."]
 z_index = -1
@@ -560,11 +1010,13 @@ position = Vector2( 672, 64 )
 position = Vector2( -992, 160 )
 
 [node name="Prize" parent="Prize" instance=ExtResource( 8 )]
-position = Vector2( -64, -64 )
+position = Vector2( 352, -192 )
 
 [node name="Spawns" parent="." instance=ExtResource( 6 )]
-position = Vector2( -992, -32 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -832, -256 )
 
 [node name="SpawnsGraveyard" parent="." instance=ExtResource( 9 )]
-position = Vector2( -544, -256 )
+position = Vector2( -896, -256 )
+
+[node name="Sprite2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1408, 0 )

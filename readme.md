@@ -7,13 +7,13 @@ https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 ## Roadmap
 - list other players on side
     create UI node
-- music
 - sound effects
 ------------------------------
 - turn on/off flicker timer (player)
 - turn off collision with fire (mask) when invincible
 - create graveyard spawns that are named
     make graveyard fixed
+- use area mask on sound effects
 - show names above players
 - character model picker
 - do not fizzle fire on ignite powerup

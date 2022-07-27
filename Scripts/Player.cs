@@ -52,6 +52,8 @@ public class Player : KinematicBody2D
     public float spawnInvincibilityDuration = 15.0f;
 
     public bool isMainCharacter = false; // sound management
+    protected AudioStreamPlayer2D _soundHurtBot2D;
+    protected AudioStreamPlayer2D _soundDieBot2D;
 
     public void Init(string name)
     {
@@ -92,7 +94,16 @@ public class Player : KinematicBody2D
         SetColor(color);
         // Apply spawn invincibility 
         ApplyInvincibility(spawnInvincibilityDuration);
-        if (isMainCharacter) {GetNode<AudioStreamPlayer>("./Sounds/SoundSpawn").Play();};
+        if (isMainCharacter)
+        {
+            GetNode<AudioStreamPlayer>("./Sounds/SoundSpawn").Play();
+            GetNode<Listener2D>("./Listener2D").MakeCurrent();
+        }
+        else
+        {
+            _soundHurtBot2D = GetNode<AudioStreamPlayer2D>("./Sounds/SoundHurtBot2D");
+            _soundDieBot2D = GetNode<AudioStreamPlayer2D>("./Sounds/SoundDieBot2D");
+        }
     }
 
     private void TurnOffIsJustLoaded()
@@ -200,7 +211,7 @@ public class Player : KinematicBody2D
                 GetNode<AudioStreamPlayer>("./Sounds/SoundHurtPlayer").Play();
             } else {
                 // Fix 2D positioning
-                GetNode<AudioStreamPlayer2D>("./Sounds/SoundHurtBot2D").Play();
+                _soundHurtBot2D.Play();
             }
             ApplyInvincibility(5.0f);
         }

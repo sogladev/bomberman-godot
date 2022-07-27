@@ -53,7 +53,7 @@ public class GameLoopState : GameManagerState
             _player.amountOfBombs = 8;
             _player.flamePowerUp = 5;
             _player.bombPowerUp = 10;
-            _player.moveSpeed = 100;
+            _player.moveSpeed = 200;
             _player.spawnInvincibilityDuration = 5.0f;
         }
         _player.color = _playerColors[0];

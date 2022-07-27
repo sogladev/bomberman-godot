@@ -25,6 +25,12 @@ public class PlayerBot : Player
             _direction = _movement.Normalized();
             var possibleCollision = MoveAndCollide(_direction * moveSpeed * delta);
 
+            // Update Sound2D position. WorldPos does not change
+            if (!isMainCharacter){
+                _soundHurtBot2D.Position = Position;
+                _soundDieBot2D.Position = Position;
+            }
+
             // Update animation tree based on direction
             string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";
             _animStateMachine.Travel(animStateAnimation);

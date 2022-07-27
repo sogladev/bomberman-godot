@@ -391,12 +391,9 @@ extents = Vector2( 16, 16 )
 collision_layer = 2
 collision_mask = 197
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Listener2D" type="Listener2D" parent="."]
-current = true
+position = Vector2( 16, 16 )
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -405,8 +402,9 @@ stream = ExtResource( 35 )
 volume_db = -20.0
 
 [node name="SoundHurtBot2D" type="AudioStreamPlayer2D" parent="Sounds"]
-position = Vector2( 192, -160 )
+position = Vector2( 16, 16 )
 stream = ExtResource( 36 )
+max_distance = 1000.0
 
 [node name="SoundHurtPlayer" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 37 )
@@ -415,8 +413,9 @@ stream = ExtResource( 37 )
 stream = ExtResource( 38 )
 
 [node name="SoundDieBot2D" type="AudioStreamPlayer2D" parent="Sounds"]
-position = Vector2( -160, -160 )
+position = Vector2( 16, 16 )
 stream = ExtResource( 39 )
+max_distance = 1000.0
 
 [node name="SoundPowerUpBomb" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 43 )

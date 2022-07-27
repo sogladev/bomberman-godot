@@ -40,10 +40,12 @@ public class GameLoopState : GameManagerState
         _player = _packedScenePlayer.Instance() as Player;
         _player.Init(_playerNames[0]);
         // Set player if special state
-        if (_specialType == "immortal"){
+        if (_specialType == "immortal")
+        {
             _player.isImmortal = true;
         }
-        else if (_specialType == "DBG"){
+        else if (_specialType == "DBG")
+        {
             _player.amountOfBombs = 8;
             _player.flamePowerUp = 5;
             _player.bombPowerUp = 10;
@@ -89,22 +91,26 @@ public class GameLoopState : GameManagerState
 
     private void RespawnDeadPlayers()
     {
-            foreach (Player player in playersInTheGame)
+        foreach (Player player in playersInTheGame)
+        {
+            if (player.isDead && player.isReadyToRespawn)
             {
-                if (player.isDead && player.isReadyToRespawn)
-                {
-                    player.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
-                    player.Respawn();
-                }
+                player.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
+                player.Respawn();
             }
+        }
     }
     private void playerDied(string playerName)
     {
         GD.Print("Received Signal: died");
         GM.ChangeState("GameOverState",
         new Dictionary<string, object>(){
-            {"is_victory", false},
+            {"is_victory", true},
+            {"player_colors", _playerColors},
+            {"player_names", _playerNames},
     });
+
+
     }
     private void botDied(string botName)
     {
@@ -118,11 +124,26 @@ public class GameLoopState : GameManagerState
         }
     }
 
+
+    public void ChangeToMainMenuState()
+    {
+        GM.ChangeState("MainMenuState",
+        new Dictionary<string, object>(){
+            {"map_resource", "res://Scenes/DBG.tscn"},
+            {"player_resource", "res://Nodes/Player.tscn"},
+            {"player_colors", _playerColors},
+            {"player_names", _playerNames},
+            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
+            {"prize_resource", "res://Nodes/Prize.tscn"},
+            {"special_type", "DBG"},
+        });
+    }
+
     public override void UpdateState(float delta)
     {
         if (Input.IsActionJustPressed("ui_cancel"))
         {
-            GM.ChangeState("MainMenuState");
+            ChangeToMainMenuState();
         }
     }
 

@@ -33,6 +33,7 @@ public class Player : KinematicBody2D
     public int speedPowerUpValue = 20; // How many units should add per powerUp
     public int flamePowerUpValue = 1;
     public int bombPowerUpValue = 1;
+    private bool isJustLoaded = true;
 
     protected bool _isInvincible = true;
     protected AnimatedSprite _sprite;
@@ -42,6 +43,7 @@ public class Player : KinematicBody2D
     public bool isCollectPrize = true; // if not set Prize() does nothing
 
     protected Timer _timer_invincibility;
+    private Timer _timer_ready_to_respawn;
 
     public string name = "default";
     
@@ -62,18 +64,30 @@ public class Player : KinematicBody2D
     {
         _animTree = (AnimationTree)GetNode("AnimationTree");
         _animStateMachine = (AnimationNodeStateMachinePlayback)_animTree.Get("parameters/playback");
-
         _packedSceneBomb = ResourceLoader.Load<PackedScene>(_BombResource);
+        // Regenerate timer
         Timer timer_reload = GetNode<Timer>("Regenerate");
         timer_reload.Connect("timeout", this, "Regenerate");
+        // Timer to stop placing bomb right after loading
+        Timer timer_is_just_loaded = GetNode<Timer>("JustLoaded");
+        timer_is_just_loaded.Connect("timeout", this, "TurnOffIsJustLoaded");
+        // Invincibility timers
         _timer_invincibility = GetNode<Timer>("Invincibility");
         _timer_invincibility.Connect("timeout", this, "RemoveInvincibility");
         Timer timer_invincibility_flicker = GetNode<Timer>("InvincibilityFlicker");
         timer_invincibility_flicker.Connect("timeout", this, "Flicker");
+        //Respawn Timer
+        _timer_ready_to_respawn = GetNode<Timer>("Respawn");
+        _timer_ready_to_respawn.Connect("timeout", this, "SetReadyToRespawn");
+        _timer_ready_to_respawn.Start(10.0f);
+        // 
         _sprite = (AnimatedSprite)this.GetNode("./AnimatedSprite");
         SetColor(color);
     }
 
+    private void TurnOffIsJustLoaded(){
+        isJustLoaded = false;
+    }
 
     private void Regenerate(){
         if (amountOfBombs < ( 1 + (bombPowerUp * bombPowerUpValue))){
@@ -118,6 +132,10 @@ public class Player : KinematicBody2D
         _isInvincible = false;
     }
 
+    private void SetReadyToRespawn(){
+        isReadyToRespawn = true;
+    }
+
     private void Die(){
         if (isImmortal){return;};
         if (isDead){return;}; // Avoid dying twice
@@ -126,6 +144,7 @@ public class Player : KinematicBody2D
         isReadyToRespawn = false;
         EmitSignal(nameof(playerDied), name);
         // PlayDeath animation
+        _timer_ready_to_respawn.Start(10.0f);
         // set isReadyToRespawn to true somehwere
         isReadyToRespawn = true;
     }
@@ -137,7 +156,7 @@ public class Player : KinematicBody2D
 
     protected void HitByFire(){
         _health = _health - 100;
-        if (_health <= 0){
+        if (!isImmortal && (_health <= 0)){
             Die();
         }
         else {
@@ -201,6 +220,7 @@ public class Player : KinematicBody2D
 
     protected bool _TryPlaceBomb(){
         if (amountOfBombs <= 0){ return false; };
+        if (isJustLoaded){ return false; };
         Bomb newBomb = _packedSceneBomb.Instance() as Bomb;
         newBomb.Init(1 + (flamePowerUp * flamePowerUpValue));
         // Change position to center

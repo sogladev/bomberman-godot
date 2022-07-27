@@ -110,6 +110,7 @@ public class MainMenuState : GameManagerState
         });
     }
 
+
     private void _on_ColorSelector_ColorSelected(){
         GD.Print("MainMenu received signal color");
         _menuAnimation.GetNode<Player>("./Player")

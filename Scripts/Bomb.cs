@@ -3,6 +3,8 @@ using System;
 
 public class Bomb : StaticBody2D
 {
+//    [Signal] public delegate void Detonate(Vector2 position);
+
     private int _power = 5; // Set initial for testing. Ignored for release
 
     private const string _FlameResource = "res://Nodes/Flame.tscn";
@@ -10,6 +12,8 @@ public class Bomb : StaticBody2D
     // Sounds
     protected AudioStreamPlayer2D _soundFuse2D;
     protected AudioStreamPlayer2D _soundDetonate2D;
+
+    public bool isDetonated = false;
 
     public void Init(int power)
     {
@@ -35,12 +39,17 @@ public class Bomb : StaticBody2D
 
     private void Detonate()
     {
-        _soundDetonate2D.Position = Position;
-        _soundDetonate2D.Play();
+        if (isDetonated){return;}
         Flame newFlame = _packedSceneFlame.Instance() as Flame;
         newFlame.Init(_power, _power, _power, _power);
         newFlame.Position = Position;
         GetTree().Root.AddChild(newFlame);
+        _soundDetonate2D.GlobalPosition = Position;
+        _soundDetonate2D.Play();
+        Position = new Vector2(9999,9999); // hack to move collision offscreen
+        isDetonated = true;
+    }
+    private void _on_SoundDetonate2D_finished(){
         QueueFree();
     }
 

@@ -11,6 +11,7 @@ https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 ------------------------------
 - turn on/off flicker timer (player)
 - turn off collision with fire (mask) when invincible
+- place bombs using signals to game manager to fix hack with bomb sounds
 - create graveyard spawns that are named
     make graveyard fixed
 - use area mask on sound effects

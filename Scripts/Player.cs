@@ -256,6 +256,7 @@ public class Player : KinematicBody2D
         }
     }
 
+    // TODO:Send signal to game manager to spawn bombs
     protected bool _TryPlaceBomb()
     {
         if (amountOfBombs <= 0) { return false; };

@@ -27,8 +27,8 @@ public class PlayerBot : Player
 
             // Update Sound2D position. WorldPos does not change
             if (!isMainCharacter){
-                _soundHurtBot2D.Position = Position;
-                _soundDieBot2D.Position = Position;
+                _soundHurtBot2D.GlobalPosition = Position;
+                _soundDieBot2D.GlobalPosition = Position;
             }
 
             // Update animation tree based on direction

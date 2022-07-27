@@ -5,17 +5,14 @@ https://lospec.com/palette-list/pear36
 https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 
 ## Roadmap
-- list other players on side
-    create UI node
+- list other players on side 
 ------------------------------
 - turn on/off flicker timer (player)
-- turn off collision with fire (mask) when invincible
-- place bombs using signals to game manager to fix hack with bomb sounds
+- place bombs using signals to game manager 
 - create graveyard spawns that are named
     make graveyard fixed
-- use area mask on sound effects
 - show names above players
 - character model picker
-- do not fizzle fire on ignite powerup
+- do not fizzle fire on ignite powerup, let fire continue on top of fire
 ------------------------------
 - track score

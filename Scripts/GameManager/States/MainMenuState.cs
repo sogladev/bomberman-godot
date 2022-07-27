@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class MainMenuState : GameManagerState
 {
+    private bool isColorSelectorVisible = false;
     private MainMenu _menu;
     private Node2D _menuAnimation;
     private string _menuAnimationResource = "res://Nodes/Menus/MainMenuAnimation.tscn";
@@ -26,13 +27,6 @@ public class MainMenuState : GameManagerState
 
         foreach (Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
-            GD.Print("control ", c.Name);
-            c.Show();
-        }
-        // Toggle with show options?
-        foreach (Control c in GetNode("../../../../Game/CanvasLayerColorSelector").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
-        {
-            GD.Print("control ", c.Name);
             c.Show();
         }
 
@@ -67,14 +61,12 @@ public class MainMenuState : GameManagerState
 
         foreach (Control c in GetNode("../../../../Game/CanvasLayerMainMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
-            GD.Print("control ", c.Name);
             c.Hide();
         }
 
         // Toggle with show options?
         foreach (Control c in GetNode("../../../../Game/CanvasLayerColorSelector").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
-            GD.Print("control ", c.Name);
             c.Hide();
         }
 
@@ -142,6 +134,12 @@ public class MainMenuState : GameManagerState
             else if (action == "options")
             {
                 GD.Print("Options");
+                // Show ColorSelector
+                foreach (Control c in GetNode("../../../../Game/CanvasLayerColorSelector").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+                {
+                    if (isColorSelectorVisible) {c.Hide();} else {c.Show();};
+                }
+                isColorSelectorVisible = !isColorSelectorVisible;
             }
             else if (action == "dbg")
             {

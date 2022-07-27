@@ -29,7 +29,6 @@ public class GameOverState : GameManagerState
 
         foreach(Control c in GetNode("../../../../Game/CanvasLayerGameOverMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
-            GD.Print("control ", c.Name);
             c.Show();
         }
 
@@ -47,7 +46,6 @@ public class GameOverState : GameManagerState
 
         foreach(Control c in GetNode("../../../../Game/CanvasLayerGameOverMenu").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
         {
-            GD.Print("control ", c.Name);
             c.Hide();
         }
 

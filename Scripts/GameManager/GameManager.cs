@@ -27,6 +27,10 @@ public class GameManager : SimpleStateMachine
         {
             c.Hide();
         }
+        foreach (Control c in GetNode("../../Game/CanvasLayerColorSelector").GetChild(0).GetChildren().OfType<Control>().ToList<Control>())
+        {
+            c.Hide();
+        }
 
         // Set default values
         //TODO: Change to structure to keeps track of index, name, color, score

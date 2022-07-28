@@ -14,7 +14,7 @@
 
 <br>
 
-[![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)]()
+[![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)](https://soglahash.github.io/bomberman-godot/)
 ![build-badge](https://img.shields.io/github/workflow/status/soglahash/bomberman-godot/build-and-deploy-to-branch-deploy)
  [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 

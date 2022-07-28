@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://RawAssets/sprites/Bomb/Bomb_f01.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Bomb/Bomb_f01.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Bomb.cs" type="Script" id=2]
 [ext_resource path="res://Scripts/BombArea2D.cs" type="Script" id=3]
-[ext_resource path="res://RawAssets/sprites/Bomb/Bomb_f03.png" type="Texture" id=4]
-[ext_resource path="res://RawAssets/sprites/Bomb/Bomb_f02.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Bomb/Bomb_f03.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Bomb/Bomb_f02.png" type="Texture" id=5]
 [ext_resource path="res://Sounds/fuse_4s.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/bomb_explosion.ogg" type="AudioStream" id=7]
 

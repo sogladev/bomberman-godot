@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Nodes/Wall.tscn" type="PackedScene" id=1]
-[ext_resource path="res://RawAssets/RPGPack/Vector/RPGpack_vector.svg" type="Texture" id=2]
+[ext_resource path="res://Textures/RPGpack_vector.svg" type="Texture" id=2]
 
 [node name="Grass" instance=ExtResource( 1 )]
 

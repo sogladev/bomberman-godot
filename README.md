@@ -1,5 +1,6 @@
 <div id="top"></div>
 
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -8,7 +9,19 @@
   </a>
 
   <h3 align="center">Bomberman C# Godot</h3>
+    <a href="https://soglahash.github.io/bomberman-godot/">Demo on Github Pages</a>
+
+
+<br>
+
+[![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)]()
+![build-badge](https://img.shields.io/github/workflow/status/soglahash/bomberman-godot/build-and-deploy-to-branch-deploy)
+ [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+
 </div>
+
+
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -27,8 +40,11 @@
   </ol>
 </details>
 
+<div id="about-the-project"></div>
+
 # Bomberman C# Godot
 Bomberman implementation with C# Godot
+Hosted on github pages 
 
 Sample screenshots
 ![ screenshot menu ]( ./screenshot1.png )
@@ -53,6 +69,8 @@ https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 
 ## Roadmap
 v1.0.0
+- [ ] remove unused assets to improve load times
+- [ ] update sound levels
 - [ ] list other players on side 
 - [ ] turn on/off flicker timer (player)
 - [ ] place bombs using signals to game manager 

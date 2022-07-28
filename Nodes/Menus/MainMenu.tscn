@@ -42,8 +42,9 @@ margin_bottom = 149.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 199.0
+margin_top = 14.0
 margin_right = 430.0
-margin_bottom = 149.0
+margin_bottom = 134.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 231.0
@@ -61,12 +62,12 @@ text = "BOMBERMAN"
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 37.0
 margin_right = 231.0
-margin_bottom = 149.0
+margin_bottom = 120.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
 margin_left = 28.0
 margin_right = 203.0
-margin_bottom = 112.0
+margin_bottom = 83.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_right = 175.0
@@ -144,29 +145,3 @@ rect_min_size = Vector2( 160, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "DBG"
-
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 87.0
-margin_right = 175.0
-margin_bottom = 112.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
-margin_right = 175.0
-margin_bottom = 25.0
-
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
-margin_right = 11.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 11, 0 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "-"
-
-[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
-margin_left = 15.0
-margin_right = 175.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 160, 0 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "EXIT"

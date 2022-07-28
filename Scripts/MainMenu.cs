@@ -6,7 +6,6 @@ public class MainMenu : MarginContainer
     private Label selector1;
     private Label selector2;
     private Label selector3;
-    private Label selector4;
     private int _currentSelection = 0;
 
     public override void _Ready()
@@ -15,7 +14,6 @@ public class MainMenu : MarginContainer
         selector1 = GetNode<Label>("./CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector");
         selector2 = GetNode<Label>("./CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer/Selector");
         selector3 = GetNode<Label>("./CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector");
-        selector4 = GetNode<Label>("./CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Selector");
         SetCurrentSelection(_currentSelection);
     }
 
@@ -24,7 +22,6 @@ public class MainMenu : MarginContainer
         selector1.Text = "";
         selector2.Text = "";
         selector3.Text = "";
-        selector4.Text = "";
         if (_currentSelection == 0)
         {
             selector1.Text = "-";
@@ -33,19 +30,15 @@ public class MainMenu : MarginContainer
         {
             selector2.Text = "-";
         }
-        else if (_currentSelection == 2)
+        else 
         {
             selector3.Text = "-";
-        }
-        else
-        {
-            selector4.Text = "-";
         }
     }
 
     public void handleInput(string ui_action)
     {
-        const int nElements = 4;
+        const int nElements = 3;
         if (ui_action == ("ui_down"))
         {
             _currentSelection = (_currentSelection + 1) % nElements;
@@ -70,10 +63,6 @@ public class MainMenu : MarginContainer
         else if (_currentSelection == 2)
         {
             return "dbg";
-        }
-        else if (_currentSelection == 3)
-        {
-            return "quit";
         }
         else
         {

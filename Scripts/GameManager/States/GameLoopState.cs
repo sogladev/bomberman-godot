@@ -162,6 +162,7 @@ public class GameLoopState : GameManagerState
         base.OnExit(nextState);
         // Remove timer
         GetNode<Timer>("Respawn").Disconnect("timeout", this, "RespawnDeadPlayers");
+        waitBeforeEndGame.Disconnect("timeout", this, "EndTheGame");
         // Clean up. Game is node 0, clean up everything else
         var nodes = GetTree().Root.GetChildren();
         for (int i = 1; i < nodes.Count; i++)

@@ -23,11 +23,11 @@ script = ExtResource( 3 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 179.0
-margin_bottom = 91.0
+margin_bottom = 62.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_right = 179.0
-margin_bottom = 91.0
+margin_bottom = 62.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 179.0
@@ -46,11 +46,11 @@ text = "YOU LOSE"
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 37.0
 margin_right = 179.0
-margin_bottom = 91.0
+margin_bottom = 62.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
 margin_right = 179.0
-margin_bottom = 54.0
+margin_bottom = 25.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_right = 179.0
@@ -76,29 +76,3 @@ rect_min_size = Vector2( 164, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "PLAY AGAIN"
-
-[node name="CenterContainer1" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 29.0
-margin_right = 179.0
-margin_bottom = 54.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1"]
-margin_right = 179.0
-margin_bottom = 25.0
-
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer"]
-margin_right = 11.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 11, 0 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "-"
-
-[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer1/HBoxContainer"]
-margin_left = 15.0
-margin_right = 179.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 164, 0 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Exit"

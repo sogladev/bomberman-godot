@@ -159,7 +159,6 @@ public class Player : KinematicBody2D
         // Set timer to turn off fire collision
         _timer_collision_with_fire.Start(1.5f);
         _timer_invincibility.Start(duration);
-        if (isMainCharacter && !isJustLoaded) {GetNode<AudioStreamPlayer>("./Sounds/SoundApplyInvincibility").Play();};
     }
 
     private void RemoveInvincibility()
@@ -253,6 +252,7 @@ public class Player : KinematicBody2D
         else if (typeOfPowerUp == "Powerup_shield")
         {
             ApplyInvincibility(10.0f);
+            if (isMainCharacter) {GetNode<AudioStreamPlayer>("./Sounds/SoundPowerUpShield").Play();};
         }
     }
 

@@ -7,10 +7,10 @@ using System.Collections.Generic;
 public abstract class Character : KinematicBody2D
 {
     [Signal]
-    public delegate void collectedPrize(string playerName);
+    public delegate void collectedPrize(string characterName);
 
     [Signal]
-    public delegate void playerDied(string playerName);
+    public delegate void characterDied(string characterName);
 
     public bool isDead = false;
     public bool isReadyToRespawn;
@@ -168,7 +168,7 @@ public abstract class Character : KinematicBody2D
         isDead = true;
         _isInvincible = true;
         isReadyToRespawn = false;
-        EmitSignal(nameof(playerDied), name);
+        EmitSignal(nameof(characterDied), name);
         // PlayDeath animation
         PlaySound("Die");
         _timer_ready_to_respawn.Start(10.0f);

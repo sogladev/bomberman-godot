@@ -10,14 +10,12 @@ public class GameLoopState : GameManagerState
     private PackedScene _packedScenePlayerBot;
     private PackedScene _packedScenePrize;
 
-    private List<Character> playersInTheGame;
+    private List<Character> charactersInTheGame;
 
     private string _specialType;
 
-
     private List<string> _playerNames;
     private List<Color> _playerColors;
-
 
     private Player _player;
     private Node2D _newGame;
@@ -36,7 +34,7 @@ public class GameLoopState : GameManagerState
         _playerColors = (List<Color>)message["player_colors"];
         _specialType = (string)message["special_type"];
         // Create Map
-        playersInTheGame = new List<Character>();
+        charactersInTheGame = new List<Character>();
         _newGame = _packedSceneGame.Instance() as Node2D;
         GetTree().Root.AddChild(_newGame);
         // Spawn Player 
@@ -59,10 +57,10 @@ public class GameLoopState : GameManagerState
         _player.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
         GD.Print("Player position generated: ", _player.Position);
         GetTree().Root.AddChild(_player);
-        playersInTheGame.Add(_player);
+        charactersInTheGame.Add(_player);
         // Connect signals: died, prize
         _player.Connect("collectedPrize", this, "collectedPrize");
-        _player.Connect("playerDied", this, "playerDied");
+        _player.Connect("characterDied", this, "playerDied");
         // Spawn 7 PlayerBots
         Enemy bot;
         for (int i = 1; i < 8; i++)
@@ -71,9 +69,9 @@ public class GameLoopState : GameManagerState
             bot.Init(_playerNames[i]);
             bot.color = _playerColors[i];
             bot.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
-            bot.Connect("playerDied", this, "botDied");
+            bot.Connect("characterDied", this, "enemyDied");
             GetTree().Root.AddChild(bot);
-            playersInTheGame.Add(bot);
+            charactersInTheGame.Add(bot);
         }
         // Respawn timer
         Timer respawn = GetNode<Timer>("Respawn");
@@ -84,12 +82,12 @@ public class GameLoopState : GameManagerState
 
     private void RespawnDeadPlayers()
     {
-        foreach (Character player in playersInTheGame)
+        foreach (Character character in charactersInTheGame)
         {
-            if (player.isDead && player.isReadyToRespawn)
+            if (character.isDead && character.isReadyToRespawn)
             {
-                player.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
-                player.Respawn();
+                character.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
+                character.Respawn();
             }
         }
     }
@@ -106,7 +104,7 @@ public class GameLoopState : GameManagerState
     }
     private void collectedPrize(string playerName)
     {
-        playersInTheGame[0].GetNode<AudioStreamPlayer>("./Sounds/SoundCollectPrize").Play();
+        charactersInTheGame[0].GetNode<AudioStreamPlayer>("./Sounds/SoundCollectPrize").Play();
         GD.Print("Received Signal: prize");
         waitBeforeEndGame.Start(1.0f);
         isVictory = true;
@@ -117,19 +115,17 @@ public class GameLoopState : GameManagerState
         waitBeforeEndGame.Start(1.0f);
         isVictory = false;
     }
-    private void botDied(string botName)
+    private void enemyDied(string enemyName)
     {
         GD.Print("Received Signal: botdied");
-        foreach (Player player in playersInTheGame)
+        foreach (Character character in charactersInTheGame)
         {
-            if (botName == player.name)
+            if (enemyName == character.name)
             {
-                player.GetNode<AudioStreamPlayer2D>("./Sounds/SoundDieBot2D").Play();
-                player.Position = _newGame.GetNode<Spawns>("./SpawnsGraveyard").nextValidSpawnPoint();
+                character.Position = _newGame.GetNode<Spawns>("./SpawnsGraveyard").nextValidSpawnPoint();
             }
         }
     }
-
 
     public void ChangeToMainMenuState()
     {

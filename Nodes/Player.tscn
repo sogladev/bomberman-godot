@@ -446,6 +446,7 @@ stream = ExtResource( 45 )
 position = Vector2( -16, -16 )
 frames = SubResource( 42 )
 animation = "idle"
+frame = 2
 centered = false
 offset = Vector2( 22.509, 19.078 )
 

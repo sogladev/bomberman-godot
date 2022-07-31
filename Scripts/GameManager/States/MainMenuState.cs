@@ -50,9 +50,7 @@ public class MainMenuState : GameManagerState
             bot.Init($"{i}_{_playerNames[i]}");
             bot.color = _playerColors[i];
             bot.Position = _menuAnimation.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
-            //            bot.Connect("playerDied", this, "botDied");
             _menuAnimation.AddChild(bot);
-            //          playersInTheGame.Add(bot);
         }
     }
 

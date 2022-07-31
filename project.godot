@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "WAT",
+"language": "GDScript",
+"path": "res://addons/WAT/namespace.gd"
+}, {
+"base": "Node",
+"class": "WATTest",
+"language": "GDScript",
+"path": "res://addons/WAT/test/test.gd"
+} ]
+_global_script_class_icons={
+"WAT": "",
+"WATTest": ""
+}
+
+[WAT]
+
+Test_Directory="res://Tests"
+Results_Directory="res://Tests"
+Test_Metadata_Directory="res://Tests"
+Tags=PoolStringArray(  )
+Cache_Tests=false
+Window_Size=Vector2( 1280, 720 )
+Minimize_Window_When_Running_Tests=false
+Port=6008
+Display=8
+
 [application]
 
 config/name="bomberman"
@@ -20,6 +48,10 @@ window/size/width=1280
 window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/WAT/plugin.cfg" )
 
 [global]
 

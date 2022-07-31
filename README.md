@@ -9,7 +9,7 @@
   </a>
 
   <h3 align="center">Bomberman C# Godot</h3>
-    <a href="https://soglahash.github.io/bomberman-godot/">Demo on Github Pages</a>
+    <a href="https://soglahash.github.io/bomberman-godot/">Latest version on Github Pages</a>
 
 
 <br>

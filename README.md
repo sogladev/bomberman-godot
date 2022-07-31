@@ -69,6 +69,9 @@ https://github.com/ForkandBeard/Alferd-Spritesheet-Unpacker
 
 ## Roadmap
 v1.0.0
+- [ ] Refactor Player and PlayerBot; to PlayerBase, Player and Enemy
+- [ ] Basic AI without Nav2D
+- [ ] Convert map 2D Map to tileset
 - [ ] remove unused assets to improve load times
 - [ ] update sound levels
 - [ ] list other players on side 
@@ -82,7 +85,7 @@ v1.0.0
 - [ ] track score
 ------------------------------
 v2.0.0
--  [ ] Add bots
+- [ ] Add bots
 ------------------------------
 v3.0.0
 -  [ ] Add multiplayer

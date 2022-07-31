@@ -61,7 +61,7 @@ public class GameOverState : GameManagerState
             {"player_resource", "res://Nodes/Player.tscn"},
             {"player_colors", _playerColors},
             {"player_names", _playerNames},
-            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
+            {"enemy_resource", "res://Nodes/Enemy.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"special_type", "DBG"},
         });

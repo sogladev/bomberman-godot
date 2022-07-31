@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class Enemy : Character
 {
-    public bool StateIdle;
+    public bool StateIdle = false;
     public bool StatePlaceBomb;
     public string StatePlaceMoveDirection;
 

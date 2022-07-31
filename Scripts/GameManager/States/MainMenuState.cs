@@ -42,7 +42,7 @@ public class MainMenuState : GameManagerState
         _menuAnimation.GetNode<Character>("./Player").color = _playerColors[0];
         AddChild(_menuAnimation);
         // Spawn bots
-        _packedScenePlayerBot = ResourceLoader.Load<PackedScene>("res://Nodes/PlayerBot.tscn");
+        _packedScenePlayerBot = ResourceLoader.Load<PackedScene>("res://Nodes/Enemy.tscn");
         Enemy bot;
         for (int i = 1; i < 9; i++)
         {
@@ -84,7 +84,7 @@ public class MainMenuState : GameManagerState
             {"player_resource", "res://Nodes/Player.tscn"},
             {"player_colors", _playerColors},
             {"player_names", _playerNames},
-            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
+            {"enemy_resource", "res://Nodes/Enemy.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"special_type", "DBG"},
         });
@@ -97,7 +97,7 @@ public class MainMenuState : GameManagerState
             {"player_resource", "res://Nodes/Player.tscn"},
             {"player_colors", _playerColors},
             {"player_names", _playerNames},
-            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
+            {"enemy_resource", "res://Nodes/Enemy.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"special_type", "none"},
         });

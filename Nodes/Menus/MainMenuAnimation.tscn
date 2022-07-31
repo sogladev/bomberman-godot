@@ -3,7 +3,7 @@
 [ext_resource path="res://RawAssets/Base pack/Tiles/brickWall.png" type="Texture" id=1]
 [ext_resource path="res://RawAssets/RPGPack/Spritesheet/RPGpack_sheet.png" type="Texture" id=3]
 [ext_resource path="res://Nodes/Spawns.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Nodes/PlayerBot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Enemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 23.9486, 8.88823, 36.4069, 6.07509, 45.6018, 8.51849, 83.8284, 0.850693, 110.417, 9.6759, 146.923, 0.046936, 172.338, 10.2546, 185.069, 22.9861, 182.176, 51.3426, 191.435, 79.6991, 180.44, 115.579, 192, 141.62, 184.491, 167.662, 170.023, 181.551, 156.713, 184.444, 140.509, 182.708, 112.153, 191.389, 93.4734, 184.71, 69.9073, 183.866, 57.1758, 190.81, 36.3425, 188.495, 20.1388, 181.551, 9.88293, 173.859, 6.24994, 156.088, 9.14343, 145.671, 7.40735, 134.676, 1.04156, 120.208, 5.6712, 95.9028, 10.8796, 82.0139, 7.98602, 69.2824, 2.77771, 55.3935, 1.04156, 42.662, 9.14343, 24.7222, 16.313, 14.5145 )

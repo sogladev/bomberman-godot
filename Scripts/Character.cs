@@ -103,12 +103,12 @@ public abstract class Character : KinematicBody2D
         CollisionMask = 1 + 0 + 64 + 128; //  Walls, Flame, Box, Unbreakable wall
     }
 
+    private void _on_Bomb_Detonated(Vector2 position){
+        amountOfBombs++;
+    }
+
     private void Regenerate()
     {
-        if (amountOfBombs < (1 + (bombPowerUp * bombPowerUpValue)))
-        {
-            amountOfBombs++;
-        }
         if (_health < 100)
         {
             _health += 20;
@@ -260,6 +260,7 @@ public abstract class Character : KinematicBody2D
         }
         newBomb.Position = centeredPosition;
         GetTree().Root.AddChild(newBomb);
+        newBomb.Connect("Detonated", this, "_on_Bomb_Detonated");
         amountOfBombs--;
         return true;
     }

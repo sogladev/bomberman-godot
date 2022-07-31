@@ -3,7 +3,7 @@ using System;
 
 public class Bomb : StaticBody2D
 {
-//    [Signal] public delegate void Detonate(Vector2 position);
+    [Signal] public delegate void Detonated(Vector2 position);
 
     private int _power = 5; // Set initial for testing. Ignored for release
 
@@ -43,6 +43,7 @@ public class Bomb : StaticBody2D
         GetTree().Root.AddChild(newFlame);
         _soundDetonate2D.GlobalPosition = GlobalPosition;
         _soundDetonate2D.Play();
+        EmitSignal(nameof(Detonated), Position);
         // Remove children besides sound playing
         foreach (Node node in GetChildren()){
             if (node.Name != "SoundDetonate2D"){

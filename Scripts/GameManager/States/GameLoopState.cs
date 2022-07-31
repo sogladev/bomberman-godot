@@ -7,7 +7,7 @@ public class GameLoopState : GameManagerState
 {
     private PackedScene _packedSceneGame;
     private PackedScene _packedScenePlayer;
-    private PackedScene _packedScenePlayerBot;
+    private PackedScene _packedSceneEnemy;
     private PackedScene _packedScenePrize;
 
     private List<Character> charactersInTheGame;
@@ -28,7 +28,7 @@ public class GameLoopState : GameManagerState
         GM.audioManager.PlayMusic("battle1");
         _packedSceneGame = ResourceLoader.Load<PackedScene>((string)message["map_resource"]);
         _packedScenePlayer = ResourceLoader.Load<PackedScene>((string)message["player_resource"]);
-        _packedScenePlayerBot = ResourceLoader.Load<PackedScene>((string)message["bot_resource"]);
+        _packedSceneEnemy = ResourceLoader.Load<PackedScene>((string)message["enemy_resource"]);
         _packedScenePrize = ResourceLoader.Load<PackedScene>((string)message["prize_resource"]);
         _playerNames = (List<string>)message["player_names"];
         _playerColors = (List<Color>)message["player_colors"];
@@ -65,7 +65,7 @@ public class GameLoopState : GameManagerState
         Enemy bot;
         for (int i = 1; i < 8; i++)
         {
-            bot = _packedScenePlayerBot.Instance() as Enemy;
+            bot = _packedSceneEnemy.Instance() as Enemy;
             bot.Init(_playerNames[i]);
             bot.color = _playerColors[i];
             bot.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
@@ -135,7 +135,7 @@ public class GameLoopState : GameManagerState
             {"player_resource", "res://Nodes/Player.tscn"},
             {"player_colors", _playerColors},
             {"player_names", _playerNames},
-            {"bot_resource", "res://Nodes/PlayerBot.tscn"},
+            {"enemy_resource", "res://Nodes/Enemy.tscn"},
             {"prize_resource", "res://Nodes/Prize.tscn"},
             {"special_type", "DBG"},
         });

@@ -36,7 +36,7 @@ public class GameOverState : GameManagerState
         _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
         _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
         _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
-        _menuAnimation.GetNode<Player>("./Player").color = _playerColors[0];
+        _menuAnimation.GetNode<Character>("./Player").color = _playerColors[0];
         AddChild(_menuAnimation);
     }
 

@@ -10,7 +10,7 @@ public class GameLoopState : GameManagerState
     private PackedScene _packedScenePlayerBot;
     private PackedScene _packedScenePrize;
 
-    private List<Player> playersInTheGame;
+    private List<Character> playersInTheGame;
 
     private string _specialType;
 
@@ -36,13 +36,12 @@ public class GameLoopState : GameManagerState
         _playerColors = (List<Color>)message["player_colors"];
         _specialType = (string)message["special_type"];
         // Create Map
-        playersInTheGame = new List<Player>();
+        playersInTheGame = new List<Character>();
         _newGame = _packedSceneGame.Instance() as Node2D;
         GetTree().Root.AddChild(_newGame);
         // Spawn Player 
         _player = _packedScenePlayer.Instance() as Player;
         _player.Init(_playerNames[0]);
-        _player.isMainCharacter = true;
         // Set player if special state
         if (_specialType == "immortal")
         {
@@ -65,10 +64,10 @@ public class GameLoopState : GameManagerState
         _player.Connect("collectedPrize", this, "collectedPrize");
         _player.Connect("playerDied", this, "playerDied");
         // Spawn 7 PlayerBots
-        PlayerBot bot;
+        Enemy bot;
         for (int i = 1; i < 8; i++)
         {
-            bot = _packedScenePlayerBot.Instance() as PlayerBot;
+            bot = _packedScenePlayerBot.Instance() as Enemy;
             bot.Init(_playerNames[i]);
             bot.color = _playerColors[i];
             bot.Position = _newGame.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
@@ -85,7 +84,7 @@ public class GameLoopState : GameManagerState
 
     private void RespawnDeadPlayers()
     {
-        foreach (Player player in playersInTheGame)
+        foreach (Character player in playersInTheGame)
         {
             if (player.isDead && player.isReadyToRespawn)
             {
@@ -114,7 +113,6 @@ public class GameLoopState : GameManagerState
     }
     private void playerDied(string playerName)
     {
-        playersInTheGame[0].GetNode<AudioStreamPlayer>("./Sounds/SoundDiePlayer").Play();
         GD.Print("Received Signal: died");
         waitBeforeEndGame.Start(1.0f);
         isVictory = false;

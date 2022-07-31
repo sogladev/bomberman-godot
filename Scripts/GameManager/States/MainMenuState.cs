@@ -39,14 +39,14 @@ public class MainMenuState : GameManagerState
         _menu = GetNode<MainMenu>("../../../../Game/CanvasLayerMainMenu/MainMenu");
         _packedSceneMenuAnimation = ResourceLoader.Load<PackedScene>(_menuAnimationResource);
         _menuAnimation = _packedSceneMenuAnimation.Instance() as Node2D;
-        _menuAnimation.GetNode<Player>("./Player").color = _playerColors[0];
+        _menuAnimation.GetNode<Character>("./Player").color = _playerColors[0];
         AddChild(_menuAnimation);
         // Spawn bots
         _packedScenePlayerBot = ResourceLoader.Load<PackedScene>("res://Nodes/PlayerBot.tscn");
-        PlayerBot bot;
+        Enemy bot;
         for (int i = 1; i < 9; i++)
         {
-            bot = _packedScenePlayerBot.Instance() as PlayerBot;
+            bot = _packedScenePlayerBot.Instance() as Enemy;
             bot.Init($"{i}_{_playerNames[i]}");
             bot.color = _playerColors[i];
             bot.Position = _menuAnimation.GetNode<Spawns>("./Spawns").nextValidSpawnPoint();
@@ -108,7 +108,7 @@ public class MainMenuState : GameManagerState
 
     private void _on_ColorSelector_ColorSelected(){
         GD.Print("MainMenu received signal color");
-        _menuAnimation.GetNode<Player>("./Player")
+        _menuAnimation.GetNode<Character>("./Player")
             .SetColor(_colorSelector.color);
         _playerColors[0] = _colorSelector.color;
     }

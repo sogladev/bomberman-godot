@@ -4,17 +4,34 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerBot : Player
+public class Enemy : Character
 {
     public bool StateIdle;
     public bool StatePlaceBomb;
     public string StatePlaceMoveDirection;
-    // Setup player that can be directed with states
+
+    private AudioStreamPlayer2D _soundHurtBot2D;
+    private AudioStreamPlayer2D _soundDieBot2D;
+
     public override void _Ready()
     {
         base._Ready();
-        //Set custom color
-        //SetColor(new Color(0.24f,0.68f,0.91f));
+        _soundHurtBot2D = GetNode<AudioStreamPlayer2D>("./Sounds/SoundHurtBot2D");
+        _soundDieBot2D = GetNode<AudioStreamPlayer2D>("./Sounds/SoundDieBot2D");
+    }
+
+    public override void PlaySound(string sound){
+        switch (sound)
+        {
+            case "SoundHurt":
+                GetNode<AudioStreamPlayer2D>("./Sounds/SoundHurtBot2D").Play();
+                break;
+            case "Die":
+                GetNode<AudioStreamPlayer2D>("./Sounds/SoundDieBot2D").Play();
+                break;
+            default:
+                break;
+        }
     }
 
     public override void _PhysicsProcess(float delta)
@@ -26,10 +43,8 @@ public class PlayerBot : Player
             var possibleCollision = MoveAndCollide(_direction * moveSpeed * delta);
 
             // Update Sound2D position. WorldPos does not change
-            if (!isMainCharacter){
-                _soundHurtBot2D.GlobalPosition = GlobalPosition;
-                _soundDieBot2D.GlobalPosition = GlobalPosition;
-            }
+           _soundHurtBot2D.GlobalPosition = GlobalPosition;
+            _soundDieBot2D.GlobalPosition = GlobalPosition;
 
             // Update animation tree based on direction
             string animStateAnimation = _direction == Vector2.Zero ? "Idle" : "Walk";

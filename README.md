@@ -4,18 +4,18 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/SoglaHash/bomberman-godot">
+  <a href="https://github.com/Ella36/bomberman-godot">
     <img src="icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Bomberman C# Godot</h3>
-    <a href="https://soglahash.github.io/bomberman-godot/">Latest version on Github Pages</a>
+    <a href="https://ella36.github.io/bomberman-godot/">Latest version on Github Pages</a>
 
 
 <br>
 
-[![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)](https://soglahash.github.io/bomberman-godot/)
-![build-badge](https://img.shields.io/github/workflow/status/soglahash/bomberman-godot/build-and-deploy-to-branch-deploy)
+[![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)](https://ella36.github.io/bomberman-godot/)
+![build-badge](https://img.shields.io/github/workflow/status/ella36/bomberman-godot/build-and-deploy-to-branch-deploy)
  [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 
@@ -109,5 +109,5 @@ v3.0.0
 [Twitch-url]:    https://twitch.com
 [Youtube-url]:    https://youtube.com
 [Youtube.com]: https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white
-[gui-screenshot]: https://github.com/SoglaHash/gui-compilation-from-cluster/raw/main/screenshot.png
+[gui-screenshot]: https://github.com/Ella36/gui-compilation-from-cluster/raw/main/screenshot.png
 [csharp]: https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white

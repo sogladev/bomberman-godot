@@ -11,7 +11,7 @@
   <h3 align="center">Bomberman C# Godot</h3>
 <br>
 
-[![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)](https://jellemeeus.github.io/bomberman-godot/)
+[![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)](https://github.com/jellemeeus/bomberman-godot/)
 ![build-badge](https://img.shields.io/github/workflow/status/jellemeeus/bomberman-godot/build-and-deploy-to-branch-deploy)
  [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 

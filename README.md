@@ -9,9 +9,6 @@
   </a>
 
   <h3 align="center">Bomberman C# Godot</h3>
-    <a href="https://jellemeeus.github.io/bomberman-godot/">Latest version on Github Pages</a>
-
-
 <br>
 
 [![demo-badge](https://img.shields.io/badge/gh_pages-click_here-brightgreen)](https://jellemeeus.github.io/bomberman-godot/)
